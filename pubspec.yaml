@@ -22,9 +22,10 @@ dependencies:
   formz: ^0.6.0
   flutter_secure_storage: ^8.0.0
   flutter_screenutil: ^5.7.0
-  flutter_form_builder: ^8.0.0
-  form_builder_validators: ^8.6.1
+  flutter_form_builder: ^9.1.0
+  form_builder_validators: ^9.0.0
   easy_localization: ^3.0.2
+  intl: ^0.18.0
 
 dev_dependencies:
   flutter_test:

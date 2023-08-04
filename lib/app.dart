@@ -1,6 +1,9 @@
 
 
+import 'package:dormitory_app/infra/infra.dart';
 import 'package:flutter/material.dart';
+
+import 'ui/pages/pages.dart';
 
 class AppPage extends StatefulWidget {
   const AppPage({super.key});
@@ -10,43 +13,25 @@ class AppPage extends StatefulWidget {
 }
 
 class _AppPageState extends State<AppPage> {
-  int _counter = 0;
-
-  void _incrementCounter() {
-    setState(() {
-      _counter++;
-    });
-  }
-
+  
   @override
-  Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        // Here we take the value from the MyHomePage object that was created by
-        // the App.build method, and use it to set our appbar title.
-        title: const Text('App'),
-      ),
-      body: Center(
-        // Center is a layout widget. It takes a single child and positions it
-        // in the middle of the parent.
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: <Widget>[
-            const Text(
-              'You have pushed the button this many times:',
-            ),
-            Text(
-              '$_counter',
-              style: Theme.of(context).textTheme.headlineMedium,
-            ),
-          ],
-        ),
-      ),
-      floatingActionButton: FloatingActionButton(
-        onPressed: _incrementCounter,
-        tooltip: 'Increment',
-        child: const Icon(Icons.add),
-      ), // This trailing comma makes auto-formatting nicer for build methods.
+  Widget build(BuildContext _) {
+    return ScreenUtilInit(
+      designSize: const Size(428, 926),
+      minTextAdapt: true,
+      splitScreenMode: true,
+      builder: (context, child) {
+        return MaterialApp(
+          title: 'DormitoryApp',
+          debugShowCheckedModeBanner: false,
+          // supportedLocales: context.supportedLocales,
+          // locale: context.locale,
+          theme: AppTheme.light(context),
+          // onGenerateRoute: routes.controller,
+          home: child,
+        );
+      },
+      child: const LoginPage(),
     );
   }
 }

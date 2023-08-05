@@ -1,6 +1,8 @@
 import 'package:dormitory_app/infra/infra.dart';
+import 'package:dormitory_app/ui/pages/auth/sign_up/widgets/sign_up_form.dart';
 import 'package:dormitory_app/ui/widgets/widgets.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_svg/flutter_svg.dart';
 
 import 'widgets/widgets.dart';
 
@@ -12,8 +14,7 @@ class LoginPage extends StatefulWidget {
 }
 
 class _LoginPageState extends State<LoginPage> {
-  final TextEditingController _emailController = TextEditingController();
-  final TextEditingController _passwordController = TextEditingController();
+  int currentForm = 0;
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -22,6 +23,7 @@ class _LoginPageState extends State<LoginPage> {
         child: ListView(
           padding: EdgeInsets.all(16.r),
           children: [
+            const SizedBox().small(),
             Center(
               child: SizedBox(
                 height: 60.h,
@@ -30,54 +32,47 @@ class _LoginPageState extends State<LoginPage> {
               ),
             ),
             const SizedBox().medium(),
-            const LoginHeader(),
+            LoginHeader(
+              onToggle: (int selectedIndex) {
+                setState(() {
+                  currentForm = selectedIndex;
+                });
+              },
+            ),
             const SizedBox().large(),
-            CustomTextfield(
-              controller: _emailController,
-              label: 'Phone number or Email Address',
-            ),
-            const SizedBox().scaleHeight(10),
-            CustomPasswordfield(
-              controller: _passwordController,
-              label: 'Password',
-            ),
-            // const SizedBox().small(),
-            Row(
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              children: [
-                Flexible(
-                  child: CustomCheckbox(
-                      child: Text(
-                    'Remember this password',
-                    style: TextStyle(color: AppColors.text2, fontSize: 12.sp),
-                  )),
-                ),
-                InkWell(
-                  child: Text(
-                    'Forgot password?',
-                    style: TextStyle(color: AppColors.text1, fontSize: 14.sp),
-                  ),
-                  onTap: () {},
-                )
-              ],
-            ),
-            const SizedBox().scaleHeight(25),
-            CustomButton(onPressed: () {}, label: 'Login'),
+            currentForm == 0 ? const LoginForm() : const SignupForm(),
             const SizedBox().large(),
             const ORWidget(),
             const SizedBox().large(),
             LoginOptionButton(
-              icon: Icons.abc,
+              icon: SvgPicture.string(Assets.googleIcon),
               text: 'Continue with Google',
               onPressed: () {},
             ),
             const SizedBox().small(),
             LoginOptionButton(
-              icon: Icons.abc,
+              icon: SvgPicture.string(Assets.facebookIcon),
               text: 'Sign Up With Facebook',
               onPressed: () {},
             ),
-            const Spacer(),
+            const SizedBox().small(),
+            Center(
+              child: Text.rich(
+                TextSpan(text: 'Continue as a ', children: [
+                  TextSpan(
+                      text: 'Guest',
+                      style: TextStyle(
+                        color: AppColors.primary,
+                      ))
+                ]),
+                style: TextStyle(
+                  fontWeight: FontWeight.w600,
+                  color: AppColors.text1,
+                  fontSize: 12.sp,
+                ),
+              ),
+            ),
+            const SizedBox().medium(),
           ],
         ),
       ),

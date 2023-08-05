@@ -1,4 +1,5 @@
 import 'package:dormitory_app/infra/infra.dart';
+import 'package:dormitory_app/ui/widgets/extensions/extensions.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_form_builder/flutter_form_builder.dart';
 import 'package:form_builder_validators/form_builder_validators.dart';
@@ -27,14 +28,7 @@ class CustomTextfield extends StatelessWidget {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        Text(
-          label,
-          style: TextStyle(
-            color: AppColors.text2,
-            fontWeight: FontWeight.w400,
-            fontSize: 14.sp,
-          ),
-        ),
+        Text(label).label(),
         SizedBox(
           height: 8.h,
         ),
@@ -62,11 +56,16 @@ class CustomTextfield extends StatelessWidget {
             color: Theme.of(context).colorScheme.secondary,
           ),
           decoration: InputDecoration(
-            isDense: true,
+            // isDense: true,
+            // remove un neccessary padding using negative value
+            contentPadding: const EdgeInsets.symmetric(
+              vertical: -10,
+              horizontal: 10,
+            ),
             hintText: hint,
             hintStyle: TextStyle(
-              color: Theme.of(context).colorScheme.secondary,
-              fontSize: 16.sp,
+              color: AppColors.text3,
+              fontSize: 14.sp,
             ),
             fillColor: AppColors.backgroundLight,
             filled: true,

@@ -2,7 +2,7 @@ import 'package:dormitory_app/infra/infra.dart';
 import 'package:flutter/material.dart';
 
 class LoginOptionButton extends StatelessWidget {
-  final IconData icon;
+  final Widget icon;
   final String text;
   final VoidCallback onPressed;
   const LoginOptionButton(
@@ -26,7 +26,7 @@ class LoginOptionButton extends StatelessWidget {
           child: Row(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
-              Icon(icon),
+              icon,
               SizedBox(
                 width: 16.w,
               ),

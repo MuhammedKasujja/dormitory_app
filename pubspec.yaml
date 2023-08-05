@@ -25,6 +25,8 @@ dependencies:
   flutter_form_builder: ^8.0.0
   form_builder_validators: ^8.6.1
   easy_localization: ^3.0.2
+  flutter_svg: ^2.0.5
+  pinput: ^3.0.0
 
 dev_dependencies:
   flutter_test:

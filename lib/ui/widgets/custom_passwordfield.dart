@@ -1,4 +1,5 @@
 import 'package:dormitory_app/infra/infra.dart';
+import 'package:dormitory_app/ui/widgets/extensions/extensions.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_form_builder/flutter_form_builder.dart';
 import 'package:form_builder_validators/form_builder_validators.dart';
@@ -27,14 +28,7 @@ class _CustomPasswordfieldState extends State<CustomPasswordfield> {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        Text(
-          widget.label,
-          style: TextStyle(
-            color: AppColors.text2,
-            fontWeight: FontWeight.w400,
-            fontSize: 14.sp,
-          ),
-        ),
+        Text(widget.label).label(),
         SizedBox(
           height: 8.h,
         ),
@@ -68,8 +62,8 @@ class _CustomPasswordfieldState extends State<CustomPasswordfield> {
             // contentPadding: EdgeInsets.all(2),
             hintText: widget.hint,
             hintStyle: TextStyle(
-              fontSize: 16.sp,
-              color: Theme.of(context).colorScheme.secondary,
+              fontSize: 14.sp,
+              color: AppColors.text3,
             ),
             suffixIcon: InkWell(
               child: isNotVisible

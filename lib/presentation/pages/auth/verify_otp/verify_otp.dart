@@ -5,14 +5,14 @@ import 'package:flutter_svg/flutter_svg.dart';
 
 import 'widgets/opt_code_input.dart';
 
-class VerifyOtpCode extends StatefulWidget {
-  const VerifyOtpCode({super.key});
+class VerifyOtpPage extends StatefulWidget {
+  const VerifyOtpPage({super.key});
 
   @override
-  State<VerifyOtpCode> createState() => _VerifyOtpCodeState();
+  State<VerifyOtpPage> createState() => _VerifyOtpCodeState();
 }
 
-class _VerifyOtpCodeState extends State<VerifyOtpCode> {
+class _VerifyOtpCodeState extends State<VerifyOtpPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(

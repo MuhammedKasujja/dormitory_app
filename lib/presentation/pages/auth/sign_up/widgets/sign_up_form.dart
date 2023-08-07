@@ -1,5 +1,6 @@
 import 'package:dormitory_app/infra/infra.dart';
 import 'package:dormitory_app/presentation/pages/auth/verify_otp/verify_otp.dart';
+import 'package:dormitory_app/presentation/router/router.dart';
 import 'package:dormitory_app/presentation/widgets/widgets.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
@@ -82,16 +83,7 @@ class _SignupFormState extends State<SignupForm> {
                 icon: SvgPicture.string(Assets.otpCodeEmailSentIcon),
                 title: 'OTP code sent to your email',
                 body: 'We have just sent you an email with the OTP code.',
-                onAction: () {
-                  Navigator.push(
-                    context,
-                    MaterialPageRoute(
-                      builder: (context) {
-                        return const VerifyOtpCode();
-                      },
-                    ),
-                  );
-                },
+                onAction: () => Navigator.pushNamed(context, Routes.verifyOtp),
               ),
             );
           },

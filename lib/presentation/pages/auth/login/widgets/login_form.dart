@@ -1,4 +1,5 @@
 import 'package:dormitory_app/infra/infra.dart';
+import 'package:dormitory_app/presentation/router/router.dart';
 import 'package:dormitory_app/presentation/widgets/widgets.dart';
 import 'package:flutter/material.dart';
 
@@ -41,7 +42,7 @@ class _LoginFormState extends State<LoginForm> {
                 'Forgot password?',
                 style: TextStyle(color: AppColors.text1, fontSize: 14.sp),
               ),
-              onTap: () {},
+              onTap: () => Navigator.pushNamed(context, Routes.changePassword),
             )
           ],
         ),

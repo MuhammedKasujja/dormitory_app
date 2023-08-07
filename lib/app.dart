@@ -1,6 +1,7 @@
 
 
 import 'package:dormitory_app/infra/infra.dart';
+import 'package:dormitory_app/presentation/router/router.dart';
 import 'package:flutter/material.dart';
 
 import 'presentation/pages/pages.dart';
@@ -27,7 +28,7 @@ class _AppPageState extends State<AppPage> {
           // supportedLocales: context.supportedLocales,
           // locale: context.locale,
           theme: AppTheme.light(context),
-          // onGenerateRoute: routes.controller,
+          onGenerateRoute: onGenerateRoute,
           home: child,
         );
       },

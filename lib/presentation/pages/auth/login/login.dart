@@ -46,12 +46,14 @@ class _LoginPageState extends State<LoginPage> {
             const ORWidget(),
             const SizedBox().large(),
             LoginOptionButton(
+              loginType: 'google.com',
               icon: SvgPicture.string(Assets.googleIcon),
               text: 'Continue with Google',
               onPressed: () {},
             ),
             const SizedBox().small(),
             LoginOptionButton(
+              loginType: 'facebook',
               icon: SvgPicture.string(Assets.facebookIcon),
               text: 'Sign Up With Facebook',
               onPressed: () {},

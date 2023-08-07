@@ -40,6 +40,13 @@ class _OtpCodeInputState extends State<OtpCodeInput> {
       ),
     );
 
+    final activePinTheme = defaultPinTheme.copyWith(
+      decoration: defaultPinTheme.decoration!.copyWith(
+        color: Colors.white,
+        border: Border.all(color: AppColors.primary),
+      ),
+    );
+
     return SizedBox(
       height: 60.w,
       child: Pinput(
@@ -50,12 +57,8 @@ class _OtpCodeInputState extends State<OtpCodeInput> {
         onCompleted: (pin) {
           setState(() => showError = pin != '5555');
         },
-        focusedPinTheme: defaultPinTheme.copyWith(
-          decoration: defaultPinTheme.decoration!.copyWith(
-            color: Colors.white,
-            border: Border.all(color: AppColors.primary),
-          ),
-        ),
+        focusedPinTheme: activePinTheme,
+        submittedPinTheme: activePinTheme,
         errorPinTheme: defaultPinTheme.copyWith(
           decoration: BoxDecoration(
             color: errorColor,

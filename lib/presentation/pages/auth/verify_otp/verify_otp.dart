@@ -1,8 +1,9 @@
 import 'package:dormitory_app/infra/infra.dart';
-import 'package:dormitory_app/ui/pages/auth/verify_otp/widgets/opt_code_input.dart';
-import 'package:dormitory_app/ui/widgets/widgets.dart';
+import 'package:dormitory_app/presentation/widgets/widgets.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+
+import 'widgets/opt_code_input.dart';
 
 class VerifyOtpCode extends StatefulWidget {
   const VerifyOtpCode({super.key});
@@ -60,6 +61,7 @@ class _VerifyOtpCodeState extends State<VerifyOtpCode> {
                       color: AppColors.text1,
                       fontWeight: FontWeight.w400,
                       fontSize: 12.sp,
+                      decoration: TextDecoration.underline,
                     ),
                   )
                 ],

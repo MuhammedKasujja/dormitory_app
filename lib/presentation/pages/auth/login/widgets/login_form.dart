@@ -1,5 +1,5 @@
 import 'package:dormitory_app/infra/infra.dart';
-import 'package:dormitory_app/ui/widgets/widgets.dart';
+import 'package:dormitory_app/presentation/widgets/widgets.dart';
 import 'package:flutter/material.dart';
 
 class LoginForm extends StatefulWidget {

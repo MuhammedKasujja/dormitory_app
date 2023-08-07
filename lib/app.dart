@@ -3,7 +3,7 @@
 import 'package:dormitory_app/infra/infra.dart';
 import 'package:flutter/material.dart';
 
-import 'ui/pages/pages.dart';
+import 'presentation/pages/pages.dart';
 
 class AppPage extends StatefulWidget {
   const AppPage({super.key});

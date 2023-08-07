@@ -7,5 +7,6 @@ export 'retry.dart';
 export 'alert.dart';
 export './custom_checkbox.dart';
 export 'alert_dialog.dart';
+export './tabs.dart';
 
 export './extensions/extensions.dart';

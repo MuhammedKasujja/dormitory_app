@@ -1,6 +1,6 @@
 import 'package:dormitory_app/infra/infra.dart';
-import 'package:dormitory_app/ui/pages/auth/sign_up/widgets/sign_up_form.dart';
-import 'package:dormitory_app/ui/widgets/widgets.dart';
+import 'package:dormitory_app/presentation/pages/auth/sign_up/widgets/sign_up_form.dart';
+import 'package:dormitory_app/presentation/widgets/widgets.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 
@@ -32,8 +32,9 @@ class _LoginPageState extends State<LoginPage> {
               ),
             ),
             const SizedBox().medium(),
-            LoginHeader(
-              onToggle: (int selectedIndex) {
+            AppTabs(
+              tabs: const ['Login', 'Sign Up'],
+              onTabSelectd: (int selectedIndex) {
                 setState(() {
                   currentForm = selectedIndex;
                 });

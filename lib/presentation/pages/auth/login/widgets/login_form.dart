@@ -47,7 +47,12 @@ class _LoginFormState extends State<LoginForm> {
           ],
         ),
         const SizedBox().scaleHeight(25),
-        CustomButton(onPressed: () {}, label: 'Login'),
+        CustomButton(
+          label: 'Login',
+          onPressed: () {
+            Navigator.pushNamed(context, Routes.home);
+          },
+        ),
       ],
     );
   }

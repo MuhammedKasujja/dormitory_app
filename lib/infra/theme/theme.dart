@@ -87,7 +87,7 @@ class AppTheme {
         ),
         dividerTheme: DividerThemeData(
           thickness: 1,
-          color: Theme.of(context).hintColor,
+          color: AppColors.divider,
         ),
       );
 

@@ -1,6 +1,8 @@
 import 'package:dormitory_app/infra/infra.dart';
 import 'package:dormitory_app/presentation/pages/auth/sign_up/widgets/sign_up_form.dart';
+import 'package:dormitory_app/presentation/router/router.dart';
 import 'package:dormitory_app/presentation/widgets/widgets.dart';
+import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 
@@ -61,13 +63,18 @@ class _LoginPageState extends State<LoginPage> {
             const SizedBox().small(),
             Center(
               child: Text.rich(
-                TextSpan(text: 'Continue as a ', children: [
-                  TextSpan(
-                      text: 'Guest',
-                      style: TextStyle(
-                        color: AppColors.primary,
-                      ))
-                ]),
+                TextSpan(
+                  text: 'Continue as a ',
+                  children: [
+                    TextSpan(
+                        text: 'Guest',
+                        style: TextStyle(
+                          color: AppColors.primary,
+                        ))
+                  ],
+                  recognizer: TapGestureRecognizer()
+                    ..onTap = () => Navigator.pushNamed(context, Routes.home),
+                ),
                 style: TextStyle(
                   fontWeight: FontWeight.w600,
                   color: AppColors.text1,

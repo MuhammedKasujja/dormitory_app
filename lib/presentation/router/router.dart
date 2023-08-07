@@ -16,6 +16,8 @@ Route onGenerateRoute(RouteSettings settings) => _fadeThrough(
       (context) {
         switch (settings.name) {
           case Routes.home:
+            return const HomePage();
+          case Routes.login:
             return const LoginPage();
           case Routes.verifyOtp:
             return const VerifyOtpPage();
@@ -38,4 +40,3 @@ Route<T> _fadeThrough<T>(RouteSettings settings, WidgetBuilder page,
     },
   );
 }
-

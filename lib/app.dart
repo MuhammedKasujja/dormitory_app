@@ -16,8 +16,9 @@ class AppPage extends StatelessWidget {
         return MaterialApp(
           title: 'DormitoryApp',
           debugShowCheckedModeBanner: false,
-          // supportedLocales: context.supportedLocales,
-          // locale: context.locale,
+          localizationsDelegates: context.localizationDelegates,
+          supportedLocales: context.supportedLocales,
+          locale: context.locale,
           theme: AppTheme.light(context),
           onGenerateRoute: onGenerateRoute,
           home: child,

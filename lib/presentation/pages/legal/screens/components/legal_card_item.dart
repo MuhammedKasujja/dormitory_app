@@ -1,6 +1,7 @@
 import 'package:dormitory_app/infra/infra.dart';
 import 'package:dormitory_app/presentation/widgets/widgets.dart';
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
 
 class LegalCardItem extends StatelessWidget {
   final LegalItemModel model;
@@ -33,25 +34,27 @@ class LegalCardItem extends StatelessWidget {
                 children: [
                   e.value.subtitle != null
                       ? Padding(
-                        padding: EdgeInsets.only(top: 16.r),
-                        child: Text(
-                            '${e.key+1}. ${e.value.subtitle!}',
+                          padding: EdgeInsets.only(top: 16.r),
+                          child: Text(
+                            '${e.key + 1}. ${e.value.subtitle!}',
                             style: TextStyle(
                               color: AppColors.text2,
                               fontSize: 14.sp,
                               fontWeight: FontWeight.w600,
                             ),
                           ),
-                      )
+                        )
                       : const SizedBox.shrink(),
                   const SizedBox().scaleHeight(8),
                   Text(
                     e.value.body,
-                    style: TextStyle(
-                      color: AppColors.text2,
-                      fontSize: 12.sp,
-                      fontWeight: FontWeight.w400,
-                      // letterSpacing: 1.5,
+                    style: GoogleFonts.inter(
+                      textStyle: TextStyle(
+                        color: AppColors.text2,
+                        fontSize: 12.sp,
+                        fontWeight: FontWeight.w400,
+                        letterSpacing: 1.5,
+                      ),
                     ),
                   ),
                 ],

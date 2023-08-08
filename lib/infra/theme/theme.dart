@@ -1,13 +1,14 @@
 import 'package:dormitory_app/infra/infra.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:google_fonts/google_fonts.dart';
 
 class AppTheme {
   AppTheme._();
 
   static light(BuildContext context) => ThemeData(
         primarySwatch: _createMaterialColor(const Color(0xFFF1C111)),
-        colorScheme:  ColorScheme(
+        colorScheme: ColorScheme(
           primary: const Color(0xFFF1C111),
           onPrimary: AppColors.text1,
           secondary: const Color(0xFF0A2139),
@@ -28,58 +29,48 @@ class AppTheme {
         ),
         fontFamily: 'Inter',
         textTheme: TextTheme(
-          titleSmall: TextStyle(
-            fontFamily: 'Inter',
+          titleSmall: GoogleFonts.inter(
             color: const Color(0xFF0A2139),
             fontSize: ScreenUtil().setSp(20),
           ),
-          titleMedium: TextStyle(
-            fontFamily: 'Inter',
+          titleMedium: GoogleFonts.inter(
             color: const Color(0xFF0A2139),
             fontSize: ScreenUtil().setSp(24),
           ),
-          displaySmall: TextStyle(
-              fontFamily: 'Inter',
+          displaySmall: GoogleFonts.inter(
               color: Colors.white,
               fontSize: ScreenUtil().setSp(18),
               fontWeight: FontWeight.w700),
-          displayLarge: TextStyle(
-            fontFamily: 'Inter',
+          displayLarge: GoogleFonts.inter(
             color: Colors.white,
             fontSize: ScreenUtil().setSp(36),
             fontWeight: FontWeight.w200,
           ),
-          labelMedium: TextStyle(
-            fontFamily: 'Inter',
+          labelMedium: GoogleFonts.inter(
             color: const Color(0xFF0A2139),
             fontSize: 16.sp,
             fontWeight: FontWeight.bold,
           ),
-          labelSmall: TextStyle(
-            fontFamily: 'Inter',
+          labelSmall: GoogleFonts.inter(
             color: const Color(0xFF0A2139),
             fontSize: 12.sp,
             fontWeight: FontWeight.bold,
           ),
-          labelLarge: TextStyle(
-              fontFamily: 'Inter',
+          labelLarge: GoogleFonts.inter(
               fontSize: 18.sp,
               fontWeight: FontWeight.normal,
               color: const Color(0xFFF1C111)),
-          headlineSmall: TextStyle(
-            fontFamily: 'Inter',
+          headlineSmall: GoogleFonts.inter(
             color: const Color(0xFF0A2139),
             fontSize: 16.sp,
             fontWeight: FontWeight.bold,
           ),
-          headlineLarge: TextStyle(
-            fontFamily: 'Inter',
+          headlineLarge: GoogleFonts.inter(
             color: const Color(0xFF0A2139),
             fontSize: 36.sp,
             fontWeight: FontWeight.normal,
           ),
-          bodyMedium: TextStyle(
-            fontFamily: 'Inter',
+          bodyMedium: GoogleFonts.inter(
             color: Theme.of(context).hintColor,
             fontSize: 14.sp,
             fontWeight: FontWeight.normal,

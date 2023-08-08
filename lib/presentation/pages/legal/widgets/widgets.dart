@@ -1,0 +1,1 @@
+export './legal_list_item.dart';

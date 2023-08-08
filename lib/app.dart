@@ -12,7 +12,6 @@ class AppPage extends StatelessWidget {
     return ScreenUtilInit(
       designSize: const Size(428, 926),
       minTextAdapt: true,
-      splitScreenMode: true,
       builder: (context, child) {
         return MaterialApp(
           title: 'DormitoryApp',

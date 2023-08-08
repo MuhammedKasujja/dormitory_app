@@ -9,6 +9,15 @@ class Routes {
   static const String signup = "signup";
   static const String verifyOtp = "verifyOtp";
   static const String changePassword = "changePassword";
+  // legal routes begin
+  static const String legal = "legal";
+  static const String copyright = "/legal/copyright";
+  static const String termsAndConditions = "/legal/termsAndConditions";
+  static const String privacyPolicy = "/legal/privacyPolicy";
+  static const String locallInfo = "/legal/localInfo";
+  static const String dataProviders = "/legal/dataProviders";
+  static const String softwareLicence = "/legal/softwareLicence";
+  // legal routes end
 }
 
 Route onGenerateRoute(RouteSettings settings) => _fadeThrough(
@@ -23,6 +32,22 @@ Route onGenerateRoute(RouteSettings settings) => _fadeThrough(
             return const VerifyOtpPage();
           case Routes.changePassword:
             return const ChangePasswordPage();
+          // legal routes begin
+          case Routes.legal:
+            return const LegalPage();
+          case Routes.copyright:
+            return const CopyrightsScreen();
+          case Routes.termsAndConditions:
+            return const TermsAndConditionsScreen();
+          case Routes.privacyPolicy:
+            return const PrivacyPolicyScreen();
+          case Routes.locallInfo:
+            return const LocalInformationScreen();
+          case Routes.softwareLicence:
+            return const SoftwareLicenseScreen();
+          case Routes.dataProviders:
+            return const DataProvidersScreen();
+          // legal routes end
           default:
             return const SizedBox.shrink();
         }

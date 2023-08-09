@@ -13,4 +13,6 @@ class AppColors {
   static Color divider = const Color(0xFFD3D6DE);
   static Color background = const Color(0xFFE4E5EB);
   static Color backgroundLight = const Color(0xFFFAFAFB);
+  static Color iconLight = const Color(0xFFC3C6D2);
+  static Color success = const Color(0xFF2ABB7A);
 }

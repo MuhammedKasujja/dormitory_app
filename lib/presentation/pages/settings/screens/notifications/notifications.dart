@@ -1,6 +1,9 @@
 import 'package:dormitory_app/infra/infra.dart';
+import 'package:dormitory_app/logic/logic.dart';
+import 'package:dormitory_app/models/models.dart';
 import 'package:dormitory_app/presentation/pages/base_page.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 
 import 'components/notification_setting_item.dart';
 
@@ -9,14 +12,34 @@ class NotificationSettingsScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return BasePage(
-      title: LocaleKeys.notifications.tr(),
-      children: [
-        NotificationSettingItem(title: LocaleKeys.email.tr().capitalize(),),
-        NotificationSettingItem(title: 'SMS'),
-        NotificationSettingItem(title: 'Push Notifications'),
-        NotificationSettingItem(title: 'Promotions'),
-      ],
+    return BlocBuilder<SettingsCubit, SettingsState>(
+      builder: (context, state) {
+        return BasePage(
+          title: LocaleKeys.notifications.tr(),
+          children: [
+            NotificationSettingItem(
+              title: LocaleKeys.email.tr().capitalize(),
+              isActive: state.enabledEmailNotifications,
+              type: NotificationType.email,
+            ),
+            NotificationSettingItem(
+              title: 'SMS',
+              isActive: state.enabledSmsNotifications,
+              type: NotificationType.sms,
+            ),
+            NotificationSettingItem(
+              isActive: state.enabledPushNotifications,
+              title: 'Push Notifications',
+              type: NotificationType.pushNotifications,
+            ),
+            NotificationSettingItem(
+              title: 'Promotions',
+              isActive: state.enabledPromotionNotifications,
+              type: NotificationType.promotions,
+            ),
+          ],
+        );
+      },
     );
   }
 }

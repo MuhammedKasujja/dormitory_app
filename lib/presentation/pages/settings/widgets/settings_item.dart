@@ -4,16 +4,28 @@ import 'package:flutter/material.dart';
 class SettingsItem extends StatelessWidget {
   final String title;
   final String description;
-  const SettingsItem(
-      {super.key, required this.title, required this.description});
+  final Widget? child;
+  final String? route;
+  const SettingsItem({
+    super.key,
+    required this.title,
+    required this.description,
+    this.child,
+    this.route,
+  });
 
   @override
   Widget build(BuildContext context) {
     return InkWell(
-      onTap: (){},
+      onTap: () {
+        if (route != null) {
+          Navigator.pushNamed(context, route!);
+        }
+      },
       child: Container(
         padding: EdgeInsets.all(16.r),
         child: Row(
+          mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
             Flexible(
               child: Column(
@@ -43,6 +55,9 @@ class SettingsItem extends StatelessWidget {
               ),
             ),
             SizedBox(width: 24.w),
+            child ??
+                Icon(Icons.arrow_forward_ios,
+                    size: 16.w, color: AppColors.iconLight),
           ],
         ),
       ),

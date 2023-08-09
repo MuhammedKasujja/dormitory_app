@@ -1,3 +1,4 @@
+import 'package:dormitory_app/infra/infra.dart';
 import 'package:flutter/material.dart';
 
 import 'base_screen.dart';
@@ -9,11 +10,11 @@ class CopyrightsScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return BaseLegalScreen(
-      title: 'Copyrights',
+      title: LocaleKeys.copyrights.tr(),
       children: [
         LegalCardItem(
           model: LegalItemModel(
-            title: 'Disclaimer',
+            title: LocaleKeys.disclaimer.tr(),
             items: [
               LegalBodyItem(
                 body:
@@ -27,7 +28,7 @@ class CopyrightsScreen extends StatelessWidget {
         ),
         LegalCardItem(
           model: LegalItemModel(
-            title: 'Copyright Notice',
+            title: LocaleKeys.copyrightNotice.tr(),
             items: [
               LegalBodyItem(
                 body:

@@ -16,5 +16,21 @@ abstract class  LocaleKeys {
   static const conditions = 'conditions';
   static const otherProvisions = 'otherProvisions';
   static const termsAndConditionInfo = 'termsAndConditionInfo';
+  static const softwareLicense = 'softwareLicense';
+  static const changeYourpassword = 'changeYourpassword';
+  static const currentPassword = 'currentPassword';
+  static const newPassword = 'newPassword';
+  static const enterNewPassword = 'enterNewPassword';
+  static const confirmPassword = 'confirmPassword';
+  static const update = 'update';
+  static const reEnterPassword = 'reEnterPassword';
+  static const login = 'login';
+  static const signUp = 'signUp';
+  static const firstname = 'firstname';
+  static const lastname = 'lastname';
+  static const email = 'email';
+  static const continueTxt = 'continueTxt';
+  static const noDataFound = 'noDataFound';
+  static const tryAgain = 'tryAgain';
 
 }

@@ -1,9 +1,9 @@
+import 'package:dormitory_app/infra/infra.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class NoDataWidget extends StatelessWidget {
-  final String message;
-  const NoDataWidget({Key? key, this.message = ''}) : super(key: key);
+  final String? message;
+  const NoDataWidget({Key? key, this.message}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -12,7 +12,7 @@ class NoDataWidget extends StatelessWidget {
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
           Text(
-            message ,//?? //LocaleKeys.noDataFound.tr(),
+            message ?? LocaleKeys.noDataFound.tr(),
             style: TextStyle(
               color: Colors.grey,
               fontSize: 16.0.sp,

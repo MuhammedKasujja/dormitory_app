@@ -13,5 +13,21 @@
   "terms": "terms",
   "conditions": "conditions",
   "otherProvisions": "Other Provisions",
-  "termsAndConditionInfo": "Paramount Students Terms and Condition Information"
+  "termsAndConditionInfo": "Paramount Students Terms and Condition Information",
+  "softwareLicense": "Software License",
+  "changeYourpassword": "Change your password",
+  "currentPassword": "Current Password",
+  "newPassword": "New Password",
+  "enterNewPassword": "Enter new password",
+  "confirmPassword": "Confirm Password",
+  "update": "Update",
+  "reEnterPassword": "Re-enter password",
+  "login": "Login",
+  "signUp": "Sign up",
+  "firstname": "First name",
+  "lastname": "Last name",
+  "email": "email",
+  "continueTxt": "Continue",
+  "noDataFound": "No data found",
+  "tryAgain":"Try again"
 }

@@ -24,7 +24,7 @@ class RetryWidget extends StatelessWidget {
               ),
             ),
             child: Text(
-              "RETRY",
+              LocaleKeys.tryAgain.tr(),
               style: TextStyle(
                 color: Colors.white,
                 fontSize: 16.0.sp,

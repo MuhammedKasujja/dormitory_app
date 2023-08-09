@@ -9,7 +9,7 @@ class DateLastModified extends StatelessWidget {
     return Row(
       children: [
         Text(
-          'Date modified:',
+          LocaleKeys.dateLastModified.tr(),
           style: TextStyle(
             fontSize: 16.sp,
             fontWeight: FontWeight.w600,

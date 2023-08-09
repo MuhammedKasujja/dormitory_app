@@ -29,5 +29,7 @@
   "email": "email",
   "continueTxt": "Continue",
   "noDataFound": "No data found",
-  "tryAgain":"Try again"
+  "tryAgain":"Try again",
+  "settings":"Settings",
+  "notifications":"Notifications"
 }

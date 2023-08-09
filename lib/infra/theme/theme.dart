@@ -77,7 +77,7 @@ class AppTheme {
           ),
         ),
         dividerTheme: DividerThemeData(
-          thickness: 1,
+          thickness: .5,
           color: AppColors.divider,
         ),
       );

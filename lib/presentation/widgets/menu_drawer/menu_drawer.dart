@@ -34,7 +34,11 @@ class _MenuDrawerState extends State<MenuDrawer> {
                 const Divider(),
                 const SizedBox().medium(),
                 const DrawerItem(title: 'Help and Support', icon: Icons.help),
-                const DrawerItem(title: 'Settings', icon: Icons.settings),
+                const DrawerItem(
+                  title: 'Settings',
+                  icon: Icons.settings,
+                  route: Routes.settings,
+                ),
                 const DrawerItem(
                   title: 'Legal',
                   icon: Icons.person,

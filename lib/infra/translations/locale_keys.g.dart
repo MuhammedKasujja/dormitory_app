@@ -32,5 +32,7 @@ abstract class  LocaleKeys {
   static const continueTxt = 'continueTxt';
   static const noDataFound = 'noDataFound';
   static const tryAgain = 'tryAgain';
+  static const settings = 'settings';
+  static const notifications = 'notifications';
 
 }

@@ -18,6 +18,11 @@ class Routes {
   static const String dataProviders = "/legal/dataProviders";
   static const String softwareLicence = "/legal/softwareLicence";
   // legal routes end
+
+  // settings routes begin
+  static const String settings = "settings";
+  static const String notificationSettings = "/settings/notifications";
+  // settings routes end
 }
 
 Route onGenerateRoute(RouteSettings settings) => _fadeThrough(
@@ -48,6 +53,13 @@ Route onGenerateRoute(RouteSettings settings) => _fadeThrough(
           case Routes.dataProviders:
             return const DataProvidersScreen();
           // legal routes end
+
+          // settings routes begin
+          case Routes.settings:
+            return const SettingsPage();
+          case Routes.notificationSettings:
+            return const NotificationSettingsScreen();
+          // settings routes begin
           default:
             return const SizedBox.shrink();
         }

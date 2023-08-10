@@ -52,7 +52,7 @@ class CustomTextfield extends StatelessWidget {
                       ),
                     ]),
           style: TextStyle(
-            fontSize: 16.0,
+            fontSize: 14.0,
             color: Theme.of(context).colorScheme.secondary,
           ),
           decoration: InputDecoration(

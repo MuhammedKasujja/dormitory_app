@@ -8,12 +8,12 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 class NotificationSettingItem extends StatelessWidget {
   final String title;
   final bool isActive;
-  final NotificationType type;
+  final NotificationType notificationType;
   const NotificationSettingItem({
     super.key,
     required this.title,
     required this.isActive,
-    required this.type,
+    required this.notificationType,
   });
 
   @override
@@ -41,7 +41,7 @@ class NotificationSettingItem extends StatelessWidget {
                   isActive: isActive,
                   onToggle: (value) => context
                       .read<SettingsCubit>()
-                      .enableNotifications(value, type: type),
+                      .enableNotifications(value, type: notificationType),
                 );
               },
             )

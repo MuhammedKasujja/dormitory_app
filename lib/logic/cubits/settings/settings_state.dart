@@ -1,6 +1,3 @@
-
-import 'package:equatable/equatable.dart';
-
 part of 'settings_cubit.dart';
 
 class SettingsState extends Equatable {

@@ -9,6 +9,7 @@ class Routes {
   static const String signup = "signup";
   static const String verifyOtp = "verifyOtp";
   static const String changePassword = "changePassword";
+   static const String chatting = "chatting";
   // legal routes begin
   static const String legal = "legal";
   static const String copyright = "/legal/copyright";
@@ -60,6 +61,9 @@ Route onGenerateRoute(RouteSettings settings) => _fadeThrough(
           case Routes.notificationSettings:
             return const NotificationSettingsScreen();
           // settings routes begin
+
+          case Routes.chatting:
+            return const ChatPage();
           default:
             return const SizedBox.shrink();
         }

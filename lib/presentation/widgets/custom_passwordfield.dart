@@ -54,7 +54,7 @@ class _CustomPasswordfieldState extends State<CustomPasswordfield> {
                 ])
               : FormBuilderValidators.required(),
           style: TextStyle(
-            fontSize: 16.sp,
+            fontSize: 14.sp,
             color: Theme.of(context).colorScheme.secondary,
           ),
           decoration: InputDecoration(

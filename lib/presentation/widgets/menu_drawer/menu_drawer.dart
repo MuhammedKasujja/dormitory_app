@@ -23,7 +23,11 @@ class _MenuDrawerState extends State<MenuDrawer> {
               children: [
                 const ProfileHeader(),
                 const SizedBox().medium(),
-                const DrawerItem(title: 'Profile', icon: Icons.account_circle),
+                const DrawerItem(
+                  title: 'Profile',
+                  icon: Icons.account_circle,
+                  route: Routes.chatting,
+                ),
                 const DrawerItem(title: 'Booking Activity', icon: Icons.timer),
                 const SizedBox().medium(),
                 const Divider(),

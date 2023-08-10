@@ -20,22 +20,22 @@ class NotificationSettingsScreen extends StatelessWidget {
             NotificationSettingItem(
               title: LocaleKeys.email.tr().capitalize(),
               isActive: state.enabledEmailNotifications,
-              type: NotificationType.email,
+              notificationType: NotificationType.email,
             ),
             NotificationSettingItem(
               title: 'SMS',
               isActive: state.enabledSmsNotifications,
-              type: NotificationType.sms,
+              notificationType: NotificationType.sms,
             ),
             NotificationSettingItem(
               isActive: state.enabledPushNotifications,
               title: 'Push Notifications',
-              type: NotificationType.pushNotifications,
+              notificationType: NotificationType.pushNotifications,
             ),
             NotificationSettingItem(
               title: 'Promotions',
               isActive: state.enabledPromotionNotifications,
-              type: NotificationType.promotions,
+              notificationType: NotificationType.promotions,
             ),
           ],
         );

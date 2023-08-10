@@ -7,11 +7,11 @@ class HomePage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return  Scaffold(
-      drawer: MenuDrawer(),
+      drawer: const MenuDrawer(),
       appBar: AppBar(
         
       ),
-      body: SafeArea(
+      body: const SafeArea(
         child: SingleChildScrollView(),
       ),
     );

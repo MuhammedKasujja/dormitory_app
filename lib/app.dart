@@ -17,6 +17,7 @@ class AppPage extends StatelessWidget {
         BlocProvider(create: (context) => SettingsCubit())
       ],
       child: ScreenUtilInit(
+        useInheritedMediaQuery: true,
         designSize: const Size(428, 926),
         minTextAdapt: true,
         builder: (context, child) {

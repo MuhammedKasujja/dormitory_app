@@ -56,8 +56,11 @@ class SettingsItem extends StatelessWidget {
             ),
             SizedBox(width: 24.w),
             child ??
-                Icon(Icons.arrow_forward_ios,
-                    size: 16.w, color: AppColors.iconLight),
+                Icon(
+                  Icons.arrow_forward_ios,
+                  size: 16.w,
+                  color: AppColors.iconLight,
+                ),
           ],
         ),
       ),

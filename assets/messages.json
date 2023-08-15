@@ -89,6 +89,18 @@
     "createdAt": 1655624463000,
     "id": "113bb2e8-f74e-42cd-aa30-4085a0f52c58",
     "status": "seen",
+    "text": "Hello! I came across your dormitory listing, and I'm interested in learning more about it.",
+    "type": "text"
+  },
+  {
+    "author": {
+      "firstName": "Matthew",
+      "id": "82091008-a484-4a89-ae75-a22bf8d6f3ac",
+      "lastName": "White"
+    },
+    "createdAt": 1655624463000,
+    "id": "113bb2e8-f74e-42cd-aa30-4085a0f52c58",
+    "status": "seen",
     "text": "Awesome! 😍",
     "type": "text"
   },
@@ -102,7 +114,7 @@
     "createdAt": 1655624462000,
     "id": "22212d42-1252-4641-9786-d6f83b2ce4a8",
     "status": "seen",
-    "text": "Matt, what do you think?",
+    "text": "Our dormitory is conveniently located just a 10-minute walk away from the university campus. It's in a safe and vibrant neighborhood with easy access to shops, restaurants, and public transportation",
     "type": "text"
   },
   {

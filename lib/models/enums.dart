@@ -5,3 +5,9 @@ enum NotificationType{
   pushNotifications,
   
 }
+
+enum ChatListViewType{
+  all,
+  read,
+  unread,
+}

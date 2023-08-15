@@ -1,4 +1,5 @@
 import 'package:animations/animations.dart';
+import 'package:dormitory_app/presentation/pages/chat/screens/chat_screen.dart';
 import 'package:dormitory_app/presentation/pages/pages.dart';
 import 'package:flutter/material.dart';
 
@@ -9,7 +10,8 @@ class Routes {
   static const String signup = "signup";
   static const String verifyOtp = "verifyOtp";
   static const String changePassword = "changePassword";
-   static const String chatting = "chatting";
+  static const String chatting = "chatting/chat";
+  static const String chatList = "chatting/list";
   // legal routes begin
   static const String legal = "legal";
   static const String copyright = "/legal/copyright";
@@ -61,9 +63,10 @@ Route onGenerateRoute(RouteSettings settings) => _fadeThrough(
           case Routes.notificationSettings:
             return const NotificationSettingsScreen();
           // settings routes begin
-
-          case Routes.chatting:
+          case Routes.chatList:
             return const ChatPage();
+          case Routes.chatting:
+            return const ChatScreen();
           default:
             return const SizedBox.shrink();
         }

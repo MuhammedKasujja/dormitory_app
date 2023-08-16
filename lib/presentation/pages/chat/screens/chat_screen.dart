@@ -83,6 +83,7 @@ class ChatScreen extends StatelessWidget {
                   builder: (context, state) {
                     if (state is ChatMessagesLoaded) {
                       return ListView.builder(
+                        controller: state.scrollController,
                         padding: EdgeInsets.only(bottom: 8.h),
                         itemCount: state.messages.length,
                         itemBuilder: (context, index) {
@@ -93,7 +94,7 @@ class ChatScreen extends StatelessWidget {
                               currentUser: state.user!,
                             );
                           }
-                          return const Text('Message not compatible');
+                          return const Text('Message not compatible', style: TextStyle(fontSize: 8),);
                         },
                       );
                     }

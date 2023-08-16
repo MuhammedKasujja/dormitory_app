@@ -11,3 +11,8 @@ enum ChatListViewType{
   read,
   unread,
 }
+
+enum UserProfileStatus{
+  active,
+  blocked
+}

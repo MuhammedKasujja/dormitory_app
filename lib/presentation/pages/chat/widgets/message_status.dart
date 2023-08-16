@@ -12,12 +12,14 @@ class MessageStatusIcon extends StatelessWidget {
       case types.Status.sent:
         return Image.asset(
           'assets/icon-delivered.png',
+          color: AppColors.text3,
           // color: InheritedChatTheme.of(context).theme.primaryColor,
           package: 'flutter_chat_ui',
         );
       case types.Status.error:
         return Image.asset(
           'assets/icon-error.png',
+          color: AppColors.text3,
           package: 'flutter_chat_ui',
         );
       case types.Status.seen:

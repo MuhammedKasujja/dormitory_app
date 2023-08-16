@@ -81,8 +81,9 @@ class _MessageBody extends StatelessWidget {
           textAlign: TextAlign.justify,
           style: TextStyle(
             fontSize: 12.sp,
-            letterSpacing: 1.5,
+            height: 1.5,
             color: AppColors.text1,
+            fontWeight: FontWeight.w400,
           ),
         ),
         const SizedBox().scaleHeight(4),

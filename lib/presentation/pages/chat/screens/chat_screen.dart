@@ -5,6 +5,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_chat_types/flutter_chat_types.dart' as types;
 
 import '../widgets/widgets.dart';
+import 'components/components.dart';
 
 class ChatScreen extends StatelessWidget {
   const ChatScreen({Key? key}) : super(key: key);
@@ -59,19 +60,40 @@ class ChatScreen extends StatelessWidget {
                       //     color: AppColors.text2,
                       //   ),
                       // )
-                      PopupMenuButton(
-                        shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(20.r)),
-                        // onSelected: _select,
-                        padding: EdgeInsets.zero,
-                        // initialValue: choices[_selection],
-                        itemBuilder: (BuildContext context) {
-                          return ['Report and Block', 'Unblock']
-                              .map((String choice) {
-                            return PopupMenuItem<String>(
-                              value: choice,
-                              child: Text(choice, style: TextStyle(fontSize: 14.sp),),
-                            );
-                          }).toList();
+                      BlocBuilder<ChatBloc, ChatState>(
+                        builder: (context, state) {
+                          return PopupMenuButton(
+                            shape: RoundedRectangleBorder(
+                              borderRadius: BorderRadius.circular(20.r),
+                            ),
+                            onSelected: (value) {
+                              showDialog(
+                                context: context,
+                                builder: (ctx) => UnBlockDialog(
+                                  onBlock: (user) {},
+                                  user: const types.User(
+                                    id: 'shdsdksjdklsdslhdlsdlsds',
+                                    firstName: 'Kato',
+                                    lastName: 'Muhammed',
+                                  ),
+                                ),
+                              );
+                            },
+                            padding: EdgeInsets.zero,
+                            // initialValue: choices[_selection],
+                            itemBuilder: (BuildContext context) {
+                              return ['Report and Block', 'Unblock']
+                                  .map((String choice) {
+                                return PopupMenuItem<String>(
+                                  value: choice,
+                                  child: Text(
+                                    choice,
+                                    style: TextStyle(fontSize: 14.sp),
+                                  ),
+                                );
+                              }).toList();
+                            },
+                          );
                         },
                       ),
                     ],
@@ -94,7 +116,10 @@ class ChatScreen extends StatelessWidget {
                               currentUser: state.user!,
                             );
                           }
-                          return const Text('Message not compatible', style: TextStyle(fontSize: 8),);
+                          return const Text(
+                            'Message not compatible',
+                            style: TextStyle(fontSize: 8),
+                          );
                         },
                       );
                     }
@@ -122,94 +147,15 @@ class ChatScreen extends StatelessWidget {
 
 Future<void> _showBottomSheetOptions(BuildContext context) {
   return showModalBottomSheet(
-    shape: const RoundedRectangleBorder(
-      borderRadius: BorderRadius.only(
-        topLeft: Radius.circular(16.0),
-        topRight: Radius.circular(16.0),
+    context: context,
+    backgroundColor: Colors.white,
+    shape: RoundedRectangleBorder(
+      borderRadius: BorderRadius.vertical(
+        top: Radius.circular(16.r),
       ),
     ),
-    context: context,
-    builder: (BuildContext context) {
-      return Padding(
-        padding: const EdgeInsets.only(top: 8.0, bottom: 8.0),
-        child: Row(
-          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-          children: [
-            Column(
-              mainAxisAlignment: MainAxisAlignment.center,
-              mainAxisSize: MainAxisSize.min,
-              children: [
-                MaterialButton(
-                  onPressed: () => print("Will updated later."),
-                  color: const Color(0xff025f7f),
-                  textColor: Colors.white,
-                  child: const Icon(
-                    Icons.camera_alt,
-                    size: 24,
-                  ),
-                  padding: const EdgeInsets.all(16),
-                  shape: const CircleBorder(),
-                ),
-                const Padding(
-                  padding: EdgeInsets.only(top: 5.0),
-                  child: Text(
-                    "Camera",
-                    style: TextStyle(fontSize: 12.0),
-                  ),
-                ),
-              ],
-            ),
-            Column(
-              mainAxisAlignment: MainAxisAlignment.center,
-              mainAxisSize: MainAxisSize.min,
-              children: [
-                MaterialButton(
-                  onPressed: () => print("Will updated later."),
-                  color: const Color(0xff025f7f),
-                  textColor: Colors.white,
-                  child: const Icon(
-                    Icons.photo,
-                    size: 24,
-                  ),
-                  padding: const EdgeInsets.all(16),
-                  shape: const CircleBorder(),
-                ),
-                const Padding(
-                  padding: EdgeInsets.only(top: 5.0),
-                  child: Text(
-                    "Gallery",
-                    style: TextStyle(fontSize: 12.0),
-                  ),
-                ),
-              ],
-            ),
-            Column(
-              mainAxisAlignment: MainAxisAlignment.center,
-              mainAxisSize: MainAxisSize.min,
-              children: [
-                MaterialButton(
-                  onPressed: () => print("Will updated later."),
-                  color: const Color(0xff025f7f),
-                  textColor: Colors.white,
-                  child: const Icon(
-                    Icons.assignment_rounded,
-                    size: 24,
-                  ),
-                  padding: const EdgeInsets.all(16),
-                  shape: const CircleBorder(),
-                ),
-                const Padding(
-                  padding: EdgeInsets.only(top: 5.0),
-                  child: Text(
-                    "Document",
-                    style: TextStyle(fontSize: 12.0),
-                  ),
-                ),
-              ],
-            ),
-          ],
-        ),
-      );
+    builder: (context) {
+      return const ChatAttachFileWidget();
     },
   );
 }

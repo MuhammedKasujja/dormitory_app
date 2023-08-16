@@ -20,42 +20,37 @@ class AppAlertDialog extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return AlertDialog(
-      backgroundColor: Colors.transparent,
-      content: Container(
-        padding: EdgeInsets.all(20.r),
-        decoration: BoxDecoration(
-          color: Colors.white,
-          borderRadius: BorderRadius.circular(10.r),
-        ),
-        child: Column(
-          mainAxisSize: MainAxisSize.min,
-          children: [
-            SizedBox(
-              width: 63.w,
-              height: 65.h,
-              child: icon,
+      backgroundColor: Colors.white,
+      contentPadding: EdgeInsets.all(20.r),
+      shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(10.r)),
+      content: Column(
+        mainAxisSize: MainAxisSize.min,// prevent Column to expand full height
+        children: [
+          SizedBox(
+            width: 63.w,
+            height: 65.h,
+            child: icon,
+          ),
+          const SizedBox().medium(),
+          Text(
+            title,
+            style: TextStyle(
+              fontSize: 20.sp,
+              color: AppColors.text1,
+              fontWeight: FontWeight.w700,
             ),
-            const SizedBox().medium(),
-            Text(
-              title,
-              style: TextStyle(
-                fontSize: 20.sp,
-                color: AppColors.text1,
-                fontWeight: FontWeight.w700,
-              ),
-            ),
-            const SizedBox().scaleHeight(12),
-            Text(body).label(),
-            const SizedBox().medium(),
-            CustomButton(
-              onPressed: () {
-                Navigator.pop(context);
-                if (onAction != null) onAction!();
-              },
-              label: btnText,
-            )
-          ],
-        ),
+          ),
+          const SizedBox().scaleHeight(12),
+          Text(body).label(),
+          const SizedBox().medium(),
+          CustomButton(
+            onPressed: () {
+              Navigator.pop(context);
+              if (onAction != null) onAction!();
+            },
+            label: btnText,
+          )
+        ],
       ),
     );
   }

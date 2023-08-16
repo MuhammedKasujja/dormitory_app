@@ -16,3 +16,14 @@ enum UserProfileStatus{
   active,
   blocked
 }
+
+enum FileType{
+  pdf,
+  doc,
+}
+
+enum AttachmentMethod{
+  recent,
+  media,
+  files,
+}

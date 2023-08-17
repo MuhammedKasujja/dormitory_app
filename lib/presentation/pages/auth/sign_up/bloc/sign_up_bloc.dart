@@ -101,14 +101,14 @@ class SignUpBloc extends Bloc<SignUpEvent, SignUpState> {
     });
     on<SignupSubmitted>((event, emit) {
       if (state.isValid) {
-      emit(state.copyWith(status: FormzSubmissionStatus.inProgress));
-      try {
-        // register user
-        emit(state.copyWith(status: FormzSubmissionStatus.success));
-      } catch (_) {
-        emit(state.copyWith(status: FormzSubmissionStatus.failure));
+        emit(state.copyWith(status: FormzSubmissionStatus.inProgress));
+        try {
+          // register user
+          emit(state.copyWith(status: FormzSubmissionStatus.success));
+        } catch (_) {
+          emit(state.copyWith(status: FormzSubmissionStatus.failure));
+        }
       }
-    }
     });
   }
 }

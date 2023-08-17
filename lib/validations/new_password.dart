@@ -1,3 +1,4 @@
+// import 'package:equatable/equatable.dart';
 import 'package:formz/formz.dart';
 
 enum NewPasswordValidationError {
@@ -7,6 +8,33 @@ enum NewPasswordValidationError {
   noNumber,
   noUppercase
 }
+
+// class NewPasswordValidationError extends Equatable {
+//   final bool isEmpty;
+//   final bool isShort;
+//   final bool hasSpecialChar;
+//   final bool hasNumber;
+//   final bool hasUpperCase;
+
+//   const NewPasswordValidationError({
+//     required this.isEmpty,
+//     required this.isShort,
+//     required this.hasSpecialChar,
+//     required this.hasNumber,
+//     required this.hasUpperCase,
+//   });
+
+//   @override
+//   List<Object> get props {
+//     return [
+//       isEmpty,
+//       isShort,
+//       hasSpecialChar,
+//       hasNumber,
+//       hasUpperCase,
+//     ];
+//   }
+// }
 
 class NewPassword extends FormzInput<String, NewPasswordValidationError>
     with FormzInputErrorCacheMixin {
@@ -24,17 +52,17 @@ class NewPassword extends FormzInput<String, NewPasswordValidationError>
   @override
   NewPasswordValidationError? validator(String value) {
     if (value.isEmpty) return NewPasswordValidationError.empty;
-    if (value.length < _minPasswordLength) {
-      return NewPasswordValidationError.short;
-    }
-    if (_oneSpecialChar.hasMatch(value)) {
+    if (!_oneSpecialChar.hasMatch(value)) {
       return NewPasswordValidationError.noSpecialChar;
     }
-    if (_oneNumberChar.hasMatch(value)) {
+    if (!_oneNumberChar.hasMatch(value)) {
       return NewPasswordValidationError.noNumber;
     }
-    if (_oneUppercaseChar.hasMatch(value)) {
+    if (!_oneUppercaseChar.hasMatch(value)) {
       return NewPasswordValidationError.noUppercase;
+    }
+    if (value.length < _minPasswordLength) {
+      return NewPasswordValidationError.short;
     }
     return null;
   }

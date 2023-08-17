@@ -52,4 +52,6 @@ class SignupPasswordChanged extends SignUpEvent {
   List<Object> get props => [password];
 }
 
-class SignupSubmitted extends SignUpEvent {}
+class SignupSubmitted extends SignUpEvent {
+  const SignupSubmitted();
+}

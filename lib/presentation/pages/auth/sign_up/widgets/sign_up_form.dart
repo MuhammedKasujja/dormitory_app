@@ -118,13 +118,9 @@ class SignupForm extends StatelessWidget {
             buildWhen: (previous, current) =>
                 previous.password != current.password,
             builder: (context, state) {
-              print('PasswordChecker: ${state.password.displayError}');
-              if (!state.password.isPure) {
-                return NewPasswordChecker(
-                  validator: state.password.displayError,
-                );
-              }
-              return SizedBox.shrink();
+              return NewPasswordChecker(
+                validator: state.password.displayError,
+              );
             },
           ),
           const SizedBox().scaleHeight(25),

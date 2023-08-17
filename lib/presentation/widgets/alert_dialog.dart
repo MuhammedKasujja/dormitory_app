@@ -5,14 +5,14 @@ import 'package:flutter/material.dart';
 class AppAlertDialog extends StatelessWidget {
   final Widget icon;
   final String title;
-  final String body;
+  final String? body;
   final Function? onAction;
   final String btnText;
   const AppAlertDialog({
     super.key,
     required this.icon,
     required this.title,
-    required this.body,
+    this.body,
     required this.onAction,
     required this.btnText,
   });
@@ -24,7 +24,7 @@ class AppAlertDialog extends StatelessWidget {
       contentPadding: EdgeInsets.all(20.r),
       shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(10.r)),
       content: Column(
-        mainAxisSize: MainAxisSize.min,// prevent Column to expand full height
+        mainAxisSize: MainAxisSize.min, // prevent Column to expand full height
         children: [
           SizedBox(
             width: 63.w,
@@ -34,14 +34,14 @@ class AppAlertDialog extends StatelessWidget {
           const SizedBox().medium(),
           Text(
             title,
+            textAlign: TextAlign.center,
             style: TextStyle(
               fontSize: 20.sp,
               color: AppColors.text1,
               fontWeight: FontWeight.w700,
             ),
           ),
-          const SizedBox().scaleHeight(12),
-          Text(body).label(),
+          ..._buildBody(),
           const SizedBox().medium(),
           CustomButton(
             onPressed: () {
@@ -53,6 +53,17 @@ class AppAlertDialog extends StatelessWidget {
         ],
       ),
     );
+  }
+
+  List<Widget> _buildBody() {
+    return body != null
+        ? <Widget>[
+            const SizedBox().scaleHeight(12),
+            Text(body!).label(),
+          ]
+        : [
+            const SizedBox.shrink(),
+          ];
   }
 }
 

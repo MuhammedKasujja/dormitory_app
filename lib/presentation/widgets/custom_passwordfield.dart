@@ -33,7 +33,7 @@ class _CustomPasswordfieldState extends State<CustomPasswordfield> {
         ),
         TextField(
           key: Key(widget.label),
-          textInputAction: TextInputAction.go,
+          textInputAction: TextInputAction.next,
           onChanged: widget.onChange,
           keyboardType: TextInputType.text,
           obscureText: isNotVisible,

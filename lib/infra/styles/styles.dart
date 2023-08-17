@@ -13,8 +13,8 @@ class AppStyles {
       borderSide: BorderSide(
         color: state == InputState.focused
             ? AppColors.accent
-            : state == InputState.success
-                ? Colors.green
+            : state == InputState.error
+                ? Colors.red
                 : AppColors.divider,
       ),
       borderRadius: BorderRadius.circular(8.r),

@@ -2,13 +2,13 @@ import 'package:dormitory_app/infra/infra.dart';
 import 'package:dormitory_app/presentation/widgets/extensions/extensions.dart';
 import 'package:flutter/material.dart';
 
-class CustomPasswordfield extends StatefulWidget {
+class NewCustomPasswordfield extends StatefulWidget {
   final String? hint;
   final String label;
   final bool isNewPassword;
   final Function(String value) onChange;
   final String? errorText;
-  const CustomPasswordfield({
+  const NewCustomPasswordfield({
     Key? key,
     this.hint,
     required this.label,
@@ -17,10 +17,10 @@ class CustomPasswordfield extends StatefulWidget {
   }) : super(key: key);
 
   @override
-  State<CustomPasswordfield> createState() => _CustomPasswordfieldState();
+  State<NewCustomPasswordfield> createState() => _CustomPasswordfieldState();
 }
 
-class _CustomPasswordfieldState extends State<CustomPasswordfield> {
+class _CustomPasswordfieldState extends State<NewCustomPasswordfield> {
   bool isNotVisible = true;
   @override
   Widget build(BuildContext context) {

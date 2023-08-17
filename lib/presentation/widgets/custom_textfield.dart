@@ -1,11 +1,9 @@
 import 'package:dormitory_app/infra/infra.dart';
 import 'package:dormitory_app/presentation/widgets/extensions/extensions.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_form_builder/flutter_form_builder.dart';
-import 'package:form_builder_validators/form_builder_validators.dart';
 
 class CustomTextfield extends StatelessWidget {
-  final TextEditingController controller;
+  final Function(String value) onChange;
   final String hint;
   final String label;
   final TextInputType inputType;
@@ -14,7 +12,7 @@ class CustomTextfield extends StatelessWidget {
   final bool disabled;
   const CustomTextfield({
     Key? key,
-    required this.controller,
+    required this.onChange,
     this.hint = '',
     required this.label,
     this.inputType = TextInputType.text,
@@ -28,29 +26,16 @@ class CustomTextfield extends StatelessWidget {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        Text(label).label(),
+        Text(label).label(hasError: errorText!= null),
         SizedBox(
           height: 8.h,
         ),
-        FormBuilderTextField(
-          name: label,
+        TextField(
+          key: Key(label),
           textInputAction: TextInputAction.next,
-          controller: controller,
+          onChanged: onChange,
           keyboardType: inputType,
           readOnly: disabled,
-          autovalidateMode: AutovalidateMode.onUserInteraction,
-          validator: inputType == TextInputType.emailAddress
-              ? FormBuilderValidators.compose([
-                  FormBuilderValidators.email(),
-                  FormBuilderValidators.required(),
-                ])
-              : !isRequired
-                  ? FormBuilderValidators.compose([])
-                  : FormBuilderValidators.compose([
-                      FormBuilderValidators.required(
-                        errorText: errorText,
-                      ),
-                    ]),
           style: TextStyle(
             fontSize: 14.0,
             color: Theme.of(context).colorScheme.secondary,
@@ -63,12 +48,14 @@ class CustomTextfield extends StatelessWidget {
               horizontal: 10,
             ),
             hintText: hint,
+            errorText: errorText,
             hintStyle: TextStyle(
               color: AppColors.text3,
               fontSize: 14.sp,
             ),
             fillColor: AppColors.backgroundLight,
             filled: true,
+            errorStyle: TextStyle(color: Colors.red, fontSize: 16.sp),
             focusedBorder:
                 AppStyles.buildInputBorder(state: InputState.focused),
             errorBorder: AppStyles.buildInputBorder(state: InputState.error),

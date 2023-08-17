@@ -4,38 +4,28 @@ import 'package:dormitory_app/presentation/widgets/widgets.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 
-class SignupForm extends StatefulWidget {
+class SignupForm extends StatelessWidget {
   const SignupForm({super.key});
 
-  @override
-  State<SignupForm> createState() => _SignupFormState();
-}
-
-class _SignupFormState extends State<SignupForm> {
-  final TextEditingController _firstNameController = TextEditingController();
-  final TextEditingController _lastNameController = TextEditingController();
-  final TextEditingController _emailController = TextEditingController();
-  final TextEditingController _telephoneController = TextEditingController();
-  final TextEditingController _passwordController = TextEditingController();
   @override
   Widget build(BuildContext context) {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
         CustomTextfield(
-          controller: _firstNameController,
+           onChange: (value){},
           label: 'First name',
           hint: 'Please enter you first name',
         ),
         const SizedBox().scaleHeight(10),
         CustomTextfield(
-          controller: _lastNameController,
+           onChange: (value){},
           label: 'Last name',
           hint: 'Please enter your last name',
         ),
         const SizedBox().scaleHeight(10),
         CustomTextfield(
-          controller: _emailController,
+          onChange: (value){},
           label: 'Eamil address',
           hint: 'Please enter email or phone number',
         ),
@@ -58,7 +48,7 @@ class _SignupFormState extends State<SignupForm> {
               ),
               Flexible(
                 child: CustomTextfield(
-                  controller: _telephoneController,
+                  onChange: (value){},
                   label: '',
                   hint: '0000 000 0000',
                 ),
@@ -68,7 +58,7 @@ class _SignupFormState extends State<SignupForm> {
         ),
         // const SizedBox().scaleHeight(10),
         CustomPasswordfield(
-          controller: _passwordController,
+          onChange: (value){},
           label: 'Password',
           hint: 'Please enter password',
         ),

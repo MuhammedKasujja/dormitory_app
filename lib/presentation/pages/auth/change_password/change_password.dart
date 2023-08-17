@@ -2,18 +2,9 @@ import 'package:dormitory_app/infra/infra.dart';
 import 'package:dormitory_app/presentation/widgets/widgets.dart';
 import 'package:flutter/material.dart';
 
-class ChangePasswordPage extends StatefulWidget {
+class ChangePasswordPage extends StatelessWidget {
   const ChangePasswordPage({super.key});
 
-  @override
-  State<ChangePasswordPage> createState() => _ChangePasswordPageState();
-}
-
-class _ChangePasswordPageState extends State<ChangePasswordPage> {
-  final TextEditingController _currentPassController = TextEditingController();
-  final TextEditingController _newPasswordController = TextEditingController();
-  final TextEditingController _confirmPasswordController =
-      TextEditingController();
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -43,20 +34,20 @@ class _ChangePasswordPageState extends State<ChangePasswordPage> {
               const SizedBox().large(),
               CustomPasswordfield(
                 isNewPassword: false,
-                controller: _currentPassController,
+                onChange: (value){},
                 label: 'Current Password',
                 hint: 'Current password',
               ),
               const SizedBox().medium(),
               CustomPasswordfield(
-                controller: _newPasswordController,
+                onChange: (value){},
                 label: 'New Password',
                 hint: 'Enter new password',
               ),
               const SizedBox().medium(),
               CustomPasswordfield(
                 hint: 'Re-enter password',
-                controller: _confirmPasswordController,
+                onChange: (value){},
                 label: 'Confirm Password',
               ),
               const SizedBox().large(),

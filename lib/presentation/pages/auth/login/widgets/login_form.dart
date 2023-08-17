@@ -1,10 +1,11 @@
 import 'package:dormitory_app/infra/infra.dart';
-import 'package:dormitory_app/presentation/pages/auth/login/bloc/login_bloc.dart';
 import 'package:dormitory_app/presentation/router/router.dart';
 import 'package:dormitory_app/presentation/widgets/widgets.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:formz/formz.dart';
+
+import '../bloc/login_bloc.dart';
 
 class LoginForm extends StatefulWidget {
   const LoginForm({super.key});
@@ -71,7 +72,12 @@ class _LoginFormState extends State<LoginForm> {
             ],
           ),
           const SizedBox().scaleHeight(25),
-          BlocBuilder<LoginBloc, LoginState>(
+          BlocConsumer<LoginBloc, LoginState>(
+            listener: (context, state) {
+              if (state.status.isSuccess) {
+                Navigator.pushNamed(context, Routes.home);
+              }
+            },
             builder: (context, state) {
               return CustomButton(
                 loading: state.status.isInProgress,
@@ -79,7 +85,6 @@ class _LoginFormState extends State<LoginForm> {
                 onPressed: state.isValid
                     ? () {
                         context.read<LoginBloc>().add(const LoginSubmitted());
-                        // Navigator.pushNamed(context, Routes.home);
                       }
                     : null,
               );

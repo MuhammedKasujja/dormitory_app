@@ -1,11 +1,7 @@
 import 'package:dormitory_app/infra/infra.dart';
 import 'package:flutter/material.dart';
 
-enum InputState {
-  idle,
-  focused,
-  error,
-}
+enum InputState { idle, focused, error, success }
 
 class AppStyles {
   AppStyles._();
@@ -15,8 +11,11 @@ class AppStyles {
     return OutlineInputBorder(
       gapPadding: 2,
       borderSide: BorderSide(
-        color:
-            state == InputState.focused ? AppColors.accent : AppColors.divider,
+        color: state == InputState.focused
+            ? AppColors.accent
+            : state == InputState.success
+                ? Colors.green
+                : AppColors.divider,
       ),
       borderRadius: BorderRadius.circular(8.r),
     );

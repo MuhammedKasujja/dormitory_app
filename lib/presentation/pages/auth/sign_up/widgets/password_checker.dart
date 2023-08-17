@@ -19,11 +19,11 @@ class NewPasswordChecker extends StatelessWidget {
           children: [
             _CheckerMessage(
               message: 'Minimum of 8 characters',
-              hasError: validator == NewPasswordValidationError.short,
+              hasError: validator!.isEmpty || validator!.isShort,
             ),
             _CheckerMessage(
               message: 'Atleast one uppercase',
-              hasError: validator == NewPasswordValidationError.noUppercase,
+              hasError: validator!.isEmpty || validator!.noUppercase,
             ),
           ],
         ),
@@ -33,11 +33,11 @@ class NewPasswordChecker extends StatelessWidget {
           children: [
             _CheckerMessage(
               message: 'One special character',
-              hasError: validator == NewPasswordValidationError.noSpecialChar,
+              hasError: validator!.isEmpty || validator!.noSpecialChar,
             ),
             _CheckerMessage(
               message: 'At least one number',
-              hasError: validator == NewPasswordValidationError.noNumber,
+              hasError: validator!.isEmpty || validator!.noNumber,
             ),
           ],
         )

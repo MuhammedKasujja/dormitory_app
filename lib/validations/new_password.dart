@@ -1,40 +1,48 @@
-// import 'package:equatable/equatable.dart';
+import 'package:equatable/equatable.dart';
 import 'package:formz/formz.dart';
 
-enum NewPasswordValidationError {
-  empty,
-  short,
-  noSpecialChar,
-  noNumber,
-  noUppercase
-}
-
-// class NewPasswordValidationError extends Equatable {
-//   final bool isEmpty;
-//   final bool isShort;
-//   final bool hasSpecialChar;
-//   final bool hasNumber;
-//   final bool hasUpperCase;
-
-//   const NewPasswordValidationError({
-//     required this.isEmpty,
-//     required this.isShort,
-//     required this.hasSpecialChar,
-//     required this.hasNumber,
-//     required this.hasUpperCase,
-//   });
-
-//   @override
-//   List<Object> get props {
-//     return [
-//       isEmpty,
-//       isShort,
-//       hasSpecialChar,
-//       hasNumber,
-//       hasUpperCase,
-//     ];
-//   }
+// enum NewPasswordValidationError {
+//   empty,
+//   short,
+//   noSpecialChar,
+//   noNumber,
+//   noUppercase
 // }
+
+class NewPasswordValidationError extends Equatable {
+  final bool isEmpty;
+  final bool isShort;
+  final bool noSpecialChar;
+  final bool noNumber;
+  final bool noUppercase;
+
+  const NewPasswordValidationError({
+    required this.isEmpty,
+    required this.isShort,
+    required this.noSpecialChar,
+    required this.noNumber,
+    required this.noUppercase,
+  });
+
+  bool hasNoError() {
+    return !isEmpty &&
+        !isShort &&
+        !noNumber &&
+        !noSpecialChar &&
+        !noUppercase;
+  }
+
+  @override
+  List<Object> get props {
+    return [
+      isEmpty,
+      isShort,
+      noUppercase,
+      noNumber,
+      noSpecialChar,
+    ];
+  }
+}
 
 class NewPassword extends FormzInput<String, NewPasswordValidationError>
     with FormzInputErrorCacheMixin {
@@ -51,19 +59,26 @@ class NewPassword extends FormzInput<String, NewPasswordValidationError>
 
   @override
   NewPasswordValidationError? validator(String value) {
-    if (value.isEmpty) return NewPasswordValidationError.empty;
-    if (!_oneSpecialChar.hasMatch(value)) {
-      return NewPasswordValidationError.noSpecialChar;
-    }
-    if (!_oneNumberChar.hasMatch(value)) {
-      return NewPasswordValidationError.noNumber;
-    }
-    if (!_oneUppercaseChar.hasMatch(value)) {
-      return NewPasswordValidationError.noUppercase;
-    }
-    if (value.length < _minPasswordLength) {
-      return NewPasswordValidationError.short;
-    }
-    return null;
+    final validator = NewPasswordValidationError(
+      isEmpty: value.isEmpty,
+      isShort: value.length < _minPasswordLength,
+      noSpecialChar: !_oneSpecialChar.hasMatch(value),
+      noNumber: !_oneNumberChar.hasMatch(value),
+      noUppercase: !_oneUppercaseChar.hasMatch(value),
+    );
+    // if (value.isEmpty) return NewPasswordValidationError.empty;
+    // if (!_oneSpecialChar.hasMatch(value)) {
+    //   return NewPasswordValidationError.noSpecialChar;
+    // }
+    // if (!_oneNumberChar.hasMatch(value)) {
+    //   return NewPasswordValidationError.noNumber;
+    // }
+    // if (!_oneUppercaseChar.hasMatch(value)) {
+    //   return NewPasswordValidationError.noUppercase;
+    // }
+    // if (value.length < _minPasswordLength) {
+    //   return NewPasswordValidationError.short;
+    // }
+    return validator.hasNoError() ? null : validator;
   }
 }

@@ -102,6 +102,8 @@ class SignupForm extends StatelessWidget {
           ),
           // const SizedBox().scaleHeight(10),
           BlocBuilder<SignUpBloc, SignUpState>(
+            buildWhen: (previous, current) =>
+                previous.password != current.password,
             builder: (context, state) {
               return CustomPasswordfield(
                 onChange: (password) => context
@@ -113,6 +115,8 @@ class SignupForm extends StatelessWidget {
             },
           ),
           BlocBuilder<SignUpBloc, SignUpState>(
+            buildWhen: (previous, current) =>
+                previous.password != current.password,
             builder: (context, state) {
               print('PasswordChecker: ${state.password.displayError}');
               if (!state.password.isPure) {

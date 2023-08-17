@@ -89,7 +89,7 @@ class SignUpBloc extends Bloc<SignUpEvent, SignUpState> {
           password: password,
           isValid: Formz.validate(
             [
-              state.password,
+              state.firstname,
               state.email,
               state.telephone,
               state.lastname,

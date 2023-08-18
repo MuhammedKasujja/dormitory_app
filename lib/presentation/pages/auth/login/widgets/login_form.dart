@@ -67,7 +67,7 @@ class _LoginFormState extends State<LoginForm> {
                   style: TextStyle(color: AppColors.text1, fontSize: 14.sp),
                 ),
                 onTap: () =>
-                    Navigator.pushNamed(context, Routes.changePassword),
+                    Navigator.pushNamed(context, Routes.forgotPassword),
               )
             ],
           ),

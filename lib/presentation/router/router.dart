@@ -10,6 +10,7 @@ class Routes {
   static const String signup = "signup";
   static const String verifyOtp = "verifyOtp";
   static const String changePassword = "changePassword";
+  static const String forgotPassword = "forgotPassword";
   static const String chatting = "chatting/chat";
   static const String chatList = "chatting/list";
   // legal routes begin
@@ -40,6 +41,8 @@ Route onGenerateRoute(RouteSettings settings) => _fadeThrough(
             return const VerifyOtpPage();
           case Routes.changePassword:
             return const ChangePasswordPage();
+          case Routes.forgotPassword:
+            return const ForgotPasswordPage();
           // legal routes begin
           case Routes.legal:
             return const LegalPage();

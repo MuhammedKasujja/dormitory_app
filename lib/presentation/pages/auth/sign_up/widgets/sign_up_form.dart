@@ -1,5 +1,6 @@
 import 'package:dormitory_app/infra/infra.dart';
 import 'package:dormitory_app/presentation/pages/auth/sign_up/widgets/password_checker.dart';
+import 'package:dormitory_app/presentation/pages/country_codes/views/country_code_dropdown.dart';
 import 'package:dormitory_app/presentation/router/router.dart';
 import 'package:dormitory_app/presentation/widgets/widgets.dart';
 import 'package:flutter/material.dart';
@@ -79,6 +80,7 @@ class SignupForm extends StatelessWidget {
                     borderRadius: BorderRadius.circular(8.r),
                     border: Border.all(color: AppColors.divider),
                   ),
+                  child: const Center(child: CountryCodesDropdown()),
                 ),
                 Flexible(
                   child: BlocBuilder<SignUpBloc, SignUpState>(

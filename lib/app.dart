@@ -1,6 +1,7 @@
 
 
 import 'package:dormitory_app/infra/infra.dart';
+import 'package:dormitory_app/presentation/pages/country_codes/country_codes.dart';
 import 'package:dormitory_app/presentation/router/router.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -14,7 +15,8 @@ class AppPage extends StatelessWidget {
   Widget build(BuildContext context) {
     return MultiBlocProvider(
       providers: [
-        BlocProvider(create: (context) => SettingsCubit())
+        BlocProvider(create: (context) => SettingsCubit()),
+        BlocProvider(create: (context) => CountryCodesCubit())
       ],
       child: ScreenUtilInit(
         useInheritedMediaQuery: true,

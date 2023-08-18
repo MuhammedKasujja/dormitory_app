@@ -1,3 +1,3 @@
-export 'screens/change_password/change_password.dart';
-export 'screens/notifications/notifications.dart';
+export 'views/change_password/change_password.dart';
+export 'views/notifications/notifications.dart';
 export './settings.dart';

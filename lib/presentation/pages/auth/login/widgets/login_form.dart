@@ -60,7 +60,12 @@ class _LoginFormState extends State<LoginForm> {
               InkWell(
                 child: Text(
                   'Forgot password?',
-                  style: TextStyle(color: AppColors.text1, fontSize: 14.sp),
+                  style: TextStyle(
+                    color: AppColors.text1,
+                    fontSize: 12.sp,
+                    height: 1.5,
+                    fontWeight: FontWeight.w600,
+                  ),
                 ),
                 onTap: () =>
                     Navigator.pushNamed(context, Routes.forgotPassword),

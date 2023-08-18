@@ -82,7 +82,7 @@ class ChangePasswordPage extends StatelessWidget {
                           .read<ChangePasswordCubit>()
                           .confirmedPasswordChanged(value),
                       errorText: state.confirmedPassword.displayError != null
-                          ? 'password do not match'
+                          ? 'Password doesn’t match'
                           : null,
                     );
                   },

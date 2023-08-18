@@ -9,6 +9,7 @@ class LoginBloc extends Bloc<LoginEvent, LoginState> {
   LoginBloc() : super(const LoginState()) {
     on<LoginUsernameChanged>(_onUsernameChanged);
     on<LoginPasswordChanged>(_onPasswordChanged);
+    on<LoginRememberPasswordChanged>(_onRemeberPasswordToggled);
     on<LoginSubmitted>(_onSubmitted);
   }
   void _onUsernameChanged(
@@ -19,7 +20,8 @@ class LoginBloc extends Bloc<LoginEvent, LoginState> {
     emit(
       state.copyWith(
         username: username,
-        isValid: Formz.validate([state.password, username]),
+        isValid: Formz.validate(
+            [state.password, state.isRememberPassword, username]),
       ),
     );
   }
@@ -32,7 +34,27 @@ class LoginBloc extends Bloc<LoginEvent, LoginState> {
     emit(
       state.copyWith(
         password: password,
-        isValid: Formz.validate([password, state.username]),
+        isValid: Formz.validate(
+            [password, state.username, state.isRememberPassword]),
+      ),
+    );
+  }
+
+  void _onRemeberPasswordToggled(
+    LoginRememberPasswordChanged event,
+    Emitter<LoginState> emit,
+  ) {
+    // TODO isRequired: true, is expensive when updating UI
+    final isRememberPassword = BooleanField.dirty(
+      value: !state.isRememberPassword.value,
+    );
+    // print(
+    //     'isRememberPassword: $isRememberPassword ${state.isRememberPassword.value}');
+    emit(
+      state.copyWith(
+        isRememberPassword: isRememberPassword,
+        isValid: Formz.validate(
+            [state.password, state.username, isRememberPassword]),
       ),
     );
   }

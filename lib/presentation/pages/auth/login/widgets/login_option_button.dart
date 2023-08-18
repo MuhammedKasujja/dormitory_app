@@ -33,9 +33,12 @@ class LoginOptionButton extends StatelessWidget {
           );
         },
         style: TextButton.styleFrom(
-            side: BorderSide(color: AppColors.divider),
-            shape: RoundedRectangleBorder(
-                borderRadius: BorderRadius.circular(8.r))),
+          side: BorderSide(color: AppColors.divider),
+          shape: RoundedRectangleBorder(
+            borderRadius: BorderRadius.circular(8.r),
+          ),
+          padding: EdgeInsets.symmetric(vertical: 12.r)
+        ),
         child: Center(
           child: Row(
             mainAxisAlignment: MainAxisAlignment.center,

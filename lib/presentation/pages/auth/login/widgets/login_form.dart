@@ -38,6 +38,8 @@ class _LoginFormState extends State<LoginForm> {
           ),
           const SizedBox().scaleHeight(10),
           BlocBuilder<LoginBloc, LoginState>(
+            buildWhen: (previous, current) =>
+                previous.password != current.password,
             builder: (context, state) {
               return CustomPasswordfield(
                 label: 'Password',
@@ -50,17 +52,11 @@ class _LoginFormState extends State<LoginForm> {
               );
             },
           ),
-          // const SizedBox().small(),
+          const SizedBox().small(),
           Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
-              Flexible(
-                child: CustomCheckbox(
-                    child: Text(
-                  'Remember this password',
-                  style: TextStyle(color: AppColors.text2, fontSize: 12.sp),
-                )),
-              ),
+              _buildRememberPassword(),
               InkWell(
                 child: Text(
                   'Forgot password?',
@@ -73,6 +69,7 @@ class _LoginFormState extends State<LoginForm> {
           ),
           const SizedBox().scaleHeight(25),
           BlocConsumer<LoginBloc, LoginState>(
+            // buildWhen: (previous, current) => current.isValid,
             listener: (context, state) {
               if (state.status.isSuccess) {
                 Navigator.pushNamed(context, Routes.home);
@@ -92,6 +89,55 @@ class _LoginFormState extends State<LoginForm> {
           ),
         ],
       ),
+    );
+  }
+
+  Widget _buildRememberPassword() {
+    return BlocBuilder<LoginBloc, LoginState>(
+      builder: (context, state) {
+        return Flexible(
+          child: InkWell(
+            splashColor: Colors.transparent,
+            onTap: () => context
+                .read<LoginBloc>()
+                .add(const LoginRememberPasswordChanged()),
+            child: Row(
+              children: [
+                Container(
+                  width: 18.w,
+                  height: 18.w,
+                  decoration: BoxDecoration(
+                    borderRadius: BorderRadius.circular(4.r),
+                    border: Border.all(
+                      color: AppColors.text2,
+                    ),
+                  ),
+                  child: state.isRememberPassword.value
+                      ? Center(
+                          child: Icon(
+                            Icons.check,
+                            size: 15.r,
+                            color: Colors.green,
+                          ),
+                        )
+                      : const SizedBox.shrink(),
+                ),
+                SizedBox(width: 4.w),
+                Flexible(
+                  child: Text(
+                    'Remember this password',
+                    style: TextStyle(
+                      fontSize: 12.sp,
+                      height: 1.5,
+                      color: AppColors.text2,
+                    ),
+                  ),
+                ),
+              ],
+            ),
+          ),
+        );
+      },
     );
   }
 }

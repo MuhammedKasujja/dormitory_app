@@ -26,42 +26,52 @@ class _CountryCodesDropdownState extends State<CountryCodesDropdown> {
         if (state.selectedCountry == null) {
           return const SizedBox.shrink();
         }
-        return DropdownButton<String>(
-          underline: const SizedBox.shrink(),
-          value: state.selectedCountry!.countryCode,
-          icon: const SizedBox.shrink(),
-          items: state.countries.map((country) {
-            return DropdownMenuItem(
-              // alignment: AlignmentDirectional.center,
-              value: country.countryCode,
-              child: Row(
-                children: [
-                  SizedBox(
-                    width: 18.w,
-                    height: 12.h,
-                    child: Image.asset(
-                      country.flag,
-                      package: 'country_calling_code_picker',
-                      width: 20,
-                    ),
+        return Container(
+          height: 48.h,
+          width: 94.w,
+          decoration: BoxDecoration(
+            color: AppColors.backgroundLight,
+            borderRadius: BorderRadius.circular(8.r),
+            border: Border.all(color: AppColors.divider),
+          ),
+          child: Center(
+            child: DropdownButton<String>(
+              underline: const SizedBox.shrink(),
+              value: state.selectedCountry!.countryCode,
+              icon: const SizedBox.shrink(),
+              items: state.countries.map((country) {
+                return DropdownMenuItem(
+                  value: country.countryCode,
+                  child: Row(
+                    children: [
+                      SizedBox(
+                        width: 18.w,
+                        height: 12.h,
+                        child: Image.asset(
+                          country.flag,
+                          package: 'country_calling_code_picker',
+                          width: 20,
+                        ),
+                      ),
+                      SizedBox(
+                        width: 8.w,
+                      ),
+                      Text(
+                        country.callingCode,
+                        style: TextStyle(
+                          color: AppColors.text2,
+                          fontSize: 14.sp,
+                          height: 1.5,
+                        ),
+                      ),
+                    ],
                   ),
-                  SizedBox(
-                    width: 8.w,
-                  ),
-                  Text(
-                    country.callingCode,
-                    style: TextStyle(
-                      color: AppColors.text2,
-                      fontSize: 14.sp,
-                      height: 1.5,
-                    ),
-                  ),
-                ],
-              ),
-            );
-          }).toList(),
-          onChanged: (country) =>
-              context.read<CountryCodesCubit>().onCountrySelected(country),
+                );
+              }).toList(),
+              onChanged: (country) =>
+                  context.read<CountryCodesCubit>().onCountrySelected(country),
+            ),
+          ),
         );
       },
     );

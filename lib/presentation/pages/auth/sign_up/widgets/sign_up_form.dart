@@ -71,16 +71,9 @@ class SignupForm extends StatelessWidget {
             transform: Matrix4.translationValues(0.0, -12.h, 0.0),
             child: Row(
               children: [
-                Container(
-                  margin: EdgeInsets.fromLTRB(0, 24.r, 16.r, 0),
-                  height: 48.h,
-                  width: 94.w,
-                  decoration: BoxDecoration(
-                    color: AppColors.backgroundLight,
-                    borderRadius: BorderRadius.circular(8.r),
-                    border: Border.all(color: AppColors.divider),
-                  ),
-                  child: const Center(child: CountryCodesDropdown()),
+                Padding(
+                  padding: EdgeInsets.fromLTRB(0, 24.r, 16.r, 0),
+                  child: const CountryCodesDropdown(),
                 ),
                 Flexible(
                   child: BlocBuilder<SignUpBloc, SignUpState>(

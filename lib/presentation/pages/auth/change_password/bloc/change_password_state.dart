@@ -1,4 +1,4 @@
-part of 'change_password_bloc.dart';
+part of 'change_password_cubit.dart';
 
 class ChangePasswordState extends Equatable {
   const ChangePasswordState({

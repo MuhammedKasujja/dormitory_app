@@ -5,8 +5,8 @@ import 'package:formz/formz.dart';
 
 part 'change_password_state.dart';
 
-class ChangePasswordBloc extends Cubit<ChangePasswordState> {
-  ChangePasswordBloc()
+class ChangePasswordCubit extends Cubit<ChangePasswordState> {
+  ChangePasswordCubit()
       : super(
            ChangePasswordState(
             oldPassword: const Password.pure(),

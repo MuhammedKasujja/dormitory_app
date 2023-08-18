@@ -8,7 +8,7 @@ import 'package:flutter_svg/flutter_svg.dart';
 import 'package:formz/formz.dart';
 
 import '../sign_up/widgets/password_checker.dart';
-import 'bloc/change_password_bloc.dart';
+import 'bloc/change_password_cubit.dart';
 
 class ChangePasswordPage extends StatelessWidget {
   const ChangePasswordPage({super.key});
@@ -26,19 +26,19 @@ class ChangePasswordPage extends StatelessWidget {
         padding: EdgeInsets.all(16.r),
         child: SingleChildScrollView(
           child: BlocProvider(
-            create: (context) => ChangePasswordBloc(),
+            create: (context) => ChangePasswordCubit(),
             child: Column(
               mainAxisAlignment: MainAxisAlignment.start,
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                BlocBuilder<ChangePasswordBloc, ChangePasswordState>(
+                BlocBuilder<ChangePasswordCubit, ChangePasswordState>(
                   buildWhen: (previous, current) =>
                       previous.oldPassword != current.oldPassword,
                   builder: (context, state) {
                     return CustomPasswordfield(
                       isNewPassword: false,
                       onChange: (value) => context
-                          .read<ChangePasswordBloc>()
+                          .read<ChangePasswordCubit>()
                           .oldPasswordChanged(value),
                       label: 'Current Password',
                       hint: 'Current password',
@@ -49,20 +49,20 @@ class ChangePasswordPage extends StatelessWidget {
                   },
                 ),
                 const SizedBox().medium(),
-                BlocBuilder<ChangePasswordBloc, ChangePasswordState>(
+                BlocBuilder<ChangePasswordCubit, ChangePasswordState>(
                   buildWhen: (previous, current) =>
                       previous.password != current.password,
                   builder: (context, state) {
                     return CustomPasswordfield(
                       onChange: (value) => context
-                          .read<ChangePasswordBloc>()
+                          .read<ChangePasswordCubit>()
                           .newPasswordChanged(value),
                       label: 'New Password',
                       hint: 'Enter new password',
                     );
                   },
                 ),
-                BlocBuilder<ChangePasswordBloc, ChangePasswordState>(
+                BlocBuilder<ChangePasswordCubit, ChangePasswordState>(
                   builder: (context, state) {
                     return NewPasswordChecker(
                       validator: state.password.displayError,
@@ -70,7 +70,7 @@ class ChangePasswordPage extends StatelessWidget {
                   },
                 ),
                 const SizedBox().medium(),
-                BlocBuilder<ChangePasswordBloc, ChangePasswordState>(
+                BlocBuilder<ChangePasswordCubit, ChangePasswordState>(
                   buildWhen: (previous, current) =>
                       previous.password != current.password ||
                       previous.confirmedPassword != current.confirmedPassword,
@@ -79,7 +79,7 @@ class ChangePasswordPage extends StatelessWidget {
                       hint: 'Re-enter password',
                       label: 'Confirm Password',
                       onChange: (value) => context
-                          .read<ChangePasswordBloc>()
+                          .read<ChangePasswordCubit>()
                           .confirmedPasswordChanged(value),
                       errorText: state.confirmedPassword.displayError != null
                           ? 'password do not match'
@@ -87,8 +87,23 @@ class ChangePasswordPage extends StatelessWidget {
                     );
                   },
                 ),
+                BlocBuilder<ChangePasswordCubit, ChangePasswordState>(
+                  builder: (context, state) {
+                    return state.isValid
+                        ? Column(
+                            children: [
+                              const SizedBox().scaleHeight(12),
+                              const Text(
+                                'Password match',
+                                style: TextStyle(color: Colors.green),
+                              ),
+                            ],
+                          )
+                        : const SizedBox.shrink();
+                  },
+                ),
                 const SizedBox().large(),
-                BlocConsumer<ChangePasswordBloc, ChangePasswordState>(
+                BlocConsumer<ChangePasswordCubit, ChangePasswordState>(
                   listener: (context, state) {
                     if (state.status.isSuccess) {
                       showDialog(
@@ -112,7 +127,7 @@ class ChangePasswordPage extends StatelessWidget {
                       onPressed: state.isValid
                           ? () {
                               context
-                                  .read<ChangePasswordBloc>()
+                                  .read<ChangePasswordCubit>()
                                   .changePasswordFormSubmitted();
                             }
                           : null,

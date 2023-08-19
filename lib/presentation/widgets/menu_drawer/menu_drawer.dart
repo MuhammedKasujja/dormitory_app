@@ -29,18 +29,26 @@ class _MenuDrawerState extends State<MenuDrawer> {
                     icon: Icons.account_circle,
                     route: Routes.chatting,
                   ),
-                  const DrawerItem(title: 'Booking Activity', icon: Icons.timer),
-                  const DrawerItem(title: 'My Vouchers', icon: Icons.calendar_view_day),
+                  const DrawerItem(
+                      title: 'Booking Activity', icon: Icons.timer),
+                  const DrawerItem(
+                      title: 'My Vouchers', icon: Icons.calendar_view_day),
                   const SizedBox().medium(),
                   const Divider(),
                   const SizedBox().medium(),
                   const DrawerItem(title: 'Saved Dorms', icon: Icons.bookmark),
-                  const DrawerItem(title: 'Favourite Search', icon: Icons.star_outlined),
-                  const DrawerItem(title: 'Payment Methods', icon: Icons.wallet),
+                  const DrawerItem(
+                      title: 'Favourite Search', icon: Icons.star_outlined),
+                  const DrawerItem(
+                      title: 'Payment Methods', icon: Icons.wallet),
                   const SizedBox().medium(),
                   const Divider(),
                   const SizedBox().medium(),
-                  const DrawerItem(title: 'Help and Support', icon: Icons.help),
+                  const DrawerItem(
+                    title: 'Help and Support',
+                    icon: Icons.help,
+                    route: Routes.helpAndSupport,
+                  ),
                   const DrawerItem(
                     title: 'Settings',
                     icon: Icons.settings,

@@ -4,7 +4,7 @@ import 'package:flutter/material.dart';
 
 class CustomTextfield extends StatelessWidget {
   final Function(String value) onChange;
-  final String hint;
+  final String? hint;
   final String label;
   final TextInputType inputType;
   final bool isRequired;
@@ -13,7 +13,7 @@ class CustomTextfield extends StatelessWidget {
   const CustomTextfield({
     Key? key,
     required this.onChange,
-    this.hint = '',
+    this.hint,
     required this.label,
     this.inputType = TextInputType.text,
     this.isRequired = true,
@@ -35,6 +35,7 @@ class CustomTextfield extends StatelessWidget {
           textInputAction: TextInputAction.next,
           onChanged: onChange,
           keyboardType: inputType,
+          maxLines: inputType == TextInputType.multiline ? 5 : 1,
           readOnly: disabled,
           style: TextStyle(
             fontSize: 14.0,

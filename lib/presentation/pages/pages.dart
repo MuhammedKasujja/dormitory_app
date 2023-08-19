@@ -5,3 +5,4 @@ export './payment_methods/payment_methods.dart';
 export './profile/profile.dart';
 export './home/home.dart';
 export './legal/index.dart';
+export './help_and_support/help_and_support.dart';

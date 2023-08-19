@@ -1,29 +1,32 @@
-enum NotificationType{
+enum NotificationType {
   sms,
   promotions,
   email,
   pushNotifications,
-  
 }
 
-enum ChatListViewType{
+enum ChatListViewType {
   all,
   read,
   unread,
 }
 
-enum UserProfileStatus{
-  active,
-  blocked
-}
+enum UserProfileStatus { active, blocked }
 
-enum FileType{
+enum FileType {
   pdf,
   doc,
 }
 
-enum AttachmentMethod{
+enum AttachmentMethod {
   recent,
   media,
   files,
+}
+
+enum AppState {
+  initial,
+  loading,
+  success,
+  failure,
 }

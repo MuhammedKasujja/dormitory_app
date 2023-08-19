@@ -250,7 +250,7 @@ class _ChatPageState extends State<ChatPage> {
         ),
         body: Chat(
           theme: DefaultChatTheme(
-            seenIcon: SizedBox.shrink(),
+            seenIcon: const SizedBox.shrink(),
             backgroundColor: const Color(0xFFFAFAFB),
             inputTextColor: const Color(0xFFF1C111),
             messageBorderRadius: 10.r,

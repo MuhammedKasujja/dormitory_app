@@ -27,6 +27,12 @@ class Routes {
   static const String settings = "settings";
   static const String notificationSettings = "/settings/notifications";
   // settings routes end
+
+  // helpAndSupport routes begin
+  static const String helpAndSupport = "helpAndSupport";
+  static const String faqs = "/helpAndSupport/faqs";
+  static const String customerSupport = "/helpAndSupport/customer";
+  // helpAndSupport routes end
 }
 
 Route onGenerateRoute(RouteSettings settings) => _fadeThrough(
@@ -65,11 +71,18 @@ Route onGenerateRoute(RouteSettings settings) => _fadeThrough(
             return const SettingsPage();
           case Routes.notificationSettings:
             return const NotificationSettingsScreen();
-          // settings routes begin
+          // settings routes end
           case Routes.chatList:
             return const ChatPage();
           case Routes.chatting:
             return const ChatScreen();
+
+          case Routes.faqs:
+            return const FaqsQuestionsScreen();
+          case Routes.helpAndSupport:
+            return const HelpAndSupportPage();
+          case Routes.customerSupport:
+            return const CustomerSupportScreen();
           default:
             return const SizedBox.shrink();
         }

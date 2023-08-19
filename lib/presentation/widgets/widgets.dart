@@ -10,5 +10,6 @@ export 'alert_dialog.dart';
 export './tabs.dart';
 export './menu_drawer/menu_drawer.dart';
 export 'new_password_field.dart';
+export './or_option.dart';
 
 export './extensions/extensions.dart';

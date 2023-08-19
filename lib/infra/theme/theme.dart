@@ -26,6 +26,9 @@ class AppTheme {
           systemOverlayStyle: SystemUiOverlayStyle(
             statusBarBrightness: Brightness.dark,
           ),
+          backgroundColor: Colors.white,
+          centerTitle: true,
+          elevation: 0,
         ),
         fontFamily: 'Inter',
         textTheme: TextTheme(

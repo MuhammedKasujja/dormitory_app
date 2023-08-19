@@ -43,6 +43,8 @@ dependencies:
   flutter_chat_ui: ^1.6.9
   file_picker: ^5.3.3
   country_calling_code_picker: ^2.0.1
+  flutter_native_splash: ^2.3.2
+  expandable: ^5.0.1
 
 dev_dependencies:
   flutter_test:
@@ -58,3 +60,9 @@ flutter:
     - assets/images/
     - assets/translations/
     - assets/messages.json
+
+
+flutter_native_splash:
+  color: "#F1C111"
+  image: assets/images/splash_screen.png
+  android_12: null

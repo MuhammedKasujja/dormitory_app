@@ -15,4 +15,10 @@ class AppColors {
   static Color backgroundLight = const Color(0xFFFAFAFB);
   static Color iconLight = const Color(0xFFC3C6D2);
   static Color success = const Color(0xFF2ABB7A);
+
+  // styles names from figma design
+  static Color text500 = const Color(0xFF111217);
+  static Color text400 = const Color(0xFF444A5B);
+  static Color text300 = const Color(0xFF90949E);
+  static Color text200 = const Color(0xFF666F89);
 }

@@ -2,7 +2,8 @@ import 'package:dormitory_app/infra/infra.dart';
 import 'package:flutter/material.dart';
 
 class ORWidget extends StatelessWidget {
-  const ORWidget({super.key});
+  final bool captalize;
+  const ORWidget({super.key, this.captalize = false});
 
   @override
   Widget build(BuildContext context) {
@@ -17,7 +18,14 @@ class ORWidget extends StatelessWidget {
         ),
         Padding(
           padding: EdgeInsets.symmetric(horizontal: 24.w),
-          child:  const Text('Or'),
+          child: Text(
+            captalize ? 'OR' : 'Or',
+            style: TextStyle(
+              color: AppColors.text300,
+              fontSize: 14.sp,
+              height: 1.57,
+            ),
+          ),
         ),
         Expanded(
           child: Divider(

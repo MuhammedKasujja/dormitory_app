@@ -21,16 +21,31 @@ class CustomerSupportScreen extends StatelessWidget {
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               const SizedBox().medium(),
-              const Text('''We are committed to providing exceptional customer support every step of the way. Our dedicated team is here to assist you with any queries or concerns you may have.''').secondary(),
+              const Text(
+                      '''We are committed to providing exceptional customer support every step of the way. Our dedicated team is here to assist you with any queries or concerns you may have.''')
+                  .secondary(),
               const SizedBox().large(),
-              const ContactUsOption(name: 'Chat Us', icon: Icon(Icons.message_rounded)),
+              const ContactUsOption(
+                  name: 'Chat Us', icon: Icon(Icons.message_rounded)),
+              const SizedBox().medium(),
               const ORWidget(captalize: true),
-              const ContactUsOption(name: 'Call Us', icon: Icon(Icons.call)),
-              const ContactUsOption(name: 'Email us at', icon: Icon(Icons.email)),
+              const SizedBox().medium(),
+              const ContactUsOption(
+                name: 'Call Us',
+                icon: Icon(Icons.call),
+                value: '0804637376747',
+              ),
+              const SizedBox().medium(),
+               ContactUsOption(
+                name: 'Email us at',
+                icon: SvgPicture.string(Assets.supportIcon),
+                value: 'support@paramountstudents.com',
+              ),
               const SizedBox().large(),
               const ORWidget(captalize: true),
               const SizedBox().large(),
-              const Text('Complete this form to help us address your issues.').description(),
+              const Text('Complete this form to help us address your issues.')
+                  .description(),
               CustomTextfield(
                 onChange: (value) {},
                 label: '',

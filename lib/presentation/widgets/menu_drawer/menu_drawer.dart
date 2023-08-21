@@ -40,7 +40,10 @@ class _MenuDrawerState extends State<MenuDrawer> {
                   const DrawerItem(
                       title: 'Favourite Search', icon: Icons.star_outlined),
                   const DrawerItem(
-                      title: 'Payment Methods', icon: Icons.wallet),
+                    title: 'Payment Methods',
+                    icon: Icons.wallet,
+                    route: Routes.paymentMethods,
+                  ),
                   const SizedBox().medium(),
                   const Divider(),
                   const SizedBox().medium(),

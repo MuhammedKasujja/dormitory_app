@@ -33,6 +33,10 @@ class Routes {
   static const String faqs = "/helpAndSupport/faqs";
   static const String customerSupport = "/helpAndSupport/customer";
   // helpAndSupport routes end
+
+  //
+  static const String paymentMethods = "/paymentMethods";
+  static const String addPaymentMethods = "/paymentMethods/add";
 }
 
 Route onGenerateRoute(RouteSettings settings) => _fadeThrough(
@@ -83,6 +87,12 @@ Route onGenerateRoute(RouteSettings settings) => _fadeThrough(
             return const HelpAndSupportPage();
           case Routes.customerSupport:
             return const CustomerSupportScreen();
+
+          case Routes.paymentMethods:
+            return const PaymentMethodsPage();
+
+          case Routes.addPaymentMethods:
+            return const AddPaymentCardScreen();
           default:
             return const SizedBox.shrink();
         }

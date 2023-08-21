@@ -45,6 +45,7 @@ dependencies:
   country_calling_code_picker: ^2.0.1
   flutter_native_splash: ^2.3.2
   expandable: ^5.0.1
+  iconsax: ^0.0.8
 
 dev_dependencies:
   flutter_test:

@@ -25,20 +25,22 @@ class CustomerSupportScreen extends StatelessWidget {
                       '''We are committed to providing exceptional customer support every step of the way. Our dedicated team is here to assist you with any queries or concerns you may have.''')
                   .secondary(),
               const SizedBox().large(),
-              const ContactUsOption(
-                  name: 'Chat Us', icon: Icon(Icons.message_rounded)),
+              ContactUsOption(
+                name: 'Chat Us',
+                iconPath: Assets.chatIcon,
+              ),
               const SizedBox().medium(),
               const ORWidget(captalize: true),
               const SizedBox().medium(),
-              const ContactUsOption(
+              ContactUsOption(
                 name: 'Call Us',
-                icon: Icon(Icons.call),
+                iconPath:Assets.callIcon,
                 value: '0804637376747',
               ),
               const SizedBox().medium(),
-               ContactUsOption(
+              ContactUsOption(
                 name: 'Email us at',
-                icon: SvgPicture.string(Assets.supportIcon),
+                iconPath: Assets.supportIcon,
                 value: 'support@paramountstudents.com',
               ),
               const SizedBox().large(),

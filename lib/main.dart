@@ -11,10 +11,12 @@ void main() async {
     EasyLocalization(
       supportedLocales: const [
         Locale('en'),
+        Locale('tr'),
         ...FormBuilderLocalizations.supportedLocales
       ],
       path: Assets.translations, // path of the translation files
       fallbackLocale: const Locale('en'),
+      startLocale: const Locale('en'),
       useFallbackTranslations: true,
       child: const AppPage(),
     ),

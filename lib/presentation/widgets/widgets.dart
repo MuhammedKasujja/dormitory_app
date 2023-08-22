@@ -12,5 +12,6 @@ export './menu_drawer/menu_drawer.dart';
 export 'new_password_field.dart';
 export './or_option.dart';
 export './secondary_button.dart';
+export './bottom_sheet.dart';
 
 export './extensions/extensions.dart';

@@ -1,4 +1,5 @@
 import 'package:dormitory_app/infra/infra.dart';
+import 'package:dormitory_app/presentation/pages/pages.dart';
 import 'package:dormitory_app/presentation/widgets/widgets.dart';
 import 'package:flutter/material.dart';
 
@@ -41,7 +42,7 @@ class ProfilePage extends StatelessWidget {
                     child: SizedBox(
                       width: 150.w,
                       child: CustomButton(
-                          onPressed: () {}, label: 'Complete Profile'),
+                          onPressed: () {_showBottomSheet(context);}, label: 'Complete Profile'),
                     ),
                   ),
                   const SizedBox().medium(),
@@ -62,6 +63,28 @@ class ProfilePage extends StatelessWidget {
           ],
         ),
       ),
+    );
+  }
+
+  Future<void> _showBottomSheet(BuildContext context) {
+    return showModalBottomSheet(
+      context: context,
+      isScrollControlled: true,
+      backgroundColor: Colors.white,
+      shape: RoundedRectangleBorder(
+        borderRadius: BorderRadius.vertical(
+          top: Radius.circular(16.r),
+        ),
+      ),
+      builder: (context) {
+        return BaseBottomSheet(title: 'OTP Verification', content: Column(
+          children: [
+            const OTPVerificationForm(),
+            const SizedBox().scaleHeight(120),
+            CustomButton(onPressed: (){}, label: 'Continue')
+          ],
+        ),);
+      },
     );
   }
 }

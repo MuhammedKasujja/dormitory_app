@@ -18,7 +18,7 @@ void main() async {
       fallbackLocale: const Locale('en'),
       startLocale: const Locale('en'),
       useFallbackTranslations: true,
-      child: const AppPage(),
+      child: const App(),
     ),
   );
 }

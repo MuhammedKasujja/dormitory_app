@@ -8,8 +8,8 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 
 import 'logic/cubits/cubits.dart';
 
-class AppPage extends StatelessWidget {
-  const AppPage({super.key});
+class App extends StatelessWidget {
+  const App({super.key});
 
   @override
   Widget build(BuildContext context) {

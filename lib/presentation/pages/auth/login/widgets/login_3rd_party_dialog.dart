@@ -16,72 +16,67 @@ class Login3rdPartyDialog extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return AlertDialog(
-      backgroundColor: Colors.transparent,
-      content: Container(
-        padding: EdgeInsets.all(20.r),
-        decoration: BoxDecoration(
-          color: Colors.white,
-          borderRadius: BorderRadius.circular(10.r),
-        ),
-        child: Column(
-          mainAxisSize: MainAxisSize.min,
-          children: [
-            Center(
-              child: Text(
-                title,
-                textAlign: TextAlign.center,
-                style: TextStyle(
-                  fontSize: 16.sp,
-                  color: AppColors.text1,
-                  fontWeight: FontWeight.w700,
-                ),
+      backgroundColor: Colors.white,
+       contentPadding: EdgeInsets.all(20.r),
+      shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(10.r)),
+      content: Column(
+        mainAxisSize: MainAxisSize.min,
+        children: [
+          Center(
+            child: Text(
+              title,
+              textAlign: TextAlign.center,
+              style: TextStyle(
+                fontSize: 16.sp,
+                color: AppColors.text1,
+                fontWeight: FontWeight.w700,
               ),
             ),
-            const SizedBox().scaleHeight(12),
-            Center(
-              child: Text(
-                body,
-                textAlign: TextAlign.center,
-                style: TextStyle(
-                  color: AppColors.text2,
-                  fontWeight: FontWeight.w400,
-                  fontSize: 12.sp,
-                ),
+          ),
+          const SizedBox().scaleHeight(12),
+          Center(
+            child: Text(
+              body,
+              textAlign: TextAlign.center,
+              style: TextStyle(
+                color: AppColors.text2,
+                fontWeight: FontWeight.w400,
+                fontSize: 12.sp,
               ),
             ),
-            const SizedBox().medium(),
-            Row(
-              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-              children: [
-                TextButton(
-                  onPressed: () => Navigator.pop(context),
-                  child: Text(
-                    'Cancel',
-                    style: TextStyle(
-                      fontWeight: FontWeight.w600,
-                      fontSize: 14.sp,
-                      color: AppColors.textSecondary,
-                    ),
+          ),
+          const SizedBox().medium(),
+          Row(
+            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+            children: [
+              TextButton(
+                onPressed: () => Navigator.pop(context),
+                child: Text(
+                  'Cancel',
+                  style: TextStyle(
+                    fontWeight: FontWeight.w600,
+                    fontSize: 14.sp,
+                    color: AppColors.textSecondary,
                   ),
                 ),
-                TextButton(
-                  onPressed: () {
-                    Navigator.pop(context);
-                    onAction();
-                  },
-                  child: Text(
-                    'Continue',
-                    style: TextStyle(
-                      fontWeight: FontWeight.w600,
-                      fontSize: 14.sp,
-                      color: AppColors.textSecondary,
-                    ),
+              ),
+              TextButton(
+                onPressed: () {
+                  Navigator.pop(context);
+                  onAction();
+                },
+                child: Text(
+                  'Continue',
+                  style: TextStyle(
+                    fontWeight: FontWeight.w600,
+                    fontSize: 14.sp,
+                    color: AppColors.textSecondary,
                   ),
-                )
-              ],
-            )
-          ],
-        ),
+                ),
+              )
+            ],
+          )
+        ],
       ),
     );
   }

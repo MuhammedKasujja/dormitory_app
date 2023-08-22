@@ -23,6 +23,9 @@ class Routes {
   static const String softwareLicence = "/legal/softwareLicence";
   // legal routes end
 
+  //
+  static const String profile = "/profile";
+
   // settings routes begin
   static const String settings = "settings";
   static const String notificationSettings = "/settings/notifications";
@@ -93,6 +96,9 @@ Route onGenerateRoute(RouteSettings settings) => _fadeThrough(
 
           case Routes.addPaymentMethods:
             return const AddPaymentCardScreen();
+
+          case Routes.profile:
+            return const ProfilePage();
           default:
             return const SizedBox.shrink();
         }

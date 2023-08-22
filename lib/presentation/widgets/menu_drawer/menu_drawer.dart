@@ -27,7 +27,7 @@ class _MenuDrawerState extends State<MenuDrawer> {
                   const DrawerItem(
                     title: 'Profile',
                     icon: Icons.account_circle,
-                    route: Routes.chatting,
+                    route: Routes.profile,
                   ),
                   const DrawerItem(
                       title: 'Booking Activity', icon: Icons.timer),

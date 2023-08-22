@@ -2,6 +2,7 @@ import 'package:dormitory_app/infra/infra.dart';
 import 'package:dormitory_app/presentation/widgets/widgets.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:flutter_svg/flutter_svg.dart';
 
 import '../cubit/add_payment_card_cubit.dart';
 import 'form_add_edit_payment_card.dart';
@@ -49,13 +50,26 @@ class EditPaymentcard extends StatelessWidget {
             ),
             const Divider(thickness: 1, height: 1),
             Padding(
-              padding:  EdgeInsets.fromLTRB(16.r,16.r,16.r, 0),
+              padding: EdgeInsets.fromLTRB(16.r, 16.r, 16.r, 0),
               child: const AddEditPaymentCardForm(),
             ),
             Padding(
-              padding:  EdgeInsets.fromLTRB(16.r, 40.r, 16.r, 0),
+              padding: EdgeInsets.fromLTRB(16.r, 40.r, 16.r, 0),
               child: CustomButton(
-                onPressed: () {},
+                onPressed: () {
+                  Navigator.pop(context);
+                  showDialog(
+                    useRootNavigator: true,
+                    context: context,
+                    builder: (ctx) => AppAlertDialog(
+                      btnText: 'Close',
+                      icon: SvgPicture.string(
+                        Assets.accountVerifiedIcon,
+                      ),
+                      title: 'Card Edited Sucessfully',
+                    ),
+                  );
+                },
                 label: 'Save',
               ),
             ),

@@ -88,7 +88,6 @@ class RemovePaymentCardDialog extends StatelessWidget {
                   Flexible(
                     child: CustomButton(
                       onPressed: () {
-                        // TODO fix dialog closing parent page when dialog closes
                         Navigator.pop(context);
                         showDialog(
                           useRootNavigator: true,
@@ -99,7 +98,6 @@ class RemovePaymentCardDialog extends StatelessWidget {
                               Assets.accountVerifiedIcon,
                             ),
                             title: 'Card Removed Sucessfully',
-                            onAction: () => Navigator.pop(ctx),
                           ),
                         );
                       },

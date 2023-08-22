@@ -8,13 +8,15 @@ class AppAlertDialog extends StatelessWidget {
   final String? body;
   final Function? onAction;
   final String btnText;
+  final bool isNotification;
   const AppAlertDialog({
     super.key,
     required this.icon,
     required this.title,
     this.body,
-    required this.onAction,
+     this.onAction,
     required this.btnText,
+    this.isNotification = false,
   });
 
   @override
@@ -36,9 +38,11 @@ class AppAlertDialog extends StatelessWidget {
             title,
             textAlign: TextAlign.center,
             style: TextStyle(
-              fontSize: 20.sp,
+              fontSize: isNotification ? 16.sp : 20.sp,
+              height: 1.15,
               color: AppColors.text1,
-              fontWeight: FontWeight.w700,
+              fontWeight: isNotification ? FontWeight.w600 : FontWeight.w700,
+              letterSpacing: -0.2.sp,
             ),
           ),
           ..._buildBody(),

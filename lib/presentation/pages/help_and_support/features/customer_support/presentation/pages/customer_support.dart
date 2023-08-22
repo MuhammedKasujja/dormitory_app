@@ -72,6 +72,7 @@ class CustomerSupportScreen extends StatelessWidget {
                   showDialog(
                     context: context,
                     builder: (ctx) => AppAlertDialog(
+                      isNotification: true,
                       btnText: 'Close',
                       icon: SvgPicture.string(Assets.accountVerifiedIcon),
                       title:

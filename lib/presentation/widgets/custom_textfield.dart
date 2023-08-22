@@ -10,6 +10,7 @@ class CustomTextfield extends StatelessWidget {
   final bool isRequired;
   final String? errorText;
   final bool disabled;
+  final String? initialValue;
   const CustomTextfield({
     Key? key,
     required this.onChange,
@@ -19,6 +20,7 @@ class CustomTextfield extends StatelessWidget {
     this.isRequired = true,
     this.errorText,
     this.disabled = false,
+    this.initialValue,
   }) : super(key: key);
 
   @override
@@ -26,12 +28,13 @@ class CustomTextfield extends StatelessWidget {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        Text(label).label(hasError: errorText!= null),
+        Text(label).label(hasError: errorText != null),
         SizedBox(
           height: 8.h,
         ),
-        TextField(
+        TextFormField(
           key: Key(label),
+          initialValue: initialValue,
           textInputAction: TextInputAction.next,
           onChanged: onChange,
           keyboardType: inputType,
@@ -42,12 +45,12 @@ class CustomTextfield extends StatelessWidget {
             color: Theme.of(context).colorScheme.secondary,
           ),
           decoration: InputDecoration(
-            // isDense: true,
+            isDense: true,
             // remove un neccessary padding using negative value
-            contentPadding: const EdgeInsets.symmetric(
-              vertical: -10,
-              horizontal: 10,
-            ),
+            // contentPadding: const EdgeInsets.symmetric(
+            //   vertical: -10,
+            //   horizontal: 10,
+            // ),
             hintText: hint,
             errorText: errorText,
             hintStyle: TextStyle(

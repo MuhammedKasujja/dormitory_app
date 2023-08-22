@@ -3,6 +3,7 @@ import 'package:dormitory_app/presentation/widgets/widgets.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 
+import '../../add_payment_card/presentation/widgets/widgets.dart';
 import '../../data/models/models.dart';
 
 class PaymentCardItem extends StatelessWidget {
@@ -12,7 +13,7 @@ class PaymentCardItem extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return InkWell(
-      onTap: () {},
+      onTap: () => _showBottomSheet(context),
       child: Padding(
         padding: EdgeInsets.all(16.r),
         child: Row(
@@ -21,11 +22,12 @@ class PaymentCardItem extends StatelessWidget {
               width: 58.w,
               height: 40.h,
               decoration: BoxDecoration(
-                  borderRadius: BorderRadius.circular(6.r),
-                  border: Border.all(
-                    color: AppColors.divider,
-                    width: .8,
-                  )),
+                borderRadius: BorderRadius.circular(6.r),
+                border: Border.all(
+                  color: AppColors.divider,
+                  width: .8,
+                ),
+              ),
               child: SvgPicture.string(
                 cardModel.type == PaymentCardType.visa
                     ? Assets.visaIcon
@@ -60,6 +62,21 @@ class PaymentCardItem extends StatelessWidget {
           ],
         ),
       ),
+    );
+  }
+
+  Future<void> _showBottomSheet(BuildContext context) {
+    return showModalBottomSheet(
+      context: context,
+      backgroundColor: Colors.white,
+      shape: RoundedRectangleBorder(
+        borderRadius: BorderRadius.vertical(
+          top: Radius.circular(16.r),
+        ),
+      ),
+      builder: (context) {
+        return const EditRemoveCardOptionsDialog();
+      },
     );
   }
 }

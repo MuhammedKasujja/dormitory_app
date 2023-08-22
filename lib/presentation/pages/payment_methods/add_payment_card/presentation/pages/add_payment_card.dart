@@ -1,5 +1,4 @@
 import 'package:dormitory_app/infra/infra.dart';
-import 'package:dormitory_app/presentation/pages/country_codes/country_codes.dart';
 import 'package:dormitory_app/presentation/widgets/widgets.dart';
 import 'package:dormitory_app/utils/utils.dart';
 import 'package:flutter/material.dart';
@@ -8,6 +7,7 @@ import 'package:flutter_svg/flutter_svg.dart';
 import 'package:formz/formz.dart';
 
 import '../cubit/add_payment_card_cubit.dart';
+import '../widgets/widgets.dart';
 
 class AddPaymentCardScreen extends StatelessWidget {
   const AddPaymentCardScreen({super.key});
@@ -22,110 +22,49 @@ class AddPaymentCardScreen extends StatelessWidget {
         create: (context) => AddPaymentCardCubit(),
         child: Padding(
           padding: EdgeInsets.fromLTRB(16.r, 24.r, 16.r, 16.r),
-          child: Column(
-            children: [
-              Expanded(
-                child: SingleChildScrollView(
-                  child: Column(
-                    children: [
-                      BlocBuilder<AddPaymentCardCubit, AddPaymentCardState>(
-                        builder: (context, state) {
-                          return CustomTextfield(
-                            onChange: context
-                                .read<AddPaymentCardCubit>()
-                                .onCardNumberChanged,
-                            label: 'Card Number',
-                            hint: '0000  0000 0000 0000',
-                            errorText: state.cardNumber.displayError != null
-                                ? 'Card number is required'
-                                : null,
-                          );
-                        },
-                      ),
-                      const SizedBox().medium(),
-                      Row(
-                        children: [
-                          Flexible(
-                            child: BlocBuilder<AddPaymentCardCubit,
-                                AddPaymentCardState>(
-                              builder: (context, state) {
-                                return CustomTextfield(
-                                  onChange: context
-                                      .read<AddPaymentCardCubit>()
-                                      .onExpiryDateChanged,
-                                  label: "Expiry Date",
-                                  hint: 'MM/YY',
-                                );
-                              },
-                            ),
-                          ),
-                          SizedBox(width: 16.r),
-                          Flexible(child: BlocBuilder<AddPaymentCardCubit,
-                              AddPaymentCardState>(
-                            builder: (context, state) {
-                              return CustomTextfield(
-                                onChange: context
-                                    .read<AddPaymentCardCubit>()
-                                    .onCCVChanged,
-                                label: "CCV",
-                                hint: '123',
-                              );
-                            },
-                          )),
-                        ],
-                      ),
-                      const SizedBox().medium(),
-                      const CountryDropdown(),
-                      const SizedBox().medium(),
-                      BlocBuilder<AddPaymentCardCubit, AddPaymentCardState>(
-                        builder: (context, state) {
-                          return CustomTextfield(
-                            onChange: context
-                                .read<AddPaymentCardCubit>()
-                                .onZipCodeChanged,
-                            label: 'Zip Code',
-                            hint: 'Enter Zip code',
-                          );
-                        },
-                      )
-                    ],
+          child: BlocListener<AddPaymentCardCubit, AddPaymentCardState>(
+            listener: (context, state) {
+              if (state.status.isSuccess) {
+                showDialog(
+                  context: context,
+                  builder: (ctx) => AppAlertDialog(
+                    btnText: 'Close',
+                    icon: SvgPicture.string(
+                      Assets.accountVerifiedIcon,
+                    ),
+                    title: 'Card Added Sucessfully',
+                    onAction: () => Navigator.pop(context),
+                  ),
+                );
+              } else if (state.status.isFailure) {
+                Utility.showAlert(state.errorMessage);
+              }
+            },
+            child: Column(
+              children: [
+                const Expanded(
+                  child: SingleChildScrollView(
+                    child: AddEditPaymentCardForm(),
                   ),
                 ),
-              ),
-              const SizedBox().small(),
-              BlocConsumer<AddPaymentCardCubit, AddPaymentCardState>(
-                listener: (context, state) {
-                  if (state.status.isSuccess) {
-                    showDialog(
-                      context: context,
-                      builder: (ctx) => AppAlertDialog(
-                        btnText: 'Close',
-                        icon: SvgPicture.string(
-                          Assets.accountVerifiedIcon,
-                        ),
-                        title: 'Card Added Sucessfully',
-                        onAction: () => Navigator.pop(context),
-                      ),
+                const SizedBox().small(),
+                BlocBuilder<AddPaymentCardCubit, AddPaymentCardState>(
+                  builder: (context, state) {
+                    return CustomButton(
+                      loading: state.status.isInProgress,
+                      label: 'Save',
+                      onPressed: state.isValid
+                          ? () {
+                              context
+                                  .read<AddPaymentCardCubit>()
+                                  .onAddPaymentCardSubmitted();
+                            }
+                          : null,
                     );
-                  } else if (state.status.isFailure) {
-                    Utility.showAlert(state.errorMessage);
-                  }
-                },
-                builder: (context, state) {
-                  return CustomButton(
-                    loading: state.status.isInProgress,
-                    label: 'Save',
-                    onPressed: state.isValid
-                        ? () {
-                            context
-                                .read<AddPaymentCardCubit>()
-                                .onAddPaymentCardSubmitted();
-                          }
-                        : null,
-                  );
-                },
-              ),
-            ],
+                  },
+                ),
+              ],
+            ),
           ),
         ),
       ),

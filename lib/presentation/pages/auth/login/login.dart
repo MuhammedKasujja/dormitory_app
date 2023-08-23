@@ -1,11 +1,13 @@
 import 'package:dormitory_app/infra/infra.dart';
-import 'package:dormitory_app/presentation/pages/auth/sign_up/widgets/sign_up_form.dart';
+import 'package:dormitory_app/presentation/pages/auth/auth.dart';
 import 'package:dormitory_app/presentation/router/router.dart';
 import 'package:dormitory_app/presentation/widgets/widgets.dart';
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 
+import '../sign_up/widgets/sign_up_form.dart';
 import 'widgets/widgets.dart';
 
 class LoginPage extends StatefulWidget {
@@ -73,7 +75,10 @@ class _LoginPageState extends State<LoginPage> {
                         ))
                   ],
                   recognizer: TapGestureRecognizer()
-                    ..onTap = () => Navigator.pushNamed(context, Routes.home),
+                    ..onTap = () {
+                      context.read<AuthBloc>().add(const AuthLoginAsGuest());
+                      Navigator.pushNamed(context, Routes.home);
+                    },
                 ),
                 style: TextStyle(
                   fontWeight: FontWeight.w600,

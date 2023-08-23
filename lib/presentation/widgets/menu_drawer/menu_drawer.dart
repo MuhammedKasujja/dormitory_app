@@ -4,14 +4,9 @@ import 'package:flutter/material.dart';
 
 import 'components/components.dart';
 
-class MenuDrawer extends StatefulWidget {
+class MenuDrawer extends StatelessWidget {
   const MenuDrawer({Key? key}) : super(key: key);
 
-  @override
-  State<MenuDrawer> createState() => _MenuDrawerState();
-}
-
-class _MenuDrawerState extends State<MenuDrawer> {
   @override
   Widget build(BuildContext context) {
     return Drawer(
@@ -70,7 +65,6 @@ class _MenuDrawerState extends State<MenuDrawer> {
             ),
           ),
           const LogoutIcon(),
-          const SizedBox().medium(),
         ],
       ),
     );

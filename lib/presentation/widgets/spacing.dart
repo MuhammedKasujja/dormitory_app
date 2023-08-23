@@ -1,14 +1,14 @@
+import 'package:dormitory_app/infra/infra.dart';
 import 'package:flutter/material.dart';
 
-class Spacing extends StatelessWidget {
-  const Spacing({super.key});
+class Spacing {
+  Spacing._();
 
-  // factory Spacing.small(){
-    // return this.createElement()
-  // }
+  static final small = SizedBox(height: 16.h);
 
-  @override
-  Widget build(BuildContext context) {
-    return const Placeholder();
-  }
+  static final medium = SizedBox(height: 24.h);
+
+  static final large = SizedBox(height: 40.h);
+
+  static fromHeight(double height) => SizedBox(height: height.h);
 }

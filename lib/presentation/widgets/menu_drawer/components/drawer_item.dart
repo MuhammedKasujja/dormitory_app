@@ -6,7 +6,8 @@ class DrawerItem extends StatelessWidget {
   final IconData icon;
   final String? route;
   final bool isLogout;
-  const DrawerItem({super.key, 
+  const DrawerItem({
+    super.key,
     required this.title,
     required this.icon,
     this.route,
@@ -19,6 +20,14 @@ class DrawerItem extends StatelessWidget {
       onTap: () {
         Navigator.pop(context);
         if (route != null) {
+          if (isLogout) {
+            Navigator.pushNamedAndRemoveUntil(
+              context,
+              route!,
+              (route) => false,
+            );
+            return;
+          }
           Navigator.pushNamed(context, route!);
         }
       },

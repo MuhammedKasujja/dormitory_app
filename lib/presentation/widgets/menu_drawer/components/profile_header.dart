@@ -1,7 +1,9 @@
 import 'package:dormitory_app/infra/infra.dart';
+import 'package:dormitory_app/presentation/pages/auth/auth.dart';
 import 'package:dormitory_app/presentation/widgets/extensions/extensions.dart';
 import 'package:dormitory_app/presentation/widgets/image_loader.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 
 class ProfileHeader extends StatelessWidget {
   const ProfileHeader({super.key});
@@ -13,39 +15,51 @@ class ProfileHeader extends StatelessWidget {
       height: 250.h,
       color: Colors.black,
       width: double.infinity,
-      child: Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: [
-          ClipRRect(
-            borderRadius: BorderRadius.circular(50.r),
-            child: SizedBox(
-              width: 64.w,
-              height: 64.r,
-              child: ImageLoader(
-                imageUrl:
-                    'https://static.vecteezy.com/system/resources/thumbnails/019/900/322/small/happy-young-cute-illustration-face-profile-png.png',
-                placeholderImage: Assets.logo,
+      child: BlocBuilder<AuthBloc, AuthState>(
+        builder: (context, state) {
+          return Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              Container(
+                decoration: BoxDecoration(
+                  borderRadius: BorderRadius.circular(50.r),
+                  color: AppColors.background,
+                ),
+                child: SizedBox(
+                  width: 64.w,
+                  height: 64.w,
+                  child: ImageLoader(
+                    imageUrl: state.status.isAuthenticated
+                        ? state.user!.photoUrl != null
+                            ? state.user!.photoUrl!
+                            : ''
+                        : '',
+                    placeholderImage: Assets.missingProfile,
+                  ),
+                ),
               ),
-            ),
-          ),
-          const SizedBox().small(),
-          Text(
-            'Victor Emokpare',
-            style: TextStyle(
-              fontSize: 20.sp,
-              fontWeight: FontWeight.w600,
-              color: Colors.white,
-            ),
-          ),
-          Text(
-            'victoremokpare@example.com',
-            style: TextStyle(
-              fontSize: 12.sp,
-              fontWeight: FontWeight.w400,
-              color: const Color(0xFFC3C6D2),
-            ),
-          ),
-        ],
+              const SizedBox().small(),
+              Text(
+                state.user != null ? state.user!.name : 'Guest',
+                style: TextStyle(
+                  fontSize: 20.sp,
+                  fontWeight: FontWeight.w600,
+                  color: Colors.white,
+                ),
+              ),
+              state.status.isAuthenticated
+                  ? Text(
+                      state.user!.email,
+                      style: TextStyle(
+                        fontSize: 12.sp,
+                        fontWeight: FontWeight.w400,
+                        color: const Color(0xFFC3C6D2),
+                      ),
+                    )
+                  : const SizedBox.shrink(),
+            ],
+          );
+        },
       ),
     );
   }

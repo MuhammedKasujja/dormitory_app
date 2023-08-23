@@ -21,20 +21,20 @@ class _CountryCodesDropdownState extends State<CountryCodesDropdown> {
 
   @override
   Widget build(BuildContext context) {
-    return BlocBuilder<CountryCodesCubit, CountryCodesState>(
-      builder: (context, state) {
-        if (state.selectedCountry == null) {
-          return const SizedBox.shrink();
-        }
-        return Container(
-          height: 48.h,
-          width: 94.w,
-          decoration: BoxDecoration(
-            color: AppColors.backgroundLight,
-            borderRadius: BorderRadius.circular(8.r),
-            border: Border.all(color: AppColors.divider),
-          ),
-          child: Center(
+    return Container(
+      height: 48,
+      width: 94,
+      decoration: BoxDecoration(
+        color: AppColors.backgroundLight,
+        borderRadius: BorderRadius.circular(8.r),
+        border: Border.all(color: AppColors.divider),
+      ),
+      child: BlocBuilder<CountryCodesCubit, CountryCodesState>(
+        builder: (context, state) {
+          if (state.selectedCountry == null) {
+            return const SizedBox.shrink();
+          }
+          return Center(
             child: DropdownButton<String>(
               underline: const SizedBox.shrink(),
               value: state.selectedCountry!.countryCode,
@@ -71,9 +71,9 @@ class _CountryCodesDropdownState extends State<CountryCodesDropdown> {
               onChanged: (country) =>
                   context.read<CountryCodesCubit>().onCountrySelected(country),
             ),
-          ),
-        );
-      },
+          );
+        },
+      ),
     );
   }
 }

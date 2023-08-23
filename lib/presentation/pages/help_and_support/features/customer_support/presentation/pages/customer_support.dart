@@ -1,6 +1,8 @@
 import 'package:dormitory_app/infra/infra.dart';
+import 'package:dormitory_app/presentation/pages/auth/auth.dart';
 import 'package:dormitory_app/presentation/widgets/widgets.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 
 import '../widgets/contact_us_option.dart';
@@ -34,7 +36,7 @@ class CustomerSupportScreen extends StatelessWidget {
               const SizedBox().medium(),
               ContactUsOption(
                 name: 'Call Us',
-                iconPath:Assets.callIcon,
+                iconPath: Assets.callIcon,
                 value: '0804637376747',
               ),
               const SizedBox().medium(),
@@ -48,11 +50,18 @@ class CustomerSupportScreen extends StatelessWidget {
               const SizedBox().large(),
               const Text('Complete this form to help us address your issues.')
                   .description(),
-              CustomTextfield(
-                onChange: (value) {},
-                label: '',
-                hint: 'wajahat.sheikh@yahoo.com',
-                inputType: TextInputType.emailAddress,
+              BlocBuilder<AuthBloc, AuthState>(
+                builder: (context, state) {
+                  if(state.status.isAuthenticated){
+                    return const SizedBox.shrink();
+                  }
+                  return CustomTextfield(
+                    onChange: (value) {},
+                    label: '',
+                    hint: 'wajahat.sheikh@yahoo.com',
+                    inputType: TextInputType.emailAddress,
+                  );
+                },
               ),
               CustomTextfield(
                 onChange: (value) {},

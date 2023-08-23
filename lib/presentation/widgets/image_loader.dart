@@ -24,8 +24,8 @@ class ImageLoader extends StatelessWidget {
       },
       errorBuilder:
           (BuildContext context, Object error, StackTrace? stackTrace) {
-        return Image.asset(
-            placeholderImage); // Display a placeholder image on error
+        // Display a placeholder image on error
+        return Image.asset(placeholderImage);
       },
     );
   }

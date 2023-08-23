@@ -29,7 +29,7 @@ class MenuDrawer extends StatelessWidget {
                   const DrawerItem(
                       title: 'My Vouchers', icon: Icons.calendar_view_day),
                   const SizedBox().medium(),
-                  const Divider(),
+                  const Divider(height: 0.8),
                   const SizedBox().medium(),
                   const DrawerItem(title: 'Saved Dorms', icon: Icons.bookmark),
                   const DrawerItem(
@@ -40,7 +40,7 @@ class MenuDrawer extends StatelessWidget {
                     route: Routes.paymentMethods,
                   ),
                   const SizedBox().medium(),
-                  const Divider(),
+                 const Divider(height: 0.8),
                   const SizedBox().medium(),
                   const DrawerItem(
                     title: 'Help and Support',
@@ -58,7 +58,7 @@ class MenuDrawer extends StatelessWidget {
                     route: Routes.legal,
                   ),
                   const SizedBox().medium(),
-                  const Divider(),
+                  const Divider(height: 0.8),
                   const SizedBox().medium(),
                 ],
               ),

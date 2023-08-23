@@ -11,6 +11,7 @@ class UserModel extends Equatable {
   final String telephone;
   final String? dateOfBirth;
   final String? gender;
+  final String? photoUrl;
   final UniversityModel? university;
   const UserModel({
     required this.id,
@@ -21,6 +22,7 @@ class UserModel extends Equatable {
     required this.telephone,
     this.dateOfBirth,
     this.gender,
+    this.photoUrl,
     this.university,
   });
 
@@ -34,6 +36,7 @@ class UserModel extends Equatable {
       'telephone': telephone,
       'dateOfBirth': dateOfBirth,
       'gender': gender,
+      'photoUrl': photoUrl,
       'university': university?.toMap(),
     };
   }
@@ -48,6 +51,7 @@ class UserModel extends Equatable {
       telephone: map['telephone'],
       dateOfBirth:map['dateOfBirth'],
       gender: map['gender'],
+      photoUrl: map['photoUrl'],
       university: map['university'] != null ? UniversityModel.fromMap(map['university'] as Map<String,dynamic>) : null,
     );
   }
@@ -56,9 +60,11 @@ class UserModel extends Equatable {
 
   factory UserModel.fromJson(String source) => UserModel.fromMap(json.decode(source) as Map<String, dynamic>);
 
+  String get name => '$firstname $lastname'; 
+
   @override
   bool get stringify => true;
-
+  
   @override
   List<Object?> get props {
     return [
@@ -70,6 +76,7 @@ class UserModel extends Equatable {
       telephone,
       dateOfBirth,
       gender,
+      photoUrl,
       university,
     ];
   }

@@ -1,12 +1,16 @@
 import 'package:bloc/bloc.dart';
+import 'package:dormitory_app/presentation/pages/auth/data/models/models.dart';
 import 'package:equatable/equatable.dart';
 import 'package:formz/formz.dart';
 import 'package:dormitory_app/validations/validations.dart';
+
+import '../../data/repositories/auth_repository.dart';
 part 'login_event.dart';
 part 'login_state.dart';
 
 class LoginBloc extends Bloc<LoginEvent, LoginState> {
-  LoginBloc() : super(const LoginState()) {
+  final AuthRepository authRepository;
+  LoginBloc({required this.authRepository}) : super(const LoginState()) {
     on<LoginUsernameChanged>(_onUsernameChanged);
     on<LoginPasswordChanged>(_onPasswordChanged);
     on<LoginRememberPasswordChanged>(_onRemeberPasswordToggled);
@@ -31,7 +35,7 @@ class LoginBloc extends Bloc<LoginEvent, LoginState> {
     LoginPasswordChanged event,
     Emitter<LoginState> emit,
   ) {
-    final password = Password.dirty(event.password);
+    final password = RequiredField.dirty(event.password);
     emit(
       state.copyWith(
         password: password,
@@ -66,14 +70,25 @@ class LoginBloc extends Bloc<LoginEvent, LoginState> {
   ) async {
     if (state.isValid) {
       emit(state.copyWith(status: FormzSubmissionStatus.inProgress));
+      await Future.delayed(const Duration(seconds: 5));
       try {
-        // await _authenticationRepository.logIn(
-        //   username: state.username.value,
-        //   password: state.password.value,
-        // );
-        emit(state.copyWith(status: FormzSubmissionStatus.success));
-      } catch (_) {
-        emit(state.copyWith(status: FormzSubmissionStatus.failure));
+        final res = await authRepository.login(
+          email: state.username.value,
+          password: state.password.value,
+        );
+        if (!res.success) {
+          throw Exception(res.message);
+        }
+        emit(
+          state.copyWith(
+            status: FormzSubmissionStatus.success,
+            user: res.data,
+          ),
+        );
+      } catch (error) {
+        print('$error');
+        add(LoginFailure(error.toString().split(':')[1]));
+        // emit(state.copyWith(status: FormzSubmissionStatus.failure));
       }
     }
   }

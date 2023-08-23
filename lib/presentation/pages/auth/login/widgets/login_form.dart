@@ -1,4 +1,7 @@
+import 'package:dormitory_app/di_container.dart';
 import 'package:dormitory_app/infra/infra.dart';
+import 'package:dormitory_app/presentation/pages/auth/auth.dart';
+import 'package:dormitory_app/presentation/pages/auth/data/repositories/repositiories.dart';
 import 'package:dormitory_app/presentation/router/router.dart';
 import 'package:dormitory_app/presentation/widgets/widgets.dart';
 import 'package:dormitory_app/utils/utils.dart';
@@ -14,10 +17,11 @@ class LoginForm extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return BlocProvider(
-      create: (context) => LoginBloc(),
+      create: (context) => LoginBloc(authRepository: sl<AuthRepository>()),
       child: BlocListener<LoginBloc, LoginState>(
         listener: (context, state) {
           if (state.status.isSuccess) {
+            context.read<AuthBloc>().add(AuthUserLoggedIn(state.user!));
             Navigator.pushNamed(context, Routes.home);
           }
           if (state.status.isFailure) {
@@ -52,7 +56,7 @@ class LoginForm extends StatelessWidget {
                         LoginPasswordChanged(password),
                       ),
                   errorText: state.password.displayError != null
-                      ? 'invalid password'
+                      ? 'Password is required'
                       : null,
                 );
               },
@@ -112,8 +116,8 @@ class LoginForm extends StatelessWidget {
             child: Row(
               children: [
                 Container(
-                  width: 16.w,
-                  height: 16.w,
+                  width: 16,
+                  height: 16,
                   decoration: BoxDecoration(
                     borderRadius: BorderRadius.circular(4.r),
                     border: Border.all(
@@ -121,10 +125,10 @@ class LoginForm extends StatelessWidget {
                     ),
                   ),
                   child: state.isRememberPassword.value
-                      ? Center(
+                      ? const Center(
                           child: Icon(
                             Icons.check,
-                            size: 14.w,
+                            size: 14,
                             color: Colors.green,
                           ),
                         )

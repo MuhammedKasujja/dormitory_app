@@ -32,3 +32,10 @@ class LoginRememberPasswordChanged extends LoginEvent {
 class LoginSubmitted extends LoginEvent {
   const LoginSubmitted();
 }
+
+class LoginFailure extends LoginEvent {
+  final String error;
+  const LoginFailure(this.error);
+  @override
+  List<Object> get props => [error];
+}

@@ -13,7 +13,7 @@ class LogoutIcon extends StatelessWidget {
   Widget build(BuildContext context) {
     return BlocBuilder<AuthBloc, AuthState>(
       builder: (context, state) {
-        if (state.status == AuthenticationStatus.authenticated) {
+        if (state.status.isAuthenticated) {
           return Container(
             margin: EdgeInsets.symmetric(vertical: 24.r),
             child: GestureDetector(

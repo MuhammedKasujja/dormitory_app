@@ -28,7 +28,7 @@ class ProfileHeader extends StatelessWidget {
                   width: 64.w,
                   height: 64.w,
                   child: ImageLoader(
-                    imageUrl: state.user!.photoUrl,
+                    imageUrl: state.user?.photoUrl,
                     placeholderImage: Assets.missingProfile,
                   ),
                 ),

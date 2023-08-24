@@ -25,5 +25,6 @@ class AppColors {
   static Color text50 = const Color(0xFFFAFAFB);
 
   static Color error500 = const Color(0xFFF50202);
+  static Color error300 = const Color(0xFFFA8080);
   static Color error100 = const Color(0xFFFFDEDE);
 }

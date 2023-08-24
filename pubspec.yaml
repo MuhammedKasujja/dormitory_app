@@ -59,6 +59,7 @@ flutter:
 
   assets:
     - assets/images/
+    - assets/icons/
     - assets/translations/
     - assets/messages.json
 

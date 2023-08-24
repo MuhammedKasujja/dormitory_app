@@ -7,6 +7,8 @@ class Assets {
 
   static String missingProfile = "assets/images/missing_profile.png";
 
+   static String verifiedAccountIcon = "assets/icons/verified_account.png";
+
   static String facebookIcon = '''
 <svg xmlns="http://www.w3.org/2000/svg" width="20" height="21" viewBox="0 0 20 21" fill="none">
   <g clip-path="url(#clip0_808_6186)">

@@ -23,9 +23,8 @@ class UserProfileHeader extends StatelessWidget {
                   width: 100.w,
                   height: 100.w,
                   child: ImageLoader(
-                    imageUrl:
-                        'https://static.vecteezy.com/system/resources/thumbnails/019/900/322/small/happy-young-cute-illustration-face-profile-png.png',
-                    placeholderImage: Assets.logo,
+                    imageUrl: state.user?.photoUrl,
+                    placeholderImage: Assets.missingProfile,
                   ),
                 ),
               ),

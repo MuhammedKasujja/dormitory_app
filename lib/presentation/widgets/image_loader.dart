@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
 class ImageLoader extends StatelessWidget {
-  final String imageUrl;
+  final String? imageUrl;
   final String placeholderImage;
 
   const ImageLoader({
@@ -13,7 +13,7 @@ class ImageLoader extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Image.network(
-      imageUrl,
+      imageUrl ?? '',
       loadingBuilder: (BuildContext context, Widget image,
           ImageChunkEvent? loadingProgress) {
         if (loadingProgress == null) {

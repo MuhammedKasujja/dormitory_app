@@ -1,7 +1,6 @@
 import 'package:dormitory_app/infra/infra.dart';
 import 'package:dormitory_app/presentation/pages/auth/auth.dart';
-import 'package:dormitory_app/presentation/widgets/extensions/extensions.dart';
-import 'package:dormitory_app/presentation/widgets/image_loader.dart';
+import 'package:dormitory_app/presentation/widgets/widgets.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
@@ -29,16 +28,12 @@ class ProfileHeader extends StatelessWidget {
                   width: 64.w,
                   height: 64.w,
                   child: ImageLoader(
-                    imageUrl: state.status.isAuthenticated
-                        ? state.user!.photoUrl != null
-                            ? state.user!.photoUrl!
-                            : ''
-                        : '',
+                    imageUrl: state.user!.photoUrl,
                     placeholderImage: Assets.missingProfile,
                   ),
                 ),
               ),
-              const SizedBox().small(),
+              Spacing.small(),
               Text(
                 state.user != null ? state.user!.name : 'Guest',
                 style: TextStyle(

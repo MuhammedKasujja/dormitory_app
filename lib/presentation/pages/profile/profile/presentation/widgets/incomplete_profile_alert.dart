@@ -1,7 +1,9 @@
 import 'package:dormitory_app/infra/infra.dart';
+import 'package:dormitory_app/presentation/pages/profile/profile.dart';
 import 'package:dormitory_app/presentation/router/router.dart';
 import 'package:dormitory_app/presentation/widgets/widgets.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 
 class InCompleteProfileAlert extends StatelessWidget {
   const InCompleteProfileAlert({super.key});
@@ -21,8 +23,12 @@ class InCompleteProfileAlert extends StatelessWidget {
             width: 150.w,
             child: CustomButton(
               label: 'Complete Profile',
-              onPressed: () =>
-                  Navigator.pushNamed(context, Routes.completeProfile),
+              onPressed: () {
+                context
+                    .read<CompleteProfileCubit>()
+                    .activatedVerifyOtpSection();
+                Navigator.pushNamed(context, Routes.completeProfile);
+              },
             ),
           ),
         ),

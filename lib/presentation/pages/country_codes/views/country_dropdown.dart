@@ -41,6 +41,7 @@ class _CountryDropdownState extends State<CountryDropdown> {
                 border: Border.all(color: AppColors.divider),
               ),
               child: DropdownButton<String>(
+                isExpanded: true,
                 underline: const SizedBox.shrink(),
                 value: state.selectedCountry!.countryCode,
                 // icon: const SizedBox.shrink(),

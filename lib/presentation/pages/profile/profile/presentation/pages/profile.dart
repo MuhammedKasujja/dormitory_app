@@ -2,6 +2,7 @@ import 'package:dormitory_app/infra/infra.dart';
 import 'package:dormitory_app/presentation/pages/pages.dart';
 import 'package:dormitory_app/presentation/widgets/widgets.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 
 import '../widgets/widgets.dart';
 
@@ -18,9 +19,13 @@ class ProfilePage extends StatelessWidget {
         ),
         title: Text(
           'Profile',
-          style: Theme.of(context).appBarTheme.titleTextStyle?.copyWith(
-                color: Colors.white,
-              ),
+          style: TextStyle(
+            fontSize: 20.sp,
+            height: 1.15,
+            fontWeight: FontWeight.w600,
+            color: AppColors.text50,
+            letterSpacing: -0.2.sp,
+          ),
         ),
       ),
       body: SingleChildScrollView(
@@ -33,29 +38,23 @@ class ProfilePage extends StatelessWidget {
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  const Alert(
-                      message:
-                          'To enhance your experience with Paramount Students, please complete the verification process.'),
-                  const SizedBox().scaleHeight(12),
-                  Align(
-                    alignment: Alignment.centerRight,
-                    child: SizedBox(
-                      width: 150.w,
-                      child: CustomButton(
-                          onPressed: () {_showBottomSheet(context);}, label: 'Complete Profile'),
-                    ),
+                  BlocBuilder<AuthBloc, AuthState>(
+                    builder: (context, state) {
+                      return state.status.isAuthenticated &&
+                              state.user!.hasCompletedProfile
+                          ? const SizedBox.shrink()
+                          : const InCompleteProfileAlert();
+                    },
                   ),
-                  const SizedBox().medium(),
-                  const Divider(),
-                  const SizedBox().medium(),
+                  const Spacing(8),
                   const PersonalDetails(),
-                  const SizedBox().medium(),
+                  Spacing.medium(),
                   const Divider(),
-                  const SizedBox().medium(),
+                  Spacing.medium(),
                   const AddtionalInformation(),
-                  const SizedBox().medium(),
+                  Spacing.medium(),
                   const Divider(),
-                  const SizedBox().medium(),
+                  Spacing.medium(),
                   const UniversityInformation(),
                 ],
               ),
@@ -77,13 +76,16 @@ class ProfilePage extends StatelessWidget {
         ),
       ),
       builder: (context) {
-        return BaseBottomSheet(title: 'OTP Verification', content: Column(
-          children: [
-            const OTPVerificationForm(),
-            const SizedBox().scaleHeight(120),
-            CustomButton(onPressed: (){}, label: 'Continue')
-          ],
-        ),);
+        return BaseBottomSheet(
+          title: 'OTP Verification',
+          content: Column(
+            children: [
+              const OTPVerificationForm(),
+              const Spacing(120),
+              CustomButton(onPressed: () {}, label: 'Continue')
+            ],
+          ),
+        );
       },
     );
   }

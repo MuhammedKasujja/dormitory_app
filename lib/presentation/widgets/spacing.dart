@@ -1,14 +1,26 @@
 import 'package:dormitory_app/infra/infra.dart';
 import 'package:flutter/material.dart';
 
-class Spacing {
-  Spacing._();
+class Spacing extends StatelessWidget {
+  final double height;
+  const Spacing(this.height,{super.key});
 
-  static final small = SizedBox(height: 16.h);
+  factory Spacing.small() {
+    return const Spacing(16);
+  }
 
-  static final medium = SizedBox(height: 24.h);
+  factory Spacing.medium() {
+    return const Spacing(24);
+  }
 
-  static final large = SizedBox(height: 40.h);
+  factory Spacing.large() {
+    return const Spacing(40);
+  }
 
-  static fromHeight(double height) => SizedBox(height: height.h);
+  @override
+  Widget build(BuildContext context) {
+    return SizedBox(
+      height: height.h,
+    );
+  }
 }

@@ -13,6 +13,7 @@ class UserModel extends Equatable {
   final String? gender;
   final String? photoUrl;
   final UniversityModel? university;
+  final bool isVerified;
   const UserModel({
     required this.id,
     required this.firstname,
@@ -20,6 +21,7 @@ class UserModel extends Equatable {
     required this.email,
     required this.countryCode,
     required this.telephone,
+    required this.isVerified,
     this.dateOfBirth,
     this.gender,
     this.photoUrl,
@@ -37,6 +39,7 @@ class UserModel extends Equatable {
       'dateOfBirth': dateOfBirth,
       'gender': gender,
       'photoUrl': photoUrl,
+      'isVerified': isVerified,
       'university': university?.toMap(),
     };
   }
@@ -52,6 +55,7 @@ class UserModel extends Equatable {
       dateOfBirth:map['dateOfBirth'],
       gender: map['gender'],
       photoUrl: map['photoUrl'],
+      isVerified: map['isVerified'],
       university: map['university'] != null ? UniversityModel.fromMap(map['university'] as Map<String,dynamic>) : null,
     );
   }
@@ -60,7 +64,9 @@ class UserModel extends Equatable {
 
   factory UserModel.fromJson(String source) => UserModel.fromMap(json.decode(source) as Map<String, dynamic>);
 
-  String get name => '$firstname $lastname'; 
+  String get name => '$firstname $lastname';
+
+  bool get hasCompletedProfile => university != null && dateOfBirth != null && gender != null; 
 
   @override
   bool get stringify => true;
@@ -77,6 +83,7 @@ class UserModel extends Equatable {
       dateOfBirth,
       gender,
       photoUrl,
+      isVerified,
       university,
     ];
   }

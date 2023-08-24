@@ -22,37 +22,39 @@ class CustomerSupportScreen extends StatelessWidget {
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              const SizedBox().medium(),
+              Spacing.medium(),
               const Text(
                       '''We are committed to providing exceptional customer support every step of the way. Our dedicated team is here to assist you with any queries or concerns you may have.''')
                   .secondary(),
-              const SizedBox().large(),
+              Spacing.large(),
               ContactUsOption(
                 name: 'Chat Us',
                 iconPath: Assets.chatIcon,
               ),
-              const SizedBox().medium(),
+              Spacing.medium(),
               const ORWidget(captalize: true),
-              const SizedBox().medium(),
+              Spacing.medium(),
               ContactUsOption(
                 name: 'Call Us',
                 iconPath: Assets.callIcon,
                 value: '0804637376747',
               ),
-              const SizedBox().medium(),
+              Spacing.medium(),
               ContactUsOption(
                 name: 'Email us at',
                 iconPath: Assets.supportIcon,
                 value: 'support@paramountstudents.com',
               ),
-              const SizedBox().large(),
+              Spacing.large(),
               const ORWidget(captalize: true),
-              const SizedBox().large(),
+              Spacing.large(),
               const Text('Complete this form to help us address your issues.')
                   .description(),
               BlocBuilder<AuthBloc, AuthState>(
+                buildWhen: (previous, current) =>
+                    previous.status != current.status,
                 builder: (context, state) {
-                  if(state.status.isAuthenticated){
+                  if (state.status.isAuthenticated) {
                     return const SizedBox.shrink();
                   }
                   return CustomTextfield(
@@ -74,7 +76,7 @@ class CustomerSupportScreen extends StatelessWidget {
                 hint: '',
                 inputType: TextInputType.multiline,
               ),
-              const SizedBox().large(),
+              Spacing.large(),
               CustomButton(
                 label: 'Submit',
                 onPressed: () {
@@ -91,7 +93,7 @@ class CustomerSupportScreen extends StatelessWidget {
                   );
                 },
               ),
-              const SizedBox().small(),
+              Spacing.small(),
             ],
           ),
         ),

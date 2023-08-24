@@ -1,3 +1,5 @@
+import 'package:dormitory_app/models/university.dart';
+
 import '../models/models.dart';
 
 List<UserModel> users = [
@@ -8,7 +10,9 @@ List<UserModel> users = [
     email: 'ismail@mail.com',
     countryCode: '+256',
     telephone: '+256775262923',
-    photoUrl: 'https://static.vecteezy.com/system/resources/thumbnails/019/900/322/small/happy-young-cute-illustration-face-profile-png.png',
+    isVerified: true,
+    photoUrl:
+        'https://static.vecteezy.com/system/resources/thumbnails/019/900/322/small/happy-young-cute-illustration-face-profile-png.png',
     // for demo purpose only
     gender: 'password123',
   ),
@@ -16,11 +20,20 @@ List<UserModel> users = [
     id: 'e578845',
     firstname: 'Kasujja',
     lastname: 'Muhammed',
-    email: 'kasujja@project.com',
+    email: 'kasujja@project.ug',
     countryCode: '+256',
     telephone: '+256774262923',
+    isVerified: false,
     // for demo purpose only
     gender: 'password123',
+    dateOfBirth: '12/07/1980',
+    university: UniversityModel(
+      id: '567890',
+      name: 'Makerere',
+      address: 'Wandegeya',
+      country: 'Uganda',
+      city: 'Kampala',
+    ),
   ),
   const UserModel(
     id: 're546565',
@@ -29,6 +42,7 @@ List<UserModel> users = [
     email: 'aisha@mail.com',
     countryCode: '+256',
     telephone: '+256774262923',
+    isVerified: false,
     // for demo purpose only
     gender: 'password123',
   ),
@@ -39,6 +53,7 @@ List<UserModel> users = [
     email: 'saidat@mail.com',
     countryCode: '+256',
     telephone: '+256774262923',
+    isVerified: true,
     // for demo purpose only
     gender: 'password123',
   ),

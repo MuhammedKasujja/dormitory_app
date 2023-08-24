@@ -3,8 +3,11 @@ import 'package:flutter/material.dart';
 
 class Spacing extends StatelessWidget {
   final double height;
-  const Spacing(this.height,{super.key});
+  const Spacing(this.height, {super.key});
 
+  factory Spacing.xs() {
+    return const Spacing(8);
+  }
   factory Spacing.small() {
     return const Spacing(16);
   }

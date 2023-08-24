@@ -1,6 +1,8 @@
+import 'package:dormitory_app/presentation/pages/auth/auth.dart';
 import 'package:dormitory_app/presentation/router/router.dart';
 import 'package:dormitory_app/presentation/widgets/widgets.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 
 import 'components/components.dart';
 
@@ -18,19 +20,25 @@ class MenuDrawer extends StatelessWidget {
               child: Column(
                 children: [
                   const ProfileHeader(),
-                  const SizedBox().medium(),
-                  const DrawerItem(
-                    title: 'Profile',
-                    icon: Icons.account_circle,
-                    route: Routes.profile,
+                  Spacing.medium(),
+                  BlocBuilder<AuthBloc, AuthState>(
+                    builder: (context, state) {
+                      return state.status.isAuthenticated
+                          ? const DrawerItem(
+                              title: 'Profile',
+                              icon: Icons.account_circle,
+                              route: Routes.profile,
+                            )
+                          : const SizedBox.shrink();
+                    },
                   ),
                   const DrawerItem(
                       title: 'Booking Activity', icon: Icons.timer),
                   const DrawerItem(
                       title: 'My Vouchers', icon: Icons.calendar_view_day),
-                  const SizedBox().medium(),
+                  Spacing.medium(),
                   const Divider(height: 0.8),
-                  const SizedBox().medium(),
+                  Spacing.medium(),
                   const DrawerItem(title: 'Saved Dorms', icon: Icons.bookmark),
                   const DrawerItem(
                       title: 'Favourite Search', icon: Icons.star_outlined),
@@ -39,9 +47,9 @@ class MenuDrawer extends StatelessWidget {
                     icon: Icons.wallet,
                     route: Routes.paymentMethods,
                   ),
-                  const SizedBox().medium(),
-                 const Divider(height: 0.8),
-                  const SizedBox().medium(),
+                  Spacing.medium(),
+                  const Divider(height: 0.8),
+                  Spacing.medium(),
                   const DrawerItem(
                     title: 'Help and Support',
                     icon: Icons.help,
@@ -57,9 +65,9 @@ class MenuDrawer extends StatelessWidget {
                     icon: Icons.person,
                     route: Routes.legal,
                   ),
-                  const SizedBox().medium(),
+                  Spacing.medium(),
                   const Divider(height: 0.8),
-                  const SizedBox().medium(),
+                  Spacing.medium(),
                 ],
               ),
             ),

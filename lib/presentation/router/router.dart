@@ -25,6 +25,7 @@ class Routes {
 
   //
   static const String profile = "/profile";
+  static const String completeProfile = "/profile/complete";
 
   // settings routes begin
   static const String settings = "settings";
@@ -99,6 +100,8 @@ Route onGenerateRoute(RouteSettings settings) => _fadeThrough(
 
           case Routes.profile:
             return const ProfilePage();
+          case Routes.completeProfile:
+            return const CompleteProfileScreen();
           default:
             return const SizedBox.shrink();
         }

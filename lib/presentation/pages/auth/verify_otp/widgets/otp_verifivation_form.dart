@@ -21,13 +21,13 @@ class OTPVerificationForm extends StatelessWidget {
             fontWeight: FontWeight.w700,
           ),
         ),
-        const SizedBox().scaleHeight(12),
+        const Spacing(12),
         const Text(
           'We’ve sent to your email victoremok****@gmail.com a verification code, please enter the code:',
         ).labelFromSize(12),
-        const SizedBox().large(),
+        Spacing.large(),
         const Center(child: OtpCodeInput()),
-        const SizedBox().large(),
+        Spacing.large(),
         Row(
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [

@@ -64,29 +64,4 @@ class ProfilePage extends StatelessWidget {
       ),
     );
   }
-
-  Future<void> _showBottomSheet(BuildContext context) {
-    return showModalBottomSheet(
-      context: context,
-      isScrollControlled: true,
-      backgroundColor: Colors.white,
-      shape: RoundedRectangleBorder(
-        borderRadius: BorderRadius.vertical(
-          top: Radius.circular(16.r),
-        ),
-      ),
-      builder: (context) {
-        return BaseBottomSheet(
-          title: 'OTP Verification',
-          content: Column(
-            children: [
-              const OTPVerificationForm(),
-              const Spacing(120),
-              CustomButton(onPressed: () {}, label: 'Continue')
-            ],
-          ),
-        );
-      },
-    );
-  }
 }

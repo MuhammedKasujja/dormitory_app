@@ -22,11 +22,11 @@ class AppTheme {
           onError: Colors.white,
         ),
         scaffoldBackgroundColor: AppColors.backgroundLight,
-        appBarTheme: const AppBarTheme(
-          systemOverlayStyle: SystemUiOverlayStyle(
+        appBarTheme:  AppBarTheme(
+          systemOverlayStyle: const SystemUiOverlayStyle(
             statusBarBrightness: Brightness.dark,
           ),
-          backgroundColor: Colors.white,
+          backgroundColor: AppColors.backgroundLight,
           centerTitle: true,
           elevation: 0,
         ),

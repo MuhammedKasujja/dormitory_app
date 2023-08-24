@@ -63,7 +63,7 @@ class AppAlertDialog extends StatelessWidget {
     return body != null
         ? <Widget>[
             const SizedBox().scaleHeight(12),
-            Text(body!).label(),
+            Text(body!).label(textAlign: TextAlign.center),
           ]
         : [
             const SizedBox.shrink(),

@@ -1,4 +1,5 @@
 import 'package:dormitory_app/infra/infra.dart';
+import 'package:dormitory_app/presentation/router/router.dart';
 import 'package:dormitory_app/presentation/widgets/widgets.dart';
 import 'package:flutter/material.dart';
 
@@ -20,10 +21,9 @@ class InCompleteProfileAlert extends StatelessWidget {
             width: 150.w,
             child: CustomButton(
               label: 'Complete Profile',
-                onPressed: () {
-                  // _showBottomSheet(context);
-                },
-                ),
+              onPressed: () =>
+                  Navigator.pushNamed(context, Routes.completeProfile),
+            ),
           ),
         ),
         Spacing.medium(),

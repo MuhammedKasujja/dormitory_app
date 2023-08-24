@@ -11,13 +11,13 @@ class Utility {
   static void showAlert(String? message) {
     if (message == null) return;
     Fluttertoast.showToast(
-        msg: message,
-        toastLength: Toast.LENGTH_SHORT,
-        gravity: ToastGravity.CENTER,
-        // timeInSecForIosWeb: 1,
-        // backgroundColor: Colors.red,
-        // textColor: Colors.white,
-        // fontSize: 14.sp,
+      msg: message,
+      toastLength: Toast.LENGTH_SHORT,
+      gravity: ToastGravity.CENTER,
+      // timeInSecForIosWeb: 1,
+      // backgroundColor: Colors.red,
+      // textColor: Colors.white,
+      // fontSize: 14.sp,
     );
   }
 
@@ -39,6 +39,30 @@ class Utility {
           }
         },
       ),
+    );
+  }
+
+  static showBottomSheet({
+    required BuildContext context,
+    required String title,
+    required Widget content,
+    bool isScrollable = false,
+  }) {
+    return showModalBottomSheet(
+      context: context,
+      isScrollControlled: isScrollable,
+      backgroundColor: Colors.white,
+      shape: RoundedRectangleBorder(
+        borderRadius: BorderRadius.vertical(
+          top: Radius.circular(16.r),
+        ),
+      ),
+      builder: (context) {
+        return BaseBottomSheet(
+          title: title,
+          content: content,
+        );
+      },
     );
   }
 }

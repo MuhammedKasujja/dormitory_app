@@ -2,9 +2,10 @@ import 'package:dormitory_app/infra/infra.dart';
 import 'package:flutter/material.dart';
 
 extension TextExtension on Text {
-  Text label({bool hasError = false}) {
+  Text label({bool hasError = false, TextAlign? textAlign}) {
     return Text(
       data ?? '',
+      textAlign: textAlign,
       style: TextStyle(
         color: hasError ? Colors.red : AppColors.text2,
         fontWeight: FontWeight.w400,

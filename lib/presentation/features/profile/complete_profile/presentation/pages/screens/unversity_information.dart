@@ -4,6 +4,8 @@ import 'package:dormitory_app/presentation/widgets/widgets.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 
+import '../../widgets/widgets.dart';
+
 class UniversityInformationScreen extends StatelessWidget {
   const UniversityInformationScreen({super.key});
 
@@ -54,6 +56,8 @@ class UniversityInformationScreen extends StatelessWidget {
                   onChange: (value) {},
                   label: 'City',
                 ),
+                Spacing.small(),
+                const AttachStudentLetter(),
                 Spacing.small(),
               ],
             ),

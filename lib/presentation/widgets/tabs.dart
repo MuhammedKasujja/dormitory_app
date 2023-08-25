@@ -20,7 +20,12 @@ class AppTabs extends StatelessWidget {
         ),
         child: BlocProvider(
           create: (context) => ToggleTabsCubit(),
-          child: BlocBuilder<ToggleTabsCubit, ToggleTabsState>(
+          child: BlocConsumer<ToggleTabsCubit, ToggleTabsState>(
+            listener: (context, state) {
+              onTabSelectd(state.selectedTab);
+            },
+            buildWhen: (previous, current) =>
+                previous.selectedTab != current.selectedTab,
             builder: (context, state) {
               return Row(
                 mainAxisAlignment: MainAxisAlignment.center,
@@ -34,10 +39,8 @@ class AppTabs extends StatelessWidget {
                           label: t.value,
                           index: t.key,
                           selectedIndex: state.selectedTab,
-                          onToggle: (index) {
-                            context.read<ToggleTabsCubit>().changeTab(index);
-                            onTabSelectd(index);
-                          },
+                          onToggle: (index) =>
+                              context.read<ToggleTabsCubit>().changeTab(index),
                         ),
                       ),
                     )

@@ -1,4 +1,4 @@
-part of 'edit_profile_bloc.dart';
+part of 'edit_profile_cubit.dart';
 
 class EditProfileState extends Equatable {
   const EditProfileState({
@@ -17,6 +17,7 @@ class EditProfileState extends Equatable {
     this.universityLetter = const NormalField.pure(),
     this.isValid = false,
     this.errorMessage,
+    this.user,
   });
 
   final FormzSubmissionStatus status;
@@ -35,6 +36,7 @@ class EditProfileState extends Equatable {
   final NormalField universityCity;
   final NormalField universityLetter;
 
+  final UserModel? user;
   final bool isValid;
   final String? errorMessage;
 
@@ -73,6 +75,7 @@ class EditProfileState extends Equatable {
     NormalField? universityCountry,
     NormalField? universityCity,
     NormalField? universityLetter,
+    UserModel? user,
     bool? isValid,
     String? errorMessage,
   }) {
@@ -92,6 +95,7 @@ class EditProfileState extends Equatable {
       universityLetter: universityLetter ?? this.universityLetter,
       isValid: isValid ?? this.isValid,
       errorMessage: errorMessage,
+      user: user ?? this.user,
     );
   }
 }

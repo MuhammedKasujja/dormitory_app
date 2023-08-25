@@ -1,5 +1,6 @@
 import 'package:dormitory_app/infra/infra.dart';
 import 'package:dormitory_app/presentation/features/auth/auth.dart';
+import 'package:dormitory_app/presentation/router/router.dart';
 import 'package:dormitory_app/presentation/widgets/widgets.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -86,7 +87,7 @@ class _EditProfileButton extends StatelessWidget {
       right: 0,
       bottom: 0,
       child: InkWell(
-        onTap: (){},
+        onTap: ()=> Navigator.pushNamed(context, Routes.editProfile),
         child: Container(
           padding: EdgeInsets.symmetric(
             horizontal: 16.r,

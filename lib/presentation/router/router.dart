@@ -23,9 +23,11 @@ class Routes {
   static const String softwareLicence = "/legal/softwareLicence";
   // legal routes end
 
-  //
+  // profile routes begin
   static const String profile = "/profile";
   static const String completeProfile = "/profile/complete";
+  static const String editProfile = "/profile/edit";
+  // profile routes end
 
   // settings routes begin
   static const String settings = "settings";
@@ -102,6 +104,8 @@ Route onGenerateRoute(RouteSettings settings) => _fadeThrough(
             return const ProfilePage();
           case Routes.completeProfile:
             return const CompleteProfileScreen();
+          case Routes.editProfile:
+            return const EditProfileScreen();
           default:
             return const SizedBox.shrink();
         }

@@ -7,12 +7,14 @@ class UniversityModel extends Equatable {
   final String address;
   final String country;
   final String city;
+  final String? attachmentFileUrl;
   const UniversityModel({
     required this.id,
     required this.name,
     required this.address,
     required this.country,
     required this.city,
+    this.attachmentFileUrl,
   });
 
   Map<String, dynamic> toMap() {
@@ -22,6 +24,7 @@ class UniversityModel extends Equatable {
       'address': address,
       'country': country,
       'city': city,
+      'student_letter': attachmentFileUrl,
     };
   }
 
@@ -32,6 +35,7 @@ class UniversityModel extends Equatable {
       address: map['address'],
       country: map['country'],
       city: map['city'],
+      attachmentFileUrl: map['student_letter'],
     );
   }
 
@@ -43,13 +47,14 @@ class UniversityModel extends Equatable {
   bool get stringify => true;
 
   @override
-  List<Object> get props {
+  List<Object?> get props {
     return [
       id,
       name,
       address,
       country,
       city,
+      attachmentFileUrl,
     ];
   }
 }

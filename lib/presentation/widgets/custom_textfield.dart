@@ -39,7 +39,9 @@ class CustomTextfield extends StatelessWidget {
           maxLines: inputType == TextInputType.multiline ? 5 : 1,
           style: TextStyle(
             fontSize: 14.0,
-            color: Theme.of(context).colorScheme.secondary,
+            color: enabled
+                ? Theme.of(context).colorScheme.secondary
+                : AppColors.text300,
           ),
           decoration: InputDecoration(
             enabled: enabled,
@@ -63,7 +65,7 @@ class CustomTextfield extends StatelessWidget {
             errorBorder: AppStyles.buildInputBorder(state: InputState.error),
             border: AppStyles.buildInputBorder(),
             enabledBorder: AppStyles.buildInputBorder(),
-            disabledBorder: AppStyles.buildInputBorder()
+            disabledBorder: AppStyles.buildInputBorder(),
           ),
         ),
       ],

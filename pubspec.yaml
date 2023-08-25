@@ -46,6 +46,8 @@ dependencies:
   flutter_native_splash: ^2.3.2
   expandable: ^5.0.1
   showcaseview: ^2.0.3
+  cached_network_image: ^3.2.3
+  flutter_cache_manager: ^3.3.1
 
 dev_dependencies:
   flutter_test:

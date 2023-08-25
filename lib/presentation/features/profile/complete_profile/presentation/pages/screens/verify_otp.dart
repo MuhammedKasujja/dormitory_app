@@ -1,11 +1,12 @@
 import 'package:dormitory_app/infra/infra.dart';
 import 'package:dormitory_app/presentation/features/auth/auth.dart';
 import 'package:dormitory_app/presentation/features/country_codes/country_codes.dart';
-import 'package:dormitory_app/presentation/features/profile/complete_profile/presentation/cubit/complete_profile_cubit.dart';
 import 'package:dormitory_app/presentation/widgets/widgets.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+
+import '../../cubit/complete_profile_cubit.dart';
 
 class VerifyOtpScreen extends StatelessWidget {
   const VerifyOtpScreen({super.key});
@@ -155,7 +156,7 @@ class VerifyOtpScreen extends StatelessWidget {
               ),
               Spacing.xs(),
               Text(
-                'Your code is valid and you can proceed ',
+                'Your code is valid and you can proceed',
                 style: TextStyle(
                   fontWeight: FontWeight.w400,
                   fontSize: 12.sp,

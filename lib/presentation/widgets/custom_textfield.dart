@@ -7,9 +7,8 @@ class CustomTextfield extends StatelessWidget {
   final String? hint;
   final String label;
   final TextInputType inputType;
-  final bool isRequired;
   final String? errorText;
-  final bool disabled;
+  final bool enabled;
   final String? initialValue;
   const CustomTextfield({
     Key? key,
@@ -17,9 +16,8 @@ class CustomTextfield extends StatelessWidget {
     required this.label,
     required this.onChange,
     this.inputType = TextInputType.text,
-    this.isRequired = true,
     this.errorText,
-    this.disabled = false,
+    this.enabled = true,
     this.initialValue,
   }) : super(key: key);
 
@@ -39,12 +37,12 @@ class CustomTextfield extends StatelessWidget {
           onChanged: onChange,
           keyboardType: inputType,
           maxLines: inputType == TextInputType.multiline ? 5 : 1,
-          readOnly: disabled,
           style: TextStyle(
             fontSize: 14.0,
             color: Theme.of(context).colorScheme.secondary,
           ),
           decoration: InputDecoration(
+            enabled: enabled,
             isDense: true,
             // remove un neccessary padding using negative value
             // contentPadding: const EdgeInsets.symmetric(
@@ -65,6 +63,7 @@ class CustomTextfield extends StatelessWidget {
             errorBorder: AppStyles.buildInputBorder(state: InputState.error),
             border: AppStyles.buildInputBorder(),
             enabledBorder: AppStyles.buildInputBorder(),
+            disabledBorder: AppStyles.buildInputBorder()
           ),
         ),
       ],

@@ -57,7 +57,9 @@ class UniversityInformationScreen extends StatelessWidget {
                   label: 'City',
                 ),
                 Spacing.small(),
-                const AttachStudentLetter(),
+                AttachStudentLetter(
+                  onAttach: (file) {},
+                ),
                 Spacing.small(),
               ],
             ),

@@ -17,24 +17,28 @@ class PersonalDetails extends StatelessWidget {
                 .title(fontSize: 16, lineHeight: 1.25),
             Spacing.small(),
             CustomTextfield(
+              enabled: false,
               label: 'First name',
               initialValue: state.user?.firstname,
               onChange: (value) {},
             ),
             Spacing.small(),
             CustomTextfield(
+              enabled: false,
               onChange: (value) {},
               label: 'Last name',
               initialValue: state.user?.lastname,
             ),
             Spacing.small(),
             CustomTextfield(
+              enabled: false,
               onChange: (value) {},
               label: 'Email address',
               initialValue: state.user?.email,
             ),
             Spacing.small(),
             CustomTextfield(
+              enabled: false,
               onChange: (value) {},
               label: 'Phone Number',
               initialValue: state.user?.telephone,

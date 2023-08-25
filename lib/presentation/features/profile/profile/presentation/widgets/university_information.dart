@@ -4,6 +4,8 @@ import 'package:dormitory_app/presentation/widgets/widgets.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
+import '../../../complete_profile/presentation/widgets/widgets.dart';
+
 class UniversityInformation extends StatelessWidget {
   const UniversityInformation({super.key});
 
@@ -28,28 +30,34 @@ class UniversityInformation extends StatelessWidget {
             ),
             Spacing.small(),
             CustomTextfield(
+              enabled: false,
               onChange: (value) {},
               label: 'University Name',
               initialValue: state.user?.university?.name,
             ),
             Spacing.small(),
             CustomTextfield(
+              enabled: false,
               onChange: (value) {},
               label: 'University Address',
               initialValue: state.user?.university?.address,
             ),
             Spacing.small(),
             CustomTextfield(
+              enabled: false,
               onChange: (value) {},
               label: 'Country',
               initialValue: state.user?.university?.country,
             ),
             Spacing.small(),
             CustomTextfield(
+              enabled: false,
               onChange: (value) {},
               label: 'City',
               initialValue: state.user?.university?.city,
             ),
+            Spacing.small(),
+            const AttachStudentLetter()
           ],
         );
       },

@@ -4,6 +4,7 @@ import 'package:dormitory_app/presentation/features/auth/auth.dart';
 import 'package:dormitory_app/presentation/widgets/widgets.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:flutter_svg/flutter_svg.dart';
 import 'package:formz/formz.dart';
 
 import '../cubit/edit_profile_cubit.dart';
@@ -42,6 +43,7 @@ class EditProfileScreen extends StatelessWidget {
             listener: (context, state) {
               if (state.status.isSuccess) {
                 context.read<AuthBloc>().add(AuthUserLoggedIn(state.user!));
+                _showAppDialog(context);
               }
             },
             child: Column(
@@ -86,6 +88,19 @@ class EditProfileScreen extends StatelessWidget {
             ),
           ),
         ),
+      ),
+    );
+  }
+
+  _showAppDialog(BuildContext context) {
+    showDialog(
+      context: context,
+      builder: (ctx) => AppAlertDialog(
+        btnText: 'Close',
+        isNotification: true,
+        icon: SvgPicture.string(Assets.accountVerifiedIcon),
+        title: 'Profile Edited Successfully',
+        onAction: () => Navigator.pop(context),
       ),
     );
   }

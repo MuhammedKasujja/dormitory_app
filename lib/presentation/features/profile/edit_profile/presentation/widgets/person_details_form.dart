@@ -35,7 +35,7 @@ class PersonalDetailsEditForm extends StatelessWidget {
                   context.read<EditProfileCubit>().lastNameChanged(value),
               label: 'Last name',
               initialValue: state.lastname.value,
-              errorText: state.firstname.displayError != null
+              errorText: state.lastname.displayError != null
                   ? 'Last name is required'
                   : null,
             );

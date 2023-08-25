@@ -51,7 +51,7 @@ class ProfilePage extends StatelessWidget {
                   Spacing.medium(),
                   const Divider(),
                   Spacing.medium(),
-                  const AddtionalInformation(),
+                  const AdditionalInformation(),
                   Spacing.medium(),
                   const Divider(),
                   Spacing.medium(),

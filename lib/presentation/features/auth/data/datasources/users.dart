@@ -4,7 +4,7 @@ import '../models/models.dart';
 
 List<UserModel> users = [
   const UserModel(
-    id: '546789045',
+    id: 'password123',
     firstname: 'Ismail',
     lastname: 'Kimbugwe',
     email: 'ismail@mail.com',
@@ -14,10 +14,10 @@ List<UserModel> users = [
     photoUrl:
         'https://static.vecteezy.com/system/resources/thumbnails/019/900/322/small/happy-young-cute-illustration-face-profile-png.png',
     // for demo purpose only
-    gender: 'password123',
+    gender: 'Male',
   ),
   const UserModel(
-    id: 'e578845',
+    id: 'password123',
     firstname: 'Kasujja',
     lastname: 'Muhammed',
     email: 'kasujja@project.ug',
@@ -25,7 +25,7 @@ List<UserModel> users = [
     telephone: '+256774262923',
     isVerified: false,
     // for demo purpose only
-    gender: 'password123',
+    gender: 'Male',
     dateOfBirth: '12/07/1980',
     university: UniversityModel(
       id: '567890',
@@ -36,25 +36,23 @@ List<UserModel> users = [
     ),
   ),
   const UserModel(
-    id: 're546565',
+    id: 'password123',
     firstname: 'Nakato',
     lastname: 'Aisha',
     email: 'aisha@mail.com',
     countryCode: '+256',
     telephone: '+256774262923',
     isVerified: false,
-    // for demo purpose only
-    gender: 'password123',
+    gender: 'Female',
   ),
   const UserModel(
-    id: 're65565',
+    id: 'password123',
     firstname: 'Nakitto',
     lastname: 'Saidat',
     email: 'saidat@mail.com',
     countryCode: '+256',
     telephone: '+256774262923',
     isVerified: true,
-    // for demo purpose only
-    gender: 'password123',
+    gender: 'Female',
   ),
 ];

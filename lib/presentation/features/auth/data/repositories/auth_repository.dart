@@ -8,7 +8,7 @@ import '../models/models.dart';
 class AuthRepository implements IAuthRepository {
   @override
   Future<ApiResponse<UserModel>> login({required String email, required String password}) async{
-    final user = users.firstWhereOrNull((user) => user.email == email && user.gender == password);
+    final user = users.firstWhereOrNull((user) => user.email == email && user.id == password);
     if(user == null){
       return ApiResponse.failure('Please check your email and password');
     }

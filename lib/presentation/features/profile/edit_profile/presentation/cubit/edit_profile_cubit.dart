@@ -316,6 +316,7 @@ class EditProfileCubit extends Cubit<EditProfileState> {
     if (!state.isValid) return;
     emit(state.copyWith(status: FormzSubmissionStatus.inProgress));
     try {
+     await Future.delayed(const Duration(seconds: 3));
       // submit edited form
       emit(state.copyWith(
         status: FormzSubmissionStatus.success,
@@ -327,6 +328,8 @@ class EditProfileCubit extends Cubit<EditProfileState> {
           countryCode: '+256',
           telephone: state.telephone.value,
           isVerified: true,
+          gender: state.gender.value,
+          dateOfBirth: state.dateOfBirth.value,
           university: UniversityModel(
             id: '67890987654',
             name: state.universityName.value,

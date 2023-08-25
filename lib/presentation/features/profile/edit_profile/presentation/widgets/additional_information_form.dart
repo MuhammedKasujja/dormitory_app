@@ -29,8 +29,10 @@ class AddtionalInformationEditForm extends StatelessWidget {
         BlocBuilder<EditProfileCubit, EditProfileState>(
           builder: (context, state) {
             return CustomTextfield(
-              onChange: (value) {},
+              onChange: (value) =>
+                  context.read<EditProfileCubit>().dateOfBirthChanged(value),
               label: 'Date of Birth',
+              initialValue: state.dateOfBirth.value,
             );
           },
         ),
@@ -39,9 +41,9 @@ class AddtionalInformationEditForm extends StatelessWidget {
           builder: (context, state) {
             return CustomDropdown(
               label: 'Gender',
-              // value: state.gender.value.isNotEmpty ? state.gender.value : null,
+              value: state.gender.value.isNotEmpty ? state.gender.value : null,
               items: const ['Male', 'Female'],
-              getLabel: (g) => g,
+              getLabel: (gender) => gender,
               onChanged: (value) =>
                   context.read<EditProfileCubit>().genderChanged(value),
             );

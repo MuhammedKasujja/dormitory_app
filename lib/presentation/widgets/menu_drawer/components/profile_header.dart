@@ -11,7 +11,6 @@ class ProfileHeader extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       padding: EdgeInsets.fromLTRB(32.r, (kToolbarHeight + 24).r, 16.r, 40.r),
-      height: 250.h,
       color: Colors.black,
       width: double.infinity,
       child: BlocBuilder<AuthBloc, AuthState>(

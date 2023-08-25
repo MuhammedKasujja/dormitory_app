@@ -1,5 +1,5 @@
 import 'package:dormitory_app/infra/infra.dart';
-import 'package:dormitory_app/presentation/pages/auth/auth.dart';
+import 'package:dormitory_app/presentation/features/auth/auth.dart';
 import 'package:dormitory_app/presentation/router/router.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';

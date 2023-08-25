@@ -13,7 +13,7 @@ class BaseBottomSheet extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: EdgeInsets.only(top: 5.r, bottom: 24.r),
+      padding: EdgeInsets.only(top: 5.r, bottom: 0),
       child: Wrap(
         children: [
           Center(

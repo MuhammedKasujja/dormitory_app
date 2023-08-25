@@ -1,4 +1,4 @@
-import 'package:dormitory_app/presentation/pages/auth/auth.dart';
+import 'package:dormitory_app/presentation/features/auth/auth.dart';
 import 'package:dormitory_app/presentation/router/router.dart';
 import 'package:dormitory_app/presentation/widgets/widgets.dart';
 import 'package:flutter/material.dart';

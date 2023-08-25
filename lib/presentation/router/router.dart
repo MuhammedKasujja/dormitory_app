@@ -1,6 +1,6 @@
 import 'package:animations/animations.dart';
-import 'package:dormitory_app/presentation/pages/chat/screens/chat_screen.dart';
-import 'package:dormitory_app/presentation/pages/pages.dart';
+import 'package:dormitory_app/presentation/features/chat/screens/chat_screen.dart';
+import 'package:dormitory_app/presentation/features/pages.dart';
 import 'package:flutter/material.dart';
 
 class Routes {

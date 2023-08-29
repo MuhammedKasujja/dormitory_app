@@ -86,9 +86,7 @@ class LoginBloc extends Bloc<LoginEvent, LoginState> {
           ),
         );
       } catch (error) {
-        print('$error');
         add(LoginFailure(error.toString().split(':')[1]));
-        // emit(state.copyWith(status: FormzSubmissionStatus.failure));
       }
     }
   }

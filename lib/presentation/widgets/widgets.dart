@@ -5,7 +5,6 @@ export 'image_loader.dart';
 export 'no_data.dart';
 export 'retry.dart';
 export 'alert.dart';
-export './custom_checkbox.dart';
 export 'alert_dialog.dart';
 export './tabs.dart';
 export './menu_drawer/menu_drawer.dart';

@@ -13,6 +13,7 @@ Future init() async {
 
   // Repository
   sl.registerLazySingleton(() => AuthRepository());
+  sl.registerLazySingleton(() => VourcherRepository());
 
   // Blocs
   sl.registerFactory(() => AuthBloc());

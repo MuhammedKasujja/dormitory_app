@@ -14,7 +14,7 @@ class App extends StatelessWidget {
       providers:di.blocs,
       child: ScreenUtilInit(
         useInheritedMediaQuery: true,
-        // designSize: const Size(428, 926),
+        designSize: const Size(428, 926),
         minTextAdapt: true,
         builder: (context, child) {
           return MaterialApp(

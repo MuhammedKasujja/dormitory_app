@@ -35,7 +35,10 @@ class MenuDrawer extends StatelessWidget {
                   const DrawerItem(
                       title: 'Booking Activity', icon: Icons.timer),
                   const DrawerItem(
-                      title: 'My Vouchers', icon: Icons.calendar_view_day),
+                    title: 'My Vouchers',
+                    icon: Icons.calendar_view_day,
+                    route: Routes.vourchers,
+                  ),
                   Spacing.medium(),
                   const Divider(height: 0.8),
                   Spacing.medium(),

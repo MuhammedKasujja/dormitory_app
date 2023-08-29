@@ -1,7 +1,6 @@
 import 'package:dormitory_app/di_container.dart';
 import 'package:dormitory_app/infra/infra.dart';
 import 'package:dormitory_app/presentation/features/auth/auth.dart';
-import 'package:dormitory_app/presentation/features/auth/data/repositories/repositiories.dart';
 import 'package:dormitory_app/presentation/router/router.dart';
 import 'package:dormitory_app/presentation/widgets/widgets.dart';
 import 'package:dormitory_app/utils/utils.dart';
@@ -45,7 +44,7 @@ class LoginForm extends StatelessWidget {
                 );
               },
             ),
-            const SizedBox().scaleHeight(10),
+           const Spacing(10),
             BlocBuilder<LoginBloc, LoginState>(
               buildWhen: (previous, current) =>
                   previous.password != current.password,
@@ -61,7 +60,7 @@ class LoginForm extends StatelessWidget {
                 );
               },
             ),
-            const SizedBox().small(),
+             Spacing.small(),
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
@@ -81,7 +80,7 @@ class LoginForm extends StatelessWidget {
                 )
               ],
             ),
-            const SizedBox().scaleHeight(25),
+            const Spacing(25),
             BlocBuilder<LoginBloc, LoginState>(
               // buildWhen: (previous, current) => current.isValid,,
               builder: (context, state) {

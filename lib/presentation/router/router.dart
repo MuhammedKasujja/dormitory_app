@@ -40,6 +40,9 @@ class Routes {
   static const String customerSupport = "/helpAndSupport/customer";
   // helpAndSupport routes end
 
+  // my vouchers
+  static const String vourchers = "/vourchers";
+
   //
   static const String paymentMethods = "/paymentMethods";
   static const String addPaymentMethods = "/paymentMethods/add";
@@ -99,6 +102,9 @@ Route onGenerateRoute(RouteSettings settings) => _fadeThrough(
 
           case Routes.addPaymentMethods:
             return const AddPaymentCardScreen();
+
+          case Routes.vourchers:
+            return const VourchersPage();
 
           case Routes.profile:
             return const ProfilePage();

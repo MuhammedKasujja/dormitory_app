@@ -10,7 +10,8 @@ part 'vouchers_state.dart';
 
 class VouchersBloc extends Bloc<VouchersEvent, VouchersState> {
   final VourcherRepository vourcherRepository;
-  VouchersBloc(this.vourcherRepository) : super(const VouchersState()) {
+  VouchersBloc({required this.vourcherRepository})
+      : super(const VouchersState()) {
     on<FetchMyVourchers>((event, emit) async {
       emit(state.copyWith(status: AppState.loading));
       final res = await vourcherRepository.fetchMyVourchers();

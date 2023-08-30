@@ -19,12 +19,14 @@ class AppColors {
   // styles names from figma design
   static Color text500 = const Color(0xFF111217);
   static Color text400 = const Color(0xFF444A5B);
-  static Color text300 = const Color(0xFF90949E);
-  static Color text200 = const Color(0xFF666F89);
+  static Color text300 = const Color(0xFF666F89);
+  static Color text200 = const Color(0xFF90949E);
   static Color text100 = const Color(0xFFC3C6D2);
   static Color text50 = const Color(0xFFFAFAFB);
 
   static Color error500 = const Color(0xFFF50202);
   static Color error300 = const Color(0xFFFA8080);
   static Color error100 = const Color(0xFFFFDEDE);
+
+  static Color success500 = const Color(0xFF00AD5F);
 }

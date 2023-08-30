@@ -4,14 +4,13 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'di_container.dart' as di;
 
-
 class App extends StatelessWidget {
   const App({super.key});
 
   @override
   Widget build(BuildContext context) {
     return MultiBlocProvider(
-      providers:di.blocs,
+      providers: di.blocs,
       child: ScreenUtilInit(
         useInheritedMediaQuery: true,
         designSize: const Size(428, 926),
@@ -26,7 +25,7 @@ class App extends StatelessWidget {
             theme: AppTheme.light(context),
             onGenerateRoute: onGenerateRoute,
             home: child,
-            initialRoute: Routes.login,
+            initialRoute: Routes.vourchers,
           );
         },
       ),

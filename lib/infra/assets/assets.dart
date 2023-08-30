@@ -11,6 +11,8 @@ class Assets {
 
   static String attachLetterIcon = "assets/icons/attach_letter.png";
 
+  static String voucher = "assets/images/voucher.png";
+
   static String facebookIcon = '''
 <svg xmlns="http://www.w3.org/2000/svg" width="20" height="21" viewBox="0 0 20 21" fill="none">
   <g clip-path="url(#clip0_808_6186)">

@@ -19,14 +19,30 @@ class VourchersPage extends StatelessWidget {
         title: const Text('My Vouchers'),
         actions: [
           IconButton(
-            onPressed: () => {},
+            onPressed: () => _showFilterVourcherMenu(context),
             icon: const Icon(Icons.filter_list),
           )
         ],
       ),
+      // body: Padding(
+      //   padding: const EdgeInsets.all(8.0),
+      //   child: ClipPath(
+      //     clipper: VoucherClipper(),
+      //     child: Container(
+      //       height: 200,
+      //       width: double.infinity,
+      //       decoration: BoxDecoration(
+      //         color: Colors.green,
+      //         border: Border.all(color: AppColors.primary),
+      //         // color: Colors.red,
+      //       ),
+      //     ),
+      //   ),
+      // ),
       body: BlocProvider(
-        create: (context) => VouchersBloc(sl<VourcherRepository>())
-          ..add(const FetchMyVourchers()),
+        create: (context) =>
+            VouchersBloc(vourcherRepository: sl<VourcherRepository>())
+              ..add(const FetchMyVourchers()),
         child: Column(
           children: [
             // CustomPaint(
@@ -69,6 +85,22 @@ class VourchersPage extends StatelessWidget {
       ),
       builder: (context) {
         return const AddVourcherCodeModal();
+      },
+    );
+  }
+
+  _showFilterVourcherMenu(BuildContext context) {
+    return showModalBottomSheet(
+      context: context,
+      isScrollControlled: true,
+      backgroundColor: Colors.white,
+      shape: RoundedRectangleBorder(
+        borderRadius: BorderRadius.vertical(
+          top: Radius.circular(16.r),
+        ),
+      ),
+      builder: (context) {
+        return const VoucherFilterMenu();
       },
     );
   }

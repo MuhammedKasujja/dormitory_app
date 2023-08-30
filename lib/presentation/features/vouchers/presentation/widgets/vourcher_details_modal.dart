@@ -19,10 +19,13 @@ class VourcherDetailsModal extends StatelessWidget {
             children: [
               ClipRRect(
                 borderRadius: BorderRadius.circular(8.r),
-                child: Container(
-                  color: Colors.grey,
+                child: SizedBox(
                   width: 140.w,
                   height: 140.w,
+                  child: ImageLoader(
+                    imageUrl: vourcher.photoUrl,
+                    placeholderImage: Assets.voucher,
+                  ),
                 ),
               ),
               SizedBox(
@@ -42,19 +45,36 @@ class VourcherDetailsModal extends StatelessWidget {
                       ),
                       child: Padding(
                         padding: EdgeInsets.symmetric(
-                            horizontal: 12.r, vertical: 8.r),
+                          horizontal: 12.r,
+                          vertical: 8.r,
+                        ),
                         child: Row(
                           children: [
                             Flexible(
-                              flex: 1,
-                              child: Text(
-                                '${vourcher.discount}%',
-                                style: TextStyle(
-                                  fontSize: 28.sp,
-                                  height: 1.214,
-                                  letterSpacing: -0.56.sp,
-                                  fontWeight: FontWeight.w600,
-                                  color: AppColors.text400,
+                              child: SizedBox(
+                                width: double.infinity,
+                                child: Row(
+                                  crossAxisAlignment: CrossAxisAlignment.start,
+                                  children: [
+                                    Text(
+                                      '${vourcher.discount}%',
+                                      style: TextStyle(
+                                        fontSize: 28.sp,
+                                        height: 1.214,
+                                        letterSpacing: -0.56.sp,
+                                        fontWeight: FontWeight.w600,
+                                        color: AppColors.text400,
+                                      ),
+                                    ),
+                                    Text(
+                                      'OFF',
+                                      style: TextStyle(
+                                        fontSize: 8.sp,
+                                        fontWeight: FontWeight.w400,
+                                        color: AppColors.text300,
+                                      ),
+                                    )
+                                  ],
                                 ),
                               ),
                             ),
@@ -62,22 +82,25 @@ class VourcherDetailsModal extends StatelessWidget {
                               width: 12.w,
                             ),
                             Flexible(
-                              flex: 1,
-                              child: Row(
-                                children: [
-                                  Container(
-                                    width: 12.w,
-                                    height: 12.w,
-                                    decoration: BoxDecoration(
-                                      color: Colors.green,
-                                      borderRadius: BorderRadius.circular(50.r),
+                              child: SizedBox(
+                                width: double.infinity,
+                                child: Row(
+                                  children: [
+                                    Container(
+                                      width: 12.w,
+                                      height: 12.w,
+                                      decoration: BoxDecoration(
+                                        color: Colors.green,
+                                        borderRadius:
+                                            BorderRadius.circular(50.r),
+                                      ),
                                     ),
-                                  ),
-                                  SizedBox(
-                                    width: 10.w,
-                                  ),
-                                  const Text('Active'),
-                                ],
+                                    SizedBox(
+                                      width: 10.w,
+                                    ),
+                                    const Text('Active'),
+                                  ],
+                                ),
                               ),
                             )
                           ],
@@ -95,7 +118,9 @@ class VourcherDetailsModal extends StatelessWidget {
                       ),
                       child: Padding(
                         padding: EdgeInsets.symmetric(
-                            horizontal: 12.r, vertical: 8.r),
+                          horizontal: 12.r,
+                          vertical: 8.r,
+                        ),
                         child: Column(
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: [

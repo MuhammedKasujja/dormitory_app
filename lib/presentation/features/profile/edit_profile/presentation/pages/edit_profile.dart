@@ -15,76 +15,79 @@ class EditProfileScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        backgroundColor: AppColors.text1,
-        leading: const BackButton(
-          color: Colors.white,
-        ),
-        title: Text(
-          'Edit Profile',
-          style: TextStyle(
-            fontSize: 20.sp,
-            height: 1.15,
-            fontWeight: FontWeight.w600,
-            color: AppColors.text50,
-            letterSpacing: -0.2.sp,
+    return WillPopScope(
+      onWillPop: () => showExitPopup(context),
+      child: Scaffold(
+        appBar: AppBar(
+          backgroundColor: AppColors.text1,
+          leading: const BackButton(
+            color: Colors.white,
+          ),
+          title: Text(
+            'Edit Profile',
+            style: TextStyle(
+              fontSize: 20.sp,
+              height: 1.15,
+              fontWeight: FontWeight.w600,
+              color: AppColors.text50,
+              letterSpacing: -0.2.sp,
+            ),
           ),
         ),
-      ),
-      body: BlocProvider(
-        create: (context) {
-          final user = context.read<AuthBloc>().state.user;
-          return EditProfileCubit(authRepository: sl<AuthRepository>())
-            ..onEditProfileActivated(user!);
-        },
-        child: SingleChildScrollView(
-          child: BlocListener<EditProfileCubit, EditProfileState>(
-            listener: (context, state) {
-              if (state.status.isSuccess) {
-                context.read<AuthBloc>().add(AuthUserLoggedIn(state.user!));
-                _showAppDialog(context);
-              }
-            },
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                const UserProfileHeaderEditForm(),
-                Padding(
-                  padding: EdgeInsets.all(16.r),
-                  child: Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      const Spacing(8),
-                      const PersonalDetailsEditForm(),
-                      Spacing.medium(),
-                      const Divider(),
-                      Spacing.medium(),
-                      const AddtionalInformationEditForm(),
-                      Spacing.medium(),
-                      const Divider(),
-                      Spacing.medium(),
-                      const UniversityInformationEditForm(),
-                      Spacing.medium(),
-                      BlocBuilder<EditProfileCubit, EditProfileState>(
-                        builder: (context, state) {
-                          return CustomButton(
-                            loading: state.status.isInProgress,
-                            label: 'Save',
-                            onPressed: state.isValid
-                                ? () {
-                                    context
-                                        .read<EditProfileCubit>()
-                                        .submitEditProfileForm();
-                                  }
-                                : null,
-                          );
-                        },
-                      )
-                    ],
-                  ),
-                )
-              ],
+        body: BlocProvider(
+          create: (context) {
+            final user = context.read<AuthBloc>().state.user;
+            return EditProfileCubit(authRepository: sl<AuthRepository>())
+              ..onEditProfileActivated(user!);
+          },
+          child: SingleChildScrollView(
+            child: BlocListener<EditProfileCubit, EditProfileState>(
+              listener: (context, state) {
+                if (state.status.isSuccess) {
+                  context.read<AuthBloc>().add(AuthUserLoggedIn(state.user!));
+                  _showAppDialog(context);
+                }
+              },
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  const UserProfileHeaderEditForm(),
+                  Padding(
+                    padding: EdgeInsets.all(16.r),
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        const Spacing(8),
+                        const PersonalDetailsEditForm(),
+                        Spacing.medium(),
+                        const Divider(),
+                        Spacing.medium(),
+                        const AddtionalInformationEditForm(),
+                        Spacing.medium(),
+                        const Divider(),
+                        Spacing.medium(),
+                        const UniversityInformationEditForm(),
+                        Spacing.medium(),
+                        BlocBuilder<EditProfileCubit, EditProfileState>(
+                          builder: (context, state) {
+                            return CustomButton(
+                              loading: state.status.isInProgress,
+                              label: 'Save',
+                              onPressed: state.isValid
+                                  ? () {
+                                      context
+                                          .read<EditProfileCubit>()
+                                          .submitEditProfileForm();
+                                    }
+                                  : null,
+                            );
+                          },
+                        )
+                      ],
+                    ),
+                  )
+                ],
+              ),
             ),
           ),
         ),
@@ -103,5 +106,13 @@ class EditProfileScreen extends StatelessWidget {
         onAction: () => Navigator.pop(context),
       ),
     );
+  }
+
+  Future<bool> showExitPopup(BuildContext context) async {
+    return await showDialog(
+          context: context,
+          builder: (ctx) => const DiscardChangesDialog(),
+        ) ??
+        false;
   }
 }

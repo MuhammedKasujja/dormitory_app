@@ -1,53 +1,20 @@
 import 'dart:convert';
 
-import 'package:equatable/equatable.dart';
+import '../../domain/entities/voucher_entity.dart';
 
-class VourcherModel extends Equatable {
-  final String id;
-  final int discount;
-  final String code;
-  final String startTime;
-  final String endTime;
-  final String type;
-  final String subject;
-  final String photoUrl;
-  final bool status;
-  final List<String> termsAndConditions;
+class VourcherModel extends VoucherEntity {
   const VourcherModel({
-    required this.id,
-    required this.discount,
-    required this.code,
-    required this.startTime,
-    required this.endTime,
-    required this.type,
-    required this.subject,
-    required this.photoUrl,
-    required this.status,
-    this.termsAndConditions = const [],
+    required super.id,
+    required super.discount,
+    required super.code,
+    required super.startTime,
+    required super.endTime,
+    required super.type,
+    required super.subject,
+    required super.photoUrl,
+    required super.status,
+    required super.termsAndConditions,
   });
-
-  VourcherModel copyWith({
-    String? id,
-    int? discount,
-    String? code,
-    String? startTime,
-    String? endTime,
-    String? type,
-    String? subject,
-    String? photoUrl,
-  }) {
-    return VourcherModel(
-      id: id ?? this.id,
-      discount: discount ?? this.discount,
-      code: code ?? this.code,
-      startTime: startTime ?? this.startTime,
-      endTime: endTime ?? this.endTime,
-      type: type ?? this.type,
-      subject: subject ?? this.subject,
-      photoUrl: photoUrl ?? this.photoUrl,
-      status: status,
-    );
-  }
 
   Map<String, dynamic> toMap() {
     return <String, dynamic>{
@@ -84,18 +51,4 @@ class VourcherModel extends Equatable {
 
   @override
   bool get stringify => true;
-
-  @override
-  List<Object> get props {
-    return [
-      id,
-      discount,
-      code,
-      startTime,
-      endTime,
-      type,
-      subject,
-      photoUrl,
-    ];
-  }
 }

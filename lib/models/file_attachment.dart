@@ -1,4 +1,3 @@
-// ignore_for_file: public_member_api_docs, sort_constructors_first
 import 'package:equatable/equatable.dart';
 
 import 'package:dormitory_app/models/enums.dart';
@@ -17,7 +16,6 @@ class FileAttachmentModel extends Equatable {
     required this.createdAt,
     required this.type,
   });
-
 
   @override
   List<Object> get props {

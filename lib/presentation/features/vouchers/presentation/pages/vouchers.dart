@@ -54,8 +54,37 @@ class VourchersPage extends StatelessWidget {
                 builder: (context, state) {
                   return ListView.builder(
                     itemCount: state.data.length,
-                    itemBuilder: (context, index) =>
-                        VourcherCard(vourcher: state.data[index]),
+                    itemBuilder: (context, index) => Padding(
+                      padding: const EdgeInsets.symmetric(
+                          horizontal: 16, vertical: 8),
+                      child: Container(
+                        decoration: BoxDecoration(
+                          borderRadius: BorderRadius.circular(12.0),
+                          boxShadow: [
+                            BoxShadow(
+                              color: Colors.grey.shade200,
+                              spreadRadius: 1.0,
+                              blurRadius: 10.0,
+                              offset: const Offset(3.0, 3.0),
+                            )
+                          ],
+                        ),
+                        child: CustomPaint(
+                          // size: Size(397, 126),
+                          // painter: RPSCustomPainter(),
+
+                          // responsive painter
+                          size: Size(
+                            MediaQuery.sizeOf(context).width,
+                            (MediaQuery.sizeOf(context).width *
+                                    0.31738035264483627)
+                                .toDouble(),
+                          ),
+                          painter: RPSCustomPainterResponsive(),
+                        ),
+                      ),
+                    ),
+                    //VourcherCard(vourcher: state.data[index]),
                   );
                 },
               ),

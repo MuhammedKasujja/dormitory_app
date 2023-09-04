@@ -1,9 +1,9 @@
 import 'package:dormitory_app/logic/logic.dart';
-import 'package:dormitory_app/presentation/features/pages.dart';
+import 'package:dormitory_app/presentation/features/features.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:get_it/get_it.dart';
 
-import 'presentation/features/country_codes/cubit/country_codes_cubit.dart';
+import 'presentation/features/country_codes/country_codes.dart';
 
 final sl = GetIt.I;
 

@@ -22,7 +22,7 @@ class AppTheme {
           onError: Colors.white,
         ),
         scaffoldBackgroundColor: AppColors.backgroundLight,
-        appBarTheme:  AppBarTheme(
+        appBarTheme: AppBarTheme(
           systemOverlayStyle: const SystemUiOverlayStyle(
             statusBarBrightness: Brightness.dark,
           ),

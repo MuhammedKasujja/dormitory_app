@@ -38,7 +38,7 @@ class RedeemVoucherPage extends StatelessWidget {
                     ),
                   ),
                   Spacing.xs(),
-                  Text(voucher.subject),
+                  Text(voucher.subject).title(lineHeight: 1.57),
                   Spacing.small(),
                   Text(
                     '${voucher.discount}%',

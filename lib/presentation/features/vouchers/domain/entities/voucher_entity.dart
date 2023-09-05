@@ -1,7 +1,7 @@
 import 'package:equatable/equatable.dart';
 import 'package:intl/intl.dart';
 
-import '../../data/models/enums.dart';
+import 'enums.dart';
 
 class VoucherEntity extends Equatable {
   final String id;

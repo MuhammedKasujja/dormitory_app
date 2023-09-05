@@ -1,2 +1,2 @@
 export './voucher.dart';
-export './enums.dart';
+export '../../domain/entities/enums.dart';

@@ -5,13 +5,13 @@ class CustomButton extends StatelessWidget {
   final bool loading;
   final void Function()? onPressed;
   final String label;
-  final bool isLogin;
+  final bool isElevated;
   const CustomButton({
     Key? key,
     this.loading = false,
     required this.onPressed,
     required this.label,
-    this.isLogin = false,
+    this.isElevated = true,
   }) : super(key: key);
 
   @override
@@ -24,6 +24,7 @@ class CustomButton extends StatelessWidget {
           shape: RoundedRectangleBorder(
             borderRadius: BorderRadius.circular(8.r),
           ),
+          elevation: isElevated ? null : 0,
           backgroundColor: AppColors.primary,
         ),
         onPressed: onPressed,
@@ -42,16 +43,6 @@ class CustomButton extends StatelessWidget {
                       ),
                     ),
                   ),
-                  isLogin
-                      ? Text(
-                          "Signing in...",
-                          style: TextStyle(
-                            color: Colors.white,
-                            fontSize: 14.sp,
-                            fontWeight: FontWeight.w600,
-                          ),
-                        )
-                      : const SizedBox.shrink(),
                 ],
               )
             : Text(

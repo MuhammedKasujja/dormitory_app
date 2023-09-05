@@ -16,7 +16,12 @@ class AddVourcherCodeModal extends StatelessWidget {
             hint: 'Enter Voucher Code',
           ),
           Spacing.large(),
-          CustomButton(onPressed: () {}, label: 'Add'),
+          CustomButton(
+            label: 'Add',
+            onPressed: () {
+              Navigator.pop(context);
+            },
+          ),
         ],
       ),
     );

@@ -25,15 +25,20 @@ extension TextExtension on Text {
     );
   }
 
-  Text primary({bool hasError = false}) {
+  Text primary({
+    bool hasError = false,
+    double fontSize = 14,
+    double lineHeight = 1.5,
+    double letterSpacing = 0.6,
+  }) {
     return Text(
       data ?? '',
       style: TextStyle(
         color: hasError ? Colors.red : AppColors.text500,
         fontWeight: FontWeight.w600,
-        fontSize: 14.sp,
-        letterSpacing: 0.6,
-        height: 1.5,
+        fontSize: fontSize.sp,
+        letterSpacing: letterSpacing.sp,
+        height: lineHeight,
       ),
     );
   }
@@ -76,6 +81,24 @@ extension TextExtension on Text {
         fontWeight: FontWeight.w400,
         fontSize: 14.sp,
         height: 1.57,
+      ),
+    );
+  }
+
+  Text subtitle({
+    bool hasError = false,
+    double fontSize = 14,
+    double lineHeight = 1.57,
+    double? letterSpacing,
+  }) {
+    return Text(
+      data ?? '',
+      style: TextStyle(
+        color: hasError ? Colors.red : AppColors.text300,
+        fontWeight: FontWeight.w400,
+        fontSize: fontSize.sp,
+        height: lineHeight,
+        letterSpacing: letterSpacing,
       ),
     );
   }

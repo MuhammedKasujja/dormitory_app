@@ -15,7 +15,7 @@ class VouchersBloc extends Bloc<VouchersEvent, VouchersState> {
     on<FetchMyVourchers>((event, emit) async {
       emit(state.copyWith(status: AppState.loading));
       final res = await vourcherRepository.fetchMyVourchers();
-      emit(state.copyWith(data: res.data));
+      emit(state.copyWith(data: res.data, status: AppState.success));
     });
   }
 }

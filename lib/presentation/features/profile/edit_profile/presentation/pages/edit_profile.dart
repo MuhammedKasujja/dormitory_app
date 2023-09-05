@@ -18,6 +18,7 @@ class EditProfileScreen extends StatelessWidget {
     return WillPopScope(
       onWillPop: () => showExitPopup(context),
       child: Scaffold(
+        backgroundColor: AppColors.text1,
         appBar: AppBar(
           backgroundColor: AppColors.text1,
           leading: const BackButton(
@@ -48,45 +49,48 @@ class EditProfileScreen extends StatelessWidget {
                   _showAppDialog(context);
                 }
               },
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  const UserProfileHeaderEditForm(),
-                  Padding(
-                    padding: EdgeInsets.all(16.r),
-                    child: Column(
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: [
-                        const Spacing(8),
-                        const PersonalDetailsEditForm(),
-                        Spacing.medium(),
-                        const Divider(),
-                        Spacing.medium(),
-                        const AddtionalInformationEditForm(),
-                        Spacing.medium(),
-                        const Divider(),
-                        Spacing.medium(),
-                        const UniversityInformationEditForm(),
-                        Spacing.medium(),
-                        BlocBuilder<EditProfileCubit, EditProfileState>(
-                          builder: (context, state) {
-                            return CustomButton(
-                              loading: state.status.isInProgress,
-                              label: 'Save',
-                              onPressed: state.isValid
-                                  ? () {
-                                      context
-                                          .read<EditProfileCubit>()
-                                          .submitEditProfileForm();
-                                    }
-                                  : null,
-                            );
-                          },
-                        )
-                      ],
-                    ),
-                  )
-                ],
+              child: ColoredBox(
+                color: Theme.of(context).scaffoldBackgroundColor,
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    const UserProfileHeaderEditForm(),
+                    Padding(
+                      padding: EdgeInsets.all(16.r),
+                      child: Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          const Spacing(8),
+                          const PersonalDetailsEditForm(),
+                          Spacing.medium(),
+                          const Divider(),
+                          Spacing.medium(),
+                          const AddtionalInformationEditForm(),
+                          Spacing.medium(),
+                          const Divider(),
+                          Spacing.medium(),
+                          const UniversityInformationEditForm(),
+                          Spacing.medium(),
+                          BlocBuilder<EditProfileCubit, EditProfileState>(
+                            builder: (context, state) {
+                              return CustomButton(
+                                loading: state.status.isInProgress,
+                                label: 'Save',
+                                onPressed: state.isValid
+                                    ? () {
+                                        context
+                                            .read<EditProfileCubit>()
+                                            .submitEditProfileForm();
+                                      }
+                                    : null,
+                              );
+                            },
+                          )
+                        ],
+                      ),
+                    )
+                  ],
+                ),
               ),
             ),
           ),

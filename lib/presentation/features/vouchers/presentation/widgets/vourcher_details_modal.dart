@@ -90,7 +90,9 @@ class VourcherDetailsModal extends StatelessWidget {
                                       width: 12.w,
                                       height: 12.w,
                                       decoration: BoxDecoration(
-                                        color: Colors.green,
+                                        color: vourcher.status
+                                            ? Colors.green
+                                            : AppColors.error500,
                                         borderRadius:
                                             BorderRadius.circular(50.r),
                                       ),
@@ -98,7 +100,14 @@ class VourcherDetailsModal extends StatelessWidget {
                                     SizedBox(
                                       width: 10.w,
                                     ),
-                                    const Text('Active'),
+                                    Text(
+                                      vourcher.status ? 'Active' : 'Expired',
+                                      style: TextStyle(
+                                        fontSize: 12.sp,
+                                        height: 1.5,
+                                        color: AppColors.text300,
+                                      ),
+                                    ),
                                   ],
                                 ),
                               ),

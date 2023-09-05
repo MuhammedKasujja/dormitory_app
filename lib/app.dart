@@ -13,7 +13,7 @@ class App extends StatelessWidget {
       providers: di.blocs,
       child: ScreenUtilInit(
         useInheritedMediaQuery: true,
-        // designSize: const Size(428, 926),
+        designSize: const Size(428, 926),
         minTextAdapt: true,
         builder: (context, child) {
           return MaterialApp(
@@ -25,7 +25,7 @@ class App extends StatelessWidget {
             theme: AppTheme.light(context),
             onGenerateRoute: onGenerateRoute,
             home: child,
-            initialRoute: Routes.vourchers,
+            initialRoute: Routes.login,
           );
         },
       ),

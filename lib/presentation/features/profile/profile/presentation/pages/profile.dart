@@ -12,6 +12,7 @@ class ProfilePage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: AppColors.text1,
       appBar: AppBar(
         backgroundColor: AppColors.text1,
         leading: const BackButton(
@@ -33,30 +34,33 @@ class ProfilePage extends StatelessWidget {
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             const UserProfileHeader(),
-            Padding(
-              padding: EdgeInsets.all(16.r),
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  BlocBuilder<AuthBloc, AuthState>(
-                    builder: (context, state) {
-                      return state.status.isAuthenticated &&
-                              state.user!.hasCompletedProfile
-                          ? const SizedBox.shrink()
-                          : const InCompleteProfileAlert();
-                    },
-                  ),
-                  const Spacing(8),
-                  const PersonalDetails(),
-                  Spacing.medium(),
-                  const Divider(),
-                  Spacing.medium(),
-                  const AdditionalInformation(),
-                  Spacing.medium(),
-                  const Divider(),
-                  Spacing.medium(),
-                  const UniversityInformation(),
-                ],
+            ColoredBox(
+              color: Theme.of(context).scaffoldBackgroundColor,
+              child: Padding(
+                padding: EdgeInsets.all(16.r),
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    BlocBuilder<AuthBloc, AuthState>(
+                      builder: (context, state) {
+                        return state.status.isAuthenticated &&
+                                state.user!.hasCompletedProfile
+                            ? const SizedBox.shrink()
+                            : const InCompleteProfileAlert();
+                      },
+                    ),
+                    const Spacing(8),
+                    const PersonalDetails(),
+                    Spacing.medium(),
+                    const Divider(),
+                    Spacing.medium(),
+                    const AdditionalInformation(),
+                    Spacing.medium(),
+                    const Divider(),
+                    Spacing.medium(),
+                    const UniversityInformation(),
+                  ],
+                ),
               ),
             )
           ],

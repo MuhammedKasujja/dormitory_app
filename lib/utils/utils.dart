@@ -42,11 +42,10 @@ class Utility {
     );
   }
 
-  static showBottomSheet({
+  static showAppBottomSheet({
     required BuildContext context,
-    required String title,
-    required Widget content,
-    bool isScrollable = false,
+    required Widget child,
+    bool isScrollable = true,
   }) {
     return showModalBottomSheet(
       context: context,
@@ -58,10 +57,7 @@ class Utility {
         ),
       ),
       builder: (context) {
-        return BaseBottomSheet(
-          title: title,
-          content: content,
-        );
+        return child;
       },
     );
   }

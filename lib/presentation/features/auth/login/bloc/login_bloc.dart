@@ -1,9 +1,9 @@
 import 'package:bloc/bloc.dart';
-import 'package:dormitory_app/presentation/features/auth/data/models/models.dart';
 import 'package:equatable/equatable.dart';
 import 'package:formz/formz.dart';
 import 'package:dormitory_app/validations/validations.dart';
 
+import '../../data/models/user.dart';
 import '../../data/repositories/auth_repository.dart';
 part 'login_event.dart';
 part 'login_state.dart';

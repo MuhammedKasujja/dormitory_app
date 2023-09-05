@@ -23,6 +23,7 @@ class InCompleteProfileAlert extends StatelessWidget {
             width: 150.w,
             child: CustomButton(
               label: 'Complete Profile',
+              isElevated: false,
               onPressed: () {
                 context
                     .read<CompleteProfileCubit>()

@@ -1,3 +1,4 @@
+import 'package:dormitory_app/core/core.dart';
 import 'package:dormitory_app/infra/infra.dart';
 import 'package:dormitory_app/models/models.dart';
 import 'package:dormitory_app/presentation/router/router.dart';
@@ -17,39 +18,43 @@ class PaymentMethodsPage extends StatelessWidget {
       appBar: AppBar(
         title: const Text('Payment Methods'),
       ),
-      body: BlocProvider(
-        create: (context) =>
-            PaymentMethodsBloc()..add(const PaymentMethodsFetchCards()),
-        child: Column(
-          children: [
-            Expanded(
-              child: BlocBuilder<PaymentMethodsBloc, PaymentMethodsState>(
-                builder: (context, state) {
-                  if (state.state == AppState.success) {
-                    if (state.cards.isEmpty) {
-                      return const Center(
-                        child: Text('No Saved Payment Method'),
+      body: ListDataPage(
+        guestIcon: Image.asset(Assets.card),
+        guestTitleHeader: 'No Saved Payment Method',
+        child: BlocProvider(
+          create: (context) =>
+              PaymentMethodsBloc()..add(const PaymentMethodsFetchCards()),
+          child: Column(
+            children: [
+              Expanded(
+                child: BlocBuilder<PaymentMethodsBloc, PaymentMethodsState>(
+                  builder: (context, state) {
+                    if (state.state == AppState.success) {
+                      if (state.cards.isEmpty) {
+                        return const Center(
+                          child: Text('No Saved Payment Method'),
+                        );
+                      }
+                      return ListView.builder(
+                        itemCount: state.cards.length,
+                        itemBuilder: (context, index) =>
+                            PaymentCardItem(cardModel: state.cards[index]),
                       );
                     }
-                    return ListView.builder(
-                      itemCount: state.cards.length,
-                      itemBuilder: (context, index) =>
-                          PaymentCardItem(cardModel: state.cards[index]),
-                    );
-                  }
-                  return const CircularProgressIndicator();
-                },
+                    return const CircularProgressIndicator();
+                  },
+                ),
               ),
-            ),
-            Padding(
-              padding: EdgeInsets.all(16.r),
-              child: CustomButton(
-                label: 'Add Payment Method',
-                onPressed: () =>
-                    Navigator.pushNamed(context, Routes.addPaymentMethods),
-              ),
-            )
-          ],
+              Padding(
+                padding: EdgeInsets.all(16.r),
+                child: CustomButton(
+                  label: 'Add Payment Method',
+                  onPressed: () =>
+                      Navigator.pushNamed(context, Routes.addPaymentMethods),
+                ),
+              )
+            ],
+          ),
         ),
       ),
     );

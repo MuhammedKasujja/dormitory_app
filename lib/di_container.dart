@@ -20,6 +20,7 @@ Future init() async {
   sl.registerFactory(() => SettingsCubit());
   sl.registerFactory(() => CountryCodesCubit());
   sl.registerFactory(() => CompleteProfileCubit());
+  sl.registerFactory(() => VouchersBloc(vourcherRepository: sl()));
 
   // External
   // sl.registerLazySingleton(() => Dio());
@@ -29,6 +30,9 @@ List<BlocProvider> get blocs => [
       BlocProvider<AuthBloc>(create: (context) => sl<AuthBloc>()),
       BlocProvider<SettingsCubit>(create: (context) => SettingsCubit()),
       BlocProvider<CountryCodesCubit>(create: (context) => CountryCodesCubit()),
+      BlocProvider<VouchersBloc>(
+        create: (context) => sl<VouchersBloc>()..add(const FetchMyVourchers()),
+      ),
       BlocProvider<CompleteProfileCubit>(
           create: (context) => CompleteProfileCubit()),
     ];

@@ -1,5 +1,7 @@
-// ignore_for_file: public_member_api_docs, sort_constructors_first
 import 'package:equatable/equatable.dart';
+import 'package:intl/intl.dart';
+
+import '../../data/models/enums.dart';
 
 class VoucherEntity extends Equatable {
   final String id;
@@ -10,8 +12,9 @@ class VoucherEntity extends Equatable {
   final String type;
   final String subject;
   final String photoUrl;
-  final bool status;
+  final VoucherStatus status;
   final List<String> termsAndConditions;
+  final DateTime dateAdded;
   const VoucherEntity({
     required this.id,
     required this.discount,
@@ -23,6 +26,7 @@ class VoucherEntity extends Equatable {
     required this.photoUrl,
     required this.status,
     required this.termsAndConditions,
+    required this.dateAdded,
   });
 
   @override
@@ -38,8 +42,11 @@ class VoucherEntity extends Equatable {
       photoUrl,
       status,
       termsAndConditions,
+      dateAdded,
     ];
   }
+
+  String get formatedDate => DateFormat('dd.MM.yyyy hh:mm a').format(dateAdded);
 
   VoucherEntity copyWith({
     String? id,
@@ -50,8 +57,9 @@ class VoucherEntity extends Equatable {
     String? type,
     String? subject,
     String? photoUrl,
-    bool? status,
+    VoucherStatus? status,
     List<String>? termsAndConditions,
+    DateTime? dateAdded,
   }) {
     return VoucherEntity(
       id: id ?? this.id,
@@ -64,6 +72,7 @@ class VoucherEntity extends Equatable {
       photoUrl: photoUrl ?? this.photoUrl,
       status: status ?? this.status,
       termsAndConditions: termsAndConditions ?? this.termsAndConditions,
+      dateAdded: dateAdded ?? this.dateAdded,
     );
   }
 }

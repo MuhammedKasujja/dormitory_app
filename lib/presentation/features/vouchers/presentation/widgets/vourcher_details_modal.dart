@@ -3,6 +3,9 @@ import 'package:dormitory_app/presentation/widgets/widgets.dart';
 import 'package:flutter/material.dart';
 
 import '../../data/models/models.dart';
+import 'voucher_status.dart';
+import 'voucher_terms_and_conditions.dart';
+import 'voucher_validity.dart';
 
 class VourcherDetailsModal extends StatelessWidget {
   final VourcherModel vourcher;
@@ -82,36 +85,10 @@ class VourcherDetailsModal extends StatelessWidget {
                               width: 12.w,
                             ),
                             Flexible(
-                              child: SizedBox(
-                                width: double.infinity,
-                                child: Row(
-                                  children: [
-                                    Container(
-                                      width: 12.w,
-                                      height: 12.w,
-                                      decoration: BoxDecoration(
-                                        color: vourcher.status
-                                            ? Colors.green
-                                            : AppColors.error500,
-                                        borderRadius:
-                                            BorderRadius.circular(50.r),
-                                      ),
-                                    ),
-                                    SizedBox(
-                                      width: 10.w,
-                                    ),
-                                    Text(
-                                      vourcher.status ? 'Active' : 'Expired',
-                                      style: TextStyle(
-                                        fontSize: 12.sp,
-                                        height: 1.5,
-                                        color: AppColors.text300,
-                                      ),
-                                    ),
-                                  ],
-                                ),
+                              child: VoucherStatusWidget(
+                                status: vourcher.status,
                               ),
-                            )
+                            ),
                           ],
                         ),
                       ),
@@ -172,64 +149,14 @@ class VourcherDetailsModal extends StatelessWidget {
           Spacing.medium(),
           const Divider(),
           Spacing.medium(),
-          Container(
-            padding: EdgeInsets.symmetric(vertical: 4.r, horizontal: 12.r),
-            decoration: BoxDecoration(
-              color: const Color(0xFFF4F5F7),
-              borderRadius: BorderRadius.circular(20.r),
-            ),
-            child: Text(
-              'Valid From ${vourcher.startTime} - ${vourcher.endTime}',
-              style: TextStyle(
-                fontSize: 12.sp,
-                fontWeight: FontWeight.w600,
-                height: 1.5,
-                color: AppColors.text400,
-              ),
-            ),
+          VoucherValidity(
+            startTime: vourcher.startTime,
+            endTime: vourcher.endTime,
           ),
           Spacing.medium(),
-          Text(
-            'Terms and Conditions:',
-            style: TextStyle(
-              fontSize: 16.sp,
-              fontWeight: FontWeight.w600,
-              height: 1.25,
-              letterSpacing: -0.16.sp,
-              color: AppColors.text500,
-            ),
-          ),
-          Spacing.small(),
-          ...vourcher.termsAndConditions
-              .map(
-                (tc) => Row(
-                  children: [
-                    Padding(
-                      padding: EdgeInsets.all(8.r),
-                      child: Container(
-                        width: 4.w,
-                        height: 4.w,
-                        decoration: BoxDecoration(
-                          color: AppColors.text400,
-                          borderRadius: BorderRadius.circular(10.r),
-                        ),
-                      ),
-                    ),
-                    Flexible(
-                      child: Text(
-                        tc,
-                        style: TextStyle(
-                          fontSize: 14.sp,
-                          fontWeight: FontWeight.w400,
-                          height: 1.57,
-                          color: AppColors.text400,
-                        ),
-                      ),
-                    ),
-                  ],
-                ),
-              )
-              .toList()
+          VoucherTermsAndConditions(
+            teramAndConditions: vourcher.termsAndConditions,
+          )
         ],
       ),
     );

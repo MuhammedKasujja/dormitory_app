@@ -1,5 +1,4 @@
 import 'package:animations/animations.dart';
-import 'package:dormitory_app/presentation/features/chat/screens/chat_screen.dart';
 import 'package:dormitory_app/presentation/features/features.dart';
 import 'package:flutter/material.dart';
 
@@ -42,6 +41,7 @@ class Routes {
 
   // my vouchers
   static const String vourchers = "/vourchers";
+  static const String redeemVourcher = "/vourchers/redeem";
 
   //
   static const String paymentMethods = "/paymentMethods";
@@ -105,6 +105,8 @@ Route onGenerateRoute(RouteSettings settings) => _fadeThrough(
 
           case Routes.vourchers:
             return const VourchersPage();
+          case Routes.redeemVourcher:
+            return const RedeemVoucherPage();
 
           case Routes.profile:
             return const ProfilePage();

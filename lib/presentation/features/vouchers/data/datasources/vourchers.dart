@@ -1,6 +1,6 @@
 import '../models/models.dart';
 
-const List<VourcherModel> vourchers = [
+List<VourcherModel> vourchers = [
   VourcherModel(
     id: '8790-7890-678787878',
     discount: 10,
@@ -10,8 +10,9 @@ const List<VourcherModel> vourchers = [
     type: 'Welcome Offer',
     subject: 'Has Girls Dormitory',
     photoUrl: '',
-    status: true,
-    termsAndConditions: [
+    status: VoucherStatus.active,
+    dateAdded: DateTime.now(),
+    termsAndConditions: const [
       'This voucher is applicable only to [Room Type] accommodations',
       'The discount is applicable to the base accommodation fee and does not include any additional charges',
       'The voucher cannot be combined with any other offers or discounts',
@@ -28,8 +29,9 @@ const List<VourcherModel> vourchers = [
     type: 'Welcome Offer',
     subject: 'Has Girls Dormitory',
     photoUrl: '',
-    status: false,
-    termsAndConditions: [
+    status: VoucherStatus.expired,
+    dateAdded: DateTime.now(),
+    termsAndConditions: const [
       'This voucher is applicable only to [Room Type] accommodations',
       'The discount is applicable to the base accommodation fee and does not include any additional charges',
       'The voucher cannot be combined with any other offers or discounts',
@@ -46,8 +48,9 @@ const List<VourcherModel> vourchers = [
     type: 'Welcome Offer',
     subject: 'Has Girls Dormitory',
     photoUrl: '',
-    status: true,
-    termsAndConditions: [
+    status: VoucherStatus.active,
+    dateAdded: DateTime.now(),
+    termsAndConditions: const [
       'This voucher is applicable only to [Room Type] accommodations',
       'The discount is applicable to the base accommodation fee and does not include any additional charges',
       'The voucher cannot be combined with any other offers or discounts',
@@ -64,8 +67,9 @@ const List<VourcherModel> vourchers = [
     type: 'Welcome Offer',
     subject: 'Has Girls Dormitory',
     photoUrl: '',
-    status: true,
-    termsAndConditions: [
+    status: VoucherStatus.active,
+    dateAdded: DateTime.now(),
+    termsAndConditions: const [
       'This voucher is applicable only to [Room Type] accommodations',
       'The discount is applicable to the base accommodation fee and does not include any additional charges',
       'The voucher cannot be combined with any other offers or discounts',
@@ -82,8 +86,9 @@ const List<VourcherModel> vourchers = [
     type: 'Welcome Offer',
     subject: 'Has Girls Dormitory',
     photoUrl: '',
-    status: false,
-    termsAndConditions: [
+    status: VoucherStatus.unUsed,
+    dateAdded: DateTime.now(),
+    termsAndConditions: const [
       'This voucher is applicable only to [Room Type] accommodations',
       'The discount is applicable to the base accommodation fee and does not include any additional charges',
       'The voucher cannot be combined with any other offers or discounts',
@@ -100,8 +105,9 @@ const List<VourcherModel> vourchers = [
     type: 'Welcome Offer',
     subject: 'Has Girls Dormitory',
     photoUrl: '',
-    status: true,
-    termsAndConditions: [
+    status: VoucherStatus.unUsed,
+    dateAdded: DateTime.now(),
+    termsAndConditions: const [
       'This voucher is applicable only to [Room Type] accommodations',
       'The discount is applicable to the base accommodation fee and does not include any additional charges',
       'The voucher cannot be combined with any other offers or discounts',
@@ -118,8 +124,9 @@ const List<VourcherModel> vourchers = [
     type: 'Welcome Offer',
     subject: 'Has Girls Dormitory',
     photoUrl: '',
-    status: false,
-    termsAndConditions: [
+    status: VoucherStatus.expired,
+    dateAdded: DateTime.now(),
+    termsAndConditions: const [
       'This voucher is applicable only to [Room Type] accommodations',
       'The discount is applicable to the base accommodation fee and does not include any additional charges',
       'The voucher cannot be combined with any other offers or discounts',
@@ -136,8 +143,9 @@ const List<VourcherModel> vourchers = [
     type: 'Welcome Offer',
     subject: 'Has Girls Dormitory',
     photoUrl: '',
-    status: true,
-    termsAndConditions: [
+    status: VoucherStatus.expired,
+    dateAdded: DateTime.now(),
+    termsAndConditions: const [
       'This voucher is applicable only to [Room Type] accommodations',
       'The discount is applicable to the base accommodation fee and does not include any additional charges',
       'The voucher cannot be combined with any other offers or discounts',
@@ -154,8 +162,9 @@ const List<VourcherModel> vourchers = [
     type: 'Welcome Offer',
     subject: 'Has Girls Dormitory',
     photoUrl: '',
-    status: true,
-    termsAndConditions: [
+    status: VoucherStatus.active,
+    dateAdded: DateTime.now(),
+    termsAndConditions: const [
       'This voucher is applicable only to [Room Type] accommodations',
       'The discount is applicable to the base accommodation fee and does not include any additional charges',
       'The voucher cannot be combined with any other offers or discounts',
@@ -172,8 +181,9 @@ const List<VourcherModel> vourchers = [
     type: 'Welcome Offer',
     subject: 'Has Girls Dormitory',
     photoUrl: '',
-    status: false,
-    termsAndConditions: [
+    status: VoucherStatus.unUsed,
+    dateAdded: DateTime.now(),
+    termsAndConditions: const [
       'This voucher is applicable only to [Room Type] accommodations',
       'The discount is applicable to the base accommodation fee and does not include any additional charges',
       'The voucher cannot be combined with any other offers or discounts',

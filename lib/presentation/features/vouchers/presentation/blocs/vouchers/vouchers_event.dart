@@ -1,4 +1,3 @@
-// ignore_for_file: public_member_api_docs, sort_constructors_first
 part of 'vouchers_bloc.dart';
 
 abstract class VouchersEvent extends Equatable {
@@ -8,8 +7,24 @@ abstract class VouchersEvent extends Equatable {
   List<Object> get props => [];
 }
 
+class AddVourcher extends VouchersEvent {
+  final VourcherModel vourcher;
+
+  const AddVourcher({required this.vourcher});
+
+  @override
+  List<Object> get props => [vourcher];
+}
+
 class FetchMyVourchers extends VouchersEvent {
   const FetchMyVourchers();
+}
+
+class AddActiveVoucher extends VouchersEvent {
+  final VourcherModel vourcher;
+  const AddActiveVoucher({required this.vourcher});
+  @override
+  List<Object> get props => [vourcher];
 }
 
 class VourcherFailure extends VouchersEvent {

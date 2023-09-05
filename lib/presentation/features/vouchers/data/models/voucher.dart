@@ -14,6 +14,7 @@ class VourcherModel extends VoucherEntity {
     required super.photoUrl,
     required super.status,
     required super.termsAndConditions,
+    required super.dateAdded,
   });
 
   Map<String, dynamic> toMap() {
@@ -39,8 +40,9 @@ class VourcherModel extends VoucherEntity {
       type: map['type'] as String,
       subject: map['subject'] as String,
       photoUrl: map['photoUrl'],
-      status: map['status'] == 1,
+      status: map['status'],
       termsAndConditions: map['terms_and_conditions'],
+      dateAdded: map['dateAdded'],
     );
   }
 

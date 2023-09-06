@@ -20,11 +20,20 @@ class FetchMyVourchers extends VouchersEvent {
   const FetchMyVourchers();
 }
 
-class AddActiveVoucher extends VouchersEvent {
-  final VourcherModel vourcher;
-  const AddActiveVoucher({required this.vourcher});
+class ChangedSortOrder extends VouchersEvent {
+  final VoucherSortType sortType;
+  const ChangedSortOrder(this.sortType);
+
   @override
-  List<Object> get props => [vourcher];
+  List<Object> get props => [sortType];
+}
+
+class FetchSingleVourcher extends VouchersEvent {
+  final String voucherCode;
+
+  const FetchSingleVourcher(this.voucherCode);
+  @override
+  List<Object> get props => [voucherCode];
 }
 
 class VourcherFailure extends VouchersEvent {

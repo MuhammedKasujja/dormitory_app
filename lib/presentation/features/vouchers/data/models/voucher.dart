@@ -26,7 +26,7 @@ class VourcherModel extends VoucherEntity {
       'endTime': endTime,
       'type': type,
       'subject': subject,
-      'status': status,
+      'status': status.index,
     };
   }
 

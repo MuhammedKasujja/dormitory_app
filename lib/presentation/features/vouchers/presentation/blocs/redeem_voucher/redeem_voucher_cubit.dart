@@ -6,14 +6,17 @@ import 'package:formz/formz.dart';
 import '../../../data/models/voucher.dart';
 import '../../../data/repositories/vourcher_repository.dart';
 
-part 'add_voucher_state.dart';
+part 'redeem_voucher_state.dart';
 
-class AddVoucherCubit extends Cubit<AddVoucherState> {
+class RedeemVoucherCubit extends Cubit<RedeemVoucherState> {
   final VourcherRepository vourcherRepository;
-  AddVoucherCubit({required this.vourcherRepository})
-      : super(const AddVoucherState());
+  RedeemVoucherCubit({required this.vourcherRepository})
+      : super(const RedeemVoucherState());
 
   void onVoucherCodeChanged(String voucher) {
+    if (!state.status.isInitial) {
+      emit(const RedeemVoucherState());
+    }
     final voucherCode = RequiredField.dirty(voucher);
     emit(
       state.copyWith(
@@ -30,7 +33,7 @@ class AddVoucherCubit extends Cubit<AddVoucherState> {
     if (res.success) {
       emit(
         state.copyWith(
-          vourcher: res.data,
+          vourcher: res.data!,
           status: FormzSubmissionStatus.success,
         ),
       );
@@ -45,6 +48,7 @@ class AddVoucherCubit extends Cubit<AddVoucherState> {
   }
 
   Future<void> redeemVoucher(String voucherCode) async {
+    emit(const RedeemVoucherState());
     onVoucherCodeChanged(voucherCode);
     await onSubmitVoucherCode();
   }

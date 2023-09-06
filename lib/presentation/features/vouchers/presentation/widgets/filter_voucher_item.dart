@@ -1,35 +1,35 @@
 import 'package:dormitory_app/infra/infra.dart';
-import 'package:dormitory_app/logic/logic.dart';
+import 'package:dormitory_app/presentation/features/vouchers/data/models/models.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
+import '../blocs/vouchers/vouchers_bloc.dart';
+
 class FilterVoucherItem extends StatelessWidget {
   final String label;
-  final String value;
+  final VoucherSortType filterType;
   const FilterVoucherItem(
-      {super.key, required this.label, required this.value});
+      {super.key, required this.label, required this.filterType});
 
   @override
   Widget build(BuildContext context) {
     return InkWell(
       onTap: () {
-        // context.read<SettingsCubit>().changeLocale(code);
+        context.read<VouchersBloc>().add(ChangedSortOrder(filterType));
       },
       child: Container(
         padding: EdgeInsets.all(16.r),
         child: Row(
           children: [
-            BlocBuilder<SettingsCubit, SettingsState>(
+            BlocBuilder<VouchersBloc, VouchersState>(
               builder: (context, state) {
                 return Icon(
-                  // state.lang == code
-                  // ?
-                  Icons.radio_button_checked,
-                  // : Icons.radio_button_unchecked,
-                  // color: state.lang == code
-                  // ? AppColors.text1
-                  // : const Color(0xFFC3C6D2),
-                  color: AppColors.text500,
+                  state.sortBy == filterType
+                      ? Icons.radio_button_checked
+                      : Icons.radio_button_unchecked,
+                  color: state.sortBy == filterType
+                      ? AppColors.text1
+                      : AppColors.text500,
                 );
               },
             ),

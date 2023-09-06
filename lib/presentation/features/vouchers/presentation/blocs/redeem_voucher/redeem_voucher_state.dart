@@ -1,7 +1,7 @@
-part of 'add_voucher_cubit.dart';
+part of 'redeem_voucher_cubit.dart';
 
-class AddVoucherState extends Equatable {
-  const AddVoucherState({
+class RedeemVoucherState extends Equatable {
+  const RedeemVoucherState({
     this.status = FormzSubmissionStatus.initial,
     this.voucherCode = const RequiredField.pure(),
     this.isValid = false,
@@ -15,14 +15,14 @@ class AddVoucherState extends Equatable {
   final String? errorMessage;
   final VourcherModel? vourcher;
 
-  AddVoucherState copyWith({
+  RedeemVoucherState copyWith({
     FormzSubmissionStatus? status,
     RequiredField? voucherCode,
     bool? isValid,
     String? errorMessage,
     VourcherModel? vourcher,
   }) {
-    return AddVoucherState(
+    return RedeemVoucherState(
       status: status ?? this.status,
       voucherCode: voucherCode ?? this.voucherCode,
       isValid: isValid ?? this.isValid,

@@ -21,11 +21,11 @@ class FetchMyVourchers extends VouchersEvent {
 }
 
 class ChangedSortOrder extends VouchersEvent {
-  final VoucherSortType sortType;
-  const ChangedSortOrder(this.sortType);
+  final VoucherFilterType filterType;
+  const ChangedSortOrder(this.filterType);
 
   @override
-  List<Object> get props => [sortType];
+  List<Object> get props => [filterType];
 }
 
 class FetchSingleVourcher extends VouchersEvent {

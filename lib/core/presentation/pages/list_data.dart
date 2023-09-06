@@ -5,12 +5,12 @@ import 'package:dormitory_app/presentation/widgets/widgets.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
-class ListDataPage extends StatelessWidget {
+class ListDataWidget extends StatelessWidget {
   final String guestTitleHeader;
   final Widget guestIcon;
   final Widget child;
 
-  const ListDataPage({
+  const ListDataWidget({
     super.key,
     required this.guestTitleHeader,
     required this.guestIcon,

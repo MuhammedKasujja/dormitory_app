@@ -1,16 +1,16 @@
-enum VoucherSortType {
+enum VoucherFilterType {
   latest,
   oldest,
   lowestValue,
   highestValue,
 }
 
-extension VoucherSortTypeX on VoucherSortType {
-  bool get isLatest => this == VoucherSortType.latest;
+extension VoucherSortTypeX on VoucherFilterType {
+  bool get isLatest => this == VoucherFilterType.latest;
 
-  bool get isOldest => this == VoucherSortType.oldest;
+  bool get isOldest => this == VoucherFilterType.oldest;
 
-  bool get isLowestValue => this == VoucherSortType.lowestValue;
+  bool get isLowestValue => this == VoucherFilterType.lowestValue;
 
-  bool get isHighestValue => this == VoucherSortType.highestValue;
+  bool get isHighestValue => this == VoucherFilterType.highestValue;
 }

@@ -54,7 +54,7 @@ class VouchersBloc extends Bloc<VouchersEvent, VouchersState> {
     });
 
     on<ChangedSortOrder>((event, emit) {
-      emit(state.copyWith(sortBy: event.sortType));
+      emit(state.copyWith(filterType: event.filterType));
     });
   }
 }

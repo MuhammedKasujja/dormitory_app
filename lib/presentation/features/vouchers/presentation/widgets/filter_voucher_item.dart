@@ -1,13 +1,13 @@
 import 'package:dormitory_app/infra/infra.dart';
-import 'package:dormitory_app/presentation/features/vouchers/data/models/models.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
+import '../../data/models/enums.dart';
 import '../blocs/vouchers/vouchers_bloc.dart';
 
 class FilterVoucherItem extends StatelessWidget {
   final String label;
-  final VoucherSortType filterType;
+  final VoucherFilterType filterType;
   const FilterVoucherItem(
       {super.key, required this.label, required this.filterType});
 
@@ -24,12 +24,12 @@ class FilterVoucherItem extends StatelessWidget {
             BlocBuilder<VouchersBloc, VouchersState>(
               builder: (context, state) {
                 return Icon(
-                  state.sortBy == filterType
+                  state.filterType == filterType
                       ? Icons.radio_button_checked
                       : Icons.radio_button_unchecked,
-                  color: state.sortBy == filterType
-                      ? AppColors.text1
-                      : AppColors.text500,
+                  color: state.filterType == filterType
+                      ? AppColors.text500
+                      : AppColors.text100,
                 );
               },
             ),

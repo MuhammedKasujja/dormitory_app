@@ -18,7 +18,7 @@ class PaymentMethodsPage extends StatelessWidget {
       appBar: AppBar(
         title: const Text('Payment Methods'),
       ),
-      body: ListDataPage(
+      body: ListDataWidget(
         guestIcon: Image.asset(Assets.card),
         guestTitleHeader: 'No Saved Payment Method',
         child: BlocProvider(

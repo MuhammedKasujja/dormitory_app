@@ -6,21 +6,21 @@ class VouchersState extends Equatable {
     this.data,
     this.activeVoucher,
     this.errorMessage,
-    this.sortBy = VoucherSortType.latest,
+    this.filterType = VoucherFilterType.latest,
   });
 
   final List<VourcherModel>? data;
   final AppState status;
   final VourcherModel? activeVoucher;
   final String? errorMessage;
-  final VoucherSortType sortBy;
+  final VoucherFilterType filterType;
   @override
   List<Object?> get props => [
         status,
         data,
         errorMessage,
         activeVoucher,
-        sortBy,
+        filterType,
       ];
 
   VouchersState copyWith({
@@ -28,14 +28,14 @@ class VouchersState extends Equatable {
     AppState? status,
     String? errorMessage,
     VourcherModel? activeVoucher,
-    VoucherSortType? sortBy,
+    VoucherFilterType? filterType,
   }) {
     return VouchersState(
       data: data ?? this.data,
       status: status ?? this.status,
       activeVoucher: activeVoucher,
       errorMessage: errorMessage ?? this.errorMessage,
-      sortBy: sortBy ?? this.sortBy,
+      filterType: filterType ?? this.filterType,
     );
   }
 }

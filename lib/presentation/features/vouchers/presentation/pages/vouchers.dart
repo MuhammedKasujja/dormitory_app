@@ -33,40 +33,46 @@ class VourchersPage extends StatelessWidget {
           )
         ],
       ),
-      body: ListDataPage(
+      body: ListDataWidget(
         guestIcon: SvgPicture.asset(Assets.missingVoucher),
         guestTitleHeader: 'No Vouchers',
-        child: Column(
-          children: [
-            Expanded(
-              child: BlocBuilder<VouchersBloc, VouchersState>(
-                builder: (context, state) {
-                  if (state.data != null) {
-                    return ListView.separated(
-                      shrinkWrap: true,
-                      padding: EdgeInsets.all(16.r),
-                      physics: const BouncingScrollPhysics(),
-                      itemCount: state.data!.length,
-                      itemBuilder: (context, index) => VourcherCard(
-                        vourcher: state.data![index],
-                      ),
-                      separatorBuilder: (BuildContext context, int index) =>
-                          Spacing.medium(),
-                    );
-                  }
-                  return const Center(child: CircularProgressIndicator());
-                },
-              ),
-            ),
-            Padding(
-              padding: const EdgeInsets.all(16.0),
-              child: CustomButton(
-                onPressed: () => _showAddVourcher(context),
-                label: 'Add Voucher Code',
-              ),
-            ),
-          ],
-        ),
+        child:
+            BlocBuilder<VouchersBloc, VouchersState>(builder: (context, state) {
+          if (state.data != null) {
+            if (state.data!.isEmpty) {
+              return NoDataWidget(
+                title: 'No Vouchers',
+                message:
+                    'User more services and check our offers to get more voucher',
+                icon: SvgPicture.asset(Assets.missingVoucher),
+              );
+            }
+            return Column(
+              children: [
+                Expanded(
+                    child: ListView.separated(
+                  shrinkWrap: true,
+                  padding: EdgeInsets.all(16.r),
+                  physics: const BouncingScrollPhysics(),
+                  itemCount: state.data!.length,
+                  itemBuilder: (context, index) => VourcherCard(
+                    vourcher: state.data![index],
+                  ),
+                  separatorBuilder: (BuildContext context, int index) =>
+                      Spacing.medium(),
+                )),
+                Padding(
+                  padding: const EdgeInsets.all(16.0),
+                  child: CustomButton(
+                    onPressed: () => _showAddVourcher(context),
+                    label: 'Add Voucher Code',
+                  ),
+                ),
+              ],
+            );
+          }
+          return const Center(child: CircularProgressIndicator());
+        }),
       ),
     );
   }

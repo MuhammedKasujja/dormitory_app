@@ -1,22 +1,50 @@
 import 'package:dormitory_app/infra/infra.dart';
+import 'package:dormitory_app/presentation/widgets/widgets.dart';
 import 'package:flutter/material.dart';
 
 class NoDataWidget extends StatelessWidget {
-  final String? message;
-  const NoDataWidget({Key? key, this.message}) : super(key: key);
+  final String title;
+  final String message;
+  final Widget icon;
+
+  const NoDataWidget({
+    super.key,
+    required this.title,
+    required this.message,
+    required this.icon,
+  });
 
   @override
   Widget build(BuildContext context) {
-    return Center(
+    return Padding(
+      padding: EdgeInsets.fromLTRB(16.r, 120.r, 16.r, 0),
       child: Column(
-        mainAxisAlignment: MainAxisAlignment.center,
         children: [
+          SizedBox(
+            width: 178.h,
+            height: 149.h,
+            child: icon,
+          ),
+          Spacing.medium(),
           Text(
-            message ?? LocaleKeys.noDataFound.tr(),
+            title,
+            textAlign: TextAlign.center,
             style: TextStyle(
-              color: Colors.grey,
-              fontSize: 16.0.sp,
-              fontWeight: FontWeight.bold,
+              color: AppColors.text500,
+              fontSize: 20.0.sp,
+              fontWeight: FontWeight.w600,
+              height: 1.15,
+              letterSpacing: -0.2.sp,
+            ),
+          ),
+          Spacing.xs(),
+          Text(
+            message,
+            textAlign: TextAlign.center,
+            style: TextStyle(
+              color: AppColors.text300,
+              height: 1.57,
+              fontSize: 14.sp,
             ),
           ),
         ],

@@ -15,19 +15,19 @@ class VoucherFilterMenu extends StatelessWidget {
         children: [
           FilterVoucherItem(
             label: 'Latest(Default)',
-            filterType: VoucherSortType.latest,
+            filterType: VoucherFilterType.latest,
           ),
           FilterVoucherItem(
             label: 'Latest Voucher time first',
-            filterType: VoucherSortType.oldest,
+            filterType: VoucherFilterType.oldest,
           ),
           FilterVoucherItem(
             label: 'Lowest Voucher value first',
-            filterType: VoucherSortType.lowestValue,
+            filterType: VoucherFilterType.lowestValue,
           ),
           FilterVoucherItem(
             label: 'Highest Voucher value first',
-            filterType: VoucherSortType.highestValue,
+            filterType: VoucherFilterType.highestValue,
           )
         ],
       ),

@@ -1,10 +1,10 @@
 import 'package:dormitory_app/infra/infra.dart';
-import 'package:dormitory_app/logic/logic.dart';
 import 'package:dormitory_app/models/models.dart';
 import 'package:dormitory_app/presentation/widgets/widgets.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
+import '../blocs/blocs.dart';
 import 'file_attachement_item.dart';
 
 class ChatAttachFileWidget extends StatelessWidget {

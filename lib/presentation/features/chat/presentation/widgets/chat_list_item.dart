@@ -1,6 +1,7 @@
 import 'package:dormitory_app/infra/infra.dart';
 import 'package:dormitory_app/models/models.dart';
 import 'package:dormitory_app/presentation/router/router.dart';
+import 'package:dormitory_app/presentation/widgets/widgets.dart';
 import 'package:flutter/material.dart';
 
 class ChatListItem extends StatelessWidget {
@@ -21,8 +22,12 @@ class ChatListItem extends StatelessWidget {
                   width: 48.w,
                   height: 48.w,
                   decoration: BoxDecoration(
-                    color: Colors.green,
-                    borderRadius: BorderRadius.circular(50000),
+                    color: Colors.black,
+                    borderRadius: BorderRadius.circular(10000),
+                  ),
+                  child: ImageLoader(
+                    imageUrl: chat.user.imageUrl,
+                    placeholderImage: Assets.missingProfile,
                   ),
                 ),
                 SizedBox(width: 16.w),

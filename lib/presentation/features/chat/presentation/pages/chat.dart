@@ -1,9 +1,9 @@
 import 'package:dormitory_app/infra/infra.dart';
-import 'package:dormitory_app/logic/logic.dart';
 import 'package:dormitory_app/models/models.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
+import '../blocs/blocs.dart';
 import '../widgets/chat_list_item.dart';
 
 class ChatPage extends StatelessWidget {

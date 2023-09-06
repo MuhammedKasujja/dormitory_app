@@ -4,6 +4,7 @@ class AppColors {
   AppColors._();
 
   static Color primary = const Color(0xFFF1C111);
+  static Color primary50 = const Color(0xFFFFF6D8);
   static Color accent = const Color(0xFFF6D660);
   static Color text1 = const Color(0xFF111217);
   static Color text2 = const Color(0xFF444A5B);

@@ -1,9 +1,9 @@
 import 'package:dormitory_app/infra/infra.dart';
-import 'package:dormitory_app/logic/logic.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_chat_types/flutter_chat_types.dart' as types;
 
+import '../../blocs/blocs.dart';
 import '../../widgets/widgets.dart';
 
 class ChatScreen extends StatelessWidget {

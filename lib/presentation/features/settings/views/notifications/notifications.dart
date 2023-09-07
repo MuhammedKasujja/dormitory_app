@@ -1,10 +1,10 @@
+import 'package:dormitory_app/core/core.dart';
 import 'package:dormitory_app/infra/infra.dart';
-import 'package:dormitory_app/logic/logic.dart';
 import 'package:dormitory_app/models/models.dart';
-import 'package:dormitory_app/presentation/features/base_page.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
+import '../../presentation/cubit/settings_cubit.dart';
 import 'components/notification_setting_item.dart';
 
 class NotificationSettingsScreen extends StatelessWidget {

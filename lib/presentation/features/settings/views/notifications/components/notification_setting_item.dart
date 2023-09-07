@@ -1,9 +1,10 @@
 import 'package:dormitory_app/infra/infra.dart';
-import 'package:dormitory_app/logic/logic.dart';
 import 'package:dormitory_app/models/models.dart';
-import 'package:dormitory_app/presentation/features/settings/widgets/widgets.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+
+import '../../../presentation/cubit/settings_cubit.dart';
+import '../../../presentation/widgets/widgets.dart';
 
 class NotificationSettingItem extends StatelessWidget {
   final String title;

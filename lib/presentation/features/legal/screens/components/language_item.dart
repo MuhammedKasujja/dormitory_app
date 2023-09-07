@@ -1,7 +1,8 @@
-import 'package:dormitory_app/infra/infra.dart';
-import 'package:dormitory_app/logic/logic.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+
+import 'package:dormitory_app/infra/infra.dart';
+import 'package:dormitory_app/presentation/features/settings/settings.dart';
 
 class LanguageItem extends StatelessWidget {
   final String lang;
@@ -14,7 +15,7 @@ class LanguageItem extends StatelessWidget {
       onTap: () {
         context.read<SettingsCubit>().changeLocale(code);
         // Future.delayed(const Duration(milliseconds: 1000), (){
-          // Navigator.pop(context);
+        // Navigator.pop(context);
         // });
       },
       child: Container(
@@ -27,10 +28,9 @@ class LanguageItem extends StatelessWidget {
                   state.lang == code
                       ? Icons.radio_button_checked
                       : Icons.radio_button_unchecked,
-                      color: state.lang == code
+                  color: state.lang == code
                       ? AppColors.text1
                       : const Color(0xFFC3C6D2),
-
                 );
               },
             ),

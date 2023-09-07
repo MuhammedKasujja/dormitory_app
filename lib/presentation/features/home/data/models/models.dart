@@ -1,3 +1,4 @@
+export '../../domain/entities/enums.dart';
 export 'city.dart';
 export 'dormitory_facility.dart';
 export 'university.dart';

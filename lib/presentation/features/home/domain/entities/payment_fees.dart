@@ -12,6 +12,8 @@ class PaymentFee extends Equatable {
     required this.currency,
   });
 
+  String get pay => '$amount$currency/${paymentPeriodType.label}';
+
   @override
   List<Object> get props => [amount, paymentPeriodType, currency];
 }

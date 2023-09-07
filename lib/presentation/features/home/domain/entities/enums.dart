@@ -10,6 +10,10 @@ enum PaymentPeriodType {
   yearly,
 }
 
+extension PaymentPeriodTypeX on PaymentPeriodType {
+  String get label => this == PaymentPeriodType.monthly ? 'month' : 'yearly';
+}
+
 enum DormitoryStayDurationType {
   weeks,
   months,

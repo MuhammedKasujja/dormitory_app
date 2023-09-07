@@ -15,3 +15,5 @@ String filterIcon = "assets/icons/filter.svg";
 String savedActiveIcon = "assets/icons/saved.svg";
 
 String savedIcon = "assets/icons/saved.svg";
+
+String dormitoryMissing = "assets/images/dormitory_missing.png";

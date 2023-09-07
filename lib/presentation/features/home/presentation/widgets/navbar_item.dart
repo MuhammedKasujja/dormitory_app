@@ -5,6 +5,7 @@ import 'package:flutter_svg/flutter_svg.dart';
 
 class NavbarItem extends StatelessWidget {
   final String iconPath;
+  final String activeIconPath;
   final void Function(int index) onSelected;
   final bool isActive;
   final int iconIndex;
@@ -17,6 +18,7 @@ class NavbarItem extends StatelessWidget {
     required this.isActive,
     required this.iconIndex,
     required this.label,
+    required this.activeIconPath,
   });
 
   @override
@@ -38,7 +40,7 @@ class NavbarItem extends StatelessWidget {
             icon: SizedBox(
               width: 24.w,
               height: 24.w,
-              child: SvgPicture.asset(iconPath),
+              child: SvgPicture.asset(isActive ? activeIconPath : iconPath),
             ),
           ),
         ),

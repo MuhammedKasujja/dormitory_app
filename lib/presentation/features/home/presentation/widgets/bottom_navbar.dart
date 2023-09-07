@@ -44,36 +44,50 @@ class _ButtomNavbar extends StatelessWidget {
       decoration: const BoxDecoration(
         color: Colors.white,
       ),
-      child: Row(
-        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+      child: Column(
         children: [
-          NavbarItem(
-            label: 'Home',
-            iconPath: homeActiveIcon,
-            isActive: activeIndex == 0,
-            iconIndex: 0,
-            onSelected: onSelectedItem,
+          Divider(
+            height: .2.h,
+            thickness: .4,
           ),
-          NavbarItem(
-            label: 'Filters',
-            iconPath: filterActiveIcon,
-            isActive: activeIndex == 1,
-            iconIndex: 1,
-            onSelected: onSelectedItem,
-          ),
-          NavbarItem(
-            label: 'Saved',
-            iconPath: savedActiveIcon,
-            isActive: activeIndex == 2,
-            iconIndex: 2,
-            onSelected: onSelectedItem,
-          ),
-          NavbarItem(
-            label: 'Chat',
-            iconPath: chatActiveIcon,
-            isActive: activeIndex == 3,
-            iconIndex: 3,
-            onSelected: onSelectedItem,
+          Expanded(
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+              children: [
+                NavbarItem(
+                  label: 'Home',
+                  iconPath: homeIcon,
+                  activeIconPath: homeActiveIcon,
+                  isActive: activeIndex == 0,
+                  iconIndex: 0,
+                  onSelected: onSelectedItem,
+                ),
+                NavbarItem(
+                  label: 'Filters',
+                  iconPath: filterIcon,
+                  activeIconPath: filterActiveIcon,
+                  isActive: activeIndex == 1,
+                  iconIndex: 1,
+                  onSelected: onSelectedItem,
+                ),
+                NavbarItem(
+                  label: 'Saved',
+                  iconPath: savedIcon,
+                  activeIconPath: savedActiveIcon,
+                  isActive: activeIndex == 2,
+                  iconIndex: 2,
+                  onSelected: onSelectedItem,
+                ),
+                NavbarItem(
+                  label: 'Chat',
+                  iconPath: chatIcon,
+                  activeIconPath: chatActiveIcon,
+                  isActive: activeIndex == 3,
+                  iconIndex: 3,
+                  onSelected: onSelectedItem,
+                ),
+              ],
+            ),
           ),
         ],
       ),

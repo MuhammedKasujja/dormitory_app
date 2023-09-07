@@ -2,9 +2,9 @@ String notificationIcon = "assets/icons/notification.svg";
 
 String homeActiveIcon = "assets/icons/home_active.svg";
 
-String homeIcon = "assets/icons/home_active.svg";
+String homeIcon = "assets/icons/home.svg";
 
-String chatActiveIcon = "assets/icons/chat.svg";
+String chatActiveIcon = "assets/icons/chat_active.svg";
 
 String chatIcon = "assets/icons/chat.svg";
 

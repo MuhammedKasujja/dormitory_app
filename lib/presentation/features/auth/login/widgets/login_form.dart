@@ -21,7 +21,7 @@ class LoginForm extends StatelessWidget {
         listener: (context, state) {
           if (state.status.isSuccess) {
             context.read<AuthBloc>().add(AuthUserLoggedIn(state.user!));
-            Navigator.pushNamed(context, Routes.home);
+            Navigator.pushNamed(context, Routes.dashboard);
           }
           if (state.status.isFailure) {
             Utility.showAlert(state.errorMessage);
@@ -44,7 +44,7 @@ class LoginForm extends StatelessWidget {
                 );
               },
             ),
-           const Spacing(10),
+            const Spacing(10),
             BlocBuilder<LoginBloc, LoginState>(
               buildWhen: (previous, current) =>
                   previous.password != current.password,
@@ -60,7 +60,7 @@ class LoginForm extends StatelessWidget {
                 );
               },
             ),
-             Spacing.small(),
+            Spacing.small(),
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [

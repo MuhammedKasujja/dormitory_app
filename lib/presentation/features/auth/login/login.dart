@@ -77,7 +77,7 @@ class _LoginPageState extends State<LoginPage> {
                   recognizer: TapGestureRecognizer()
                     ..onTap = () {
                       context.read<AuthBloc>().add(const AuthLoginAsGuest());
-                      Navigator.pushNamed(context, Routes.home);
+                      Navigator.pushNamed(context, Routes.dashboard);
                     },
                 ),
                 style: TextStyle(

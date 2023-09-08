@@ -13,6 +13,9 @@ Future init() async {
   // Repository
   sl.registerLazySingleton(() => AuthRepository());
   sl.registerLazySingleton(() => VourcherRepository());
+  sl.registerLazySingleton<DormitoryRepository>(() => DormitoryRepositoryImp());
+  sl.registerLazySingleton<LocalDormitoryRepository>(
+      () => LocalDormitoryRepositoryImp());
 
   // Blocs
   sl.registerFactory(() => AuthBloc());
@@ -24,6 +27,12 @@ Future init() async {
       vourcherRepository: sl(),
       redeemVoucherCubit: sl(),
     ),
+  );
+  sl.registerFactory(
+    () => DormitoryBloc(dormitoryRepository: sl()),
+  );
+  sl.registerFactory(
+    () => LocalDormitoryBloc(localDormitoryRepository: sl()),
   );
   sl.registerFactory(() => RedeemVoucherCubit(vourcherRepository: sl()));
 
@@ -43,6 +52,9 @@ List<BlocProvider> get blocs => [
           create: (context) => sl<RedeemVoucherCubit>()),
       BlocProvider<CompleteProfileCubit>(
           create: (context) => CompleteProfileCubit()),
+      BlocProvider<LocalDormitoryBloc>(
+          create: (context) => sl<LocalDormitoryBloc>()),
+      BlocProvider<DormitoryBloc>(create: (context) => sl<DormitoryBloc>()),
     ];
 
 Future resetBlocs() async {

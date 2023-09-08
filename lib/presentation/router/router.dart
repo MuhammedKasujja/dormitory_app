@@ -1,10 +1,12 @@
 import 'package:animations/animations.dart';
+import 'package:dormitory_app/presentation/dashboard.dart';
 import 'package:dormitory_app/presentation/features/features.dart';
 import 'package:flutter/material.dart';
 
 class Routes {
   Routes._();
-  static const String home = "/";
+  static const String dashboard = "/";
+  static const String home = "/home";
   static const String login = "login";
   static const String signup = "signup";
   static const String verifyOtp = "verifyOtp";
@@ -52,6 +54,8 @@ Route onGenerateRoute(RouteSettings settings) => _fadeThrough(
       settings,
       (context) {
         switch (settings.name) {
+          case Routes.dashboard:
+            return const DashboardPage();
           case Routes.home:
             return const HomePage();
           case Routes.login:

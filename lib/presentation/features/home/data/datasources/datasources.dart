@@ -1282,3 +1282,58 @@ final List<DormitoryModel> dormitories = [
     type: DormitoryType.female,
   ),
 ];
+
+final universities = [
+  const UniversityModel(
+    id: '657687',
+    name: 'Islamabad',
+  ),
+  const UniversityModel(
+    id: '3456787',
+    name: 'Istanbul',
+  ),
+  const UniversityModel(
+    id: '768445',
+    name: 'Ankara',
+  ),
+  const UniversityModel(
+    id: '456789',
+    name: 'Izmir',
+  ),
+  const UniversityModel(
+    id: '543456789',
+    name: 'Islamabad',
+  ),
+  const UniversityModel(
+    id: '543456789',
+    name: 'Islamabad',
+  ),
+  const UniversityModel(
+    id: '543456789',
+    name: 'Islamabad',
+  ),
+  const UniversityModel(
+    id: '543456789',
+    name: 'Islamabad',
+  ),
+  const UniversityModel(
+    id: '543456789',
+    name: 'Islamabad',
+  ),
+  const UniversityModel(
+    id: '543456789',
+    name: 'Islamabad',
+  ),
+];
+
+final cities = [
+  const CityModel(id: '45678-', name: 'Istanbul'),
+  const CityModel(id: 'reeddfd-', name: 'Izmir'),
+  const CityModel(id: 'fde5t6675-', name: 'Konak'),
+  const CityModel(id: 'etrtr-', name: 'Ankara'),
+  const CityModel(id: '5678-', name: 'Konak'),
+  const CityModel(id: 'e657689-', name: 'Ankara'),
+  const CityModel(id: '65790-', name: 'Islamabad'),
+  const CityModel(id: '767890-', name: 'Izmir'),
+  const CityModel(id: '67890-', name: 'Konak'),
+];

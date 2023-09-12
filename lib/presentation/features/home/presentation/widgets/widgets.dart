@@ -6,3 +6,4 @@ export 'section_header.dart';
 export 'dormitories_list.dart';
 export 'dormitory_carousel.dart';
 export 'dormitory_filter.dart';
+export './dormitory_card_shimmer.dart';

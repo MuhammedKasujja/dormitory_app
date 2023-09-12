@@ -13,10 +13,11 @@ class FacilityMoreIcon extends StatelessWidget {
         vertical: 2.r,
       ),
       decoration: BoxDecoration(
-          borderRadius: BorderRadius.circular(4.r),
-          border: Border.all(
-            color: AppColors.divider,
-          )),
+        borderRadius: BorderRadius.circular(4.r),
+        border: Border.all(
+          color: AppColors.divider,
+        ),
+      ),
       child: Text(
         '+ $count More',
         style: TextStyle(

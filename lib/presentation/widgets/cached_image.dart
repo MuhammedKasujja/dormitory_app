@@ -22,7 +22,8 @@ class CacheImage extends StatelessWidget {
       width: width ?? double.infinity,
       height: height,
       imageUrl: imageUrl ?? '',
-      placeholder: (context, url) => const CircularProgressIndicator(),
+      placeholder: (context, url) =>
+          const Center(child: CircularProgressIndicator()),
       cacheManager: CacheManager(
         Config(
           imageUrl ?? 'customCacheKey',

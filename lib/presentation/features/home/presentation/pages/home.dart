@@ -56,13 +56,13 @@ class _HomePageState extends State<HomePage> {
                   if (state.data != null) {
                     return DormitoryCarousel(dormitories: state.data!);
                   }
-                  return Container(
-                    width: double.infinity,
-                    height: 200,
-                    color: Colors.amber,
-                  );
+                  return const DormitoryCardShimmer();
                 },
               ),
+              Spacing.small(),
+              const SectionHeader(title: 'Popular Cities'),
+              Spacing.small(),
+              const SectionHeader(title: 'Near Universities'),
               Spacing.medium(),
               const SectionHeader(title: 'Male Dormitories'),
               BlocBuilder<DormitoryBloc, DormitoryState>(
@@ -70,11 +70,7 @@ class _HomePageState extends State<HomePage> {
                   if (state.data != null) {
                     return DormitoryCarousel(dormitories: state.data!);
                   }
-                  return Container(
-                    width: double.infinity,
-                    height: 200,
-                    color: Colors.amber,
-                  );
+                  return const DormitoryCardShimmer();
                 },
               ),
               Spacing.medium(),
@@ -84,11 +80,7 @@ class _HomePageState extends State<HomePage> {
                   if (state.data != null) {
                     return DormitoryCarousel(dormitories: state.data!);
                   }
-                  return Container(
-                    width: double.infinity,
-                    height: 200,
-                    color: Colors.amber,
-                  );
+                  return const DormitoryCardShimmer();
                 },
               ),
               Spacing.medium(),
@@ -98,11 +90,7 @@ class _HomePageState extends State<HomePage> {
                   if (state.data != null) {
                     return DormitoryCarousel(dormitories: state.data!);
                   }
-                  return Container(
-                    width: double.infinity,
-                    height: 200,
-                    color: Colors.amber,
-                  );
+                  return const DormitoryCardShimmer();
                 },
               ),
               Spacing.medium(),
@@ -112,11 +100,7 @@ class _HomePageState extends State<HomePage> {
                   if (state.data != null) {
                     return DormitoryCarousel(dormitories: state.data!);
                   }
-                  return Container(
-                    width: double.infinity,
-                    height: 200,
-                    color: Colors.amber,
-                  );
+                  return const DormitoryCardShimmer();
                 },
               ),
               Spacing.medium(),

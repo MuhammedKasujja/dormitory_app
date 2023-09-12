@@ -7,6 +7,7 @@ import '../datasources/datasources.dart';
 class UniversityRepositoryImp extends UniversityRepo {
   @override
   Future<ApiResponse<List<University>>> fetchPopularUniversities() async {
+    await Future.delayed(const Duration(seconds: 2));
     return ApiResponse.success(universities);
   }
 

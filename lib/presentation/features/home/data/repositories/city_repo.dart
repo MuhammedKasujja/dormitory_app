@@ -7,6 +7,7 @@ import '../datasources/datasources.dart';
 class CityRepositoryImp extends CityRepo {
   @override
   Future<ApiResponse<List<City>>> fetchPopularCities() async {
+    await Future.delayed(const Duration(seconds: 2));
     return ApiResponse.success(cities);
   }
 }

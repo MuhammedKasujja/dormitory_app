@@ -6,3 +6,5 @@ class UniversityEvent extends Equatable {
   @override
   List<Object> get props => [];
 }
+
+class FetchPopularUniversities extends UniversityEvent {}

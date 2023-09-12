@@ -6,3 +6,7 @@ class CityEvent extends Equatable {
   @override
   List<Object> get props => [];
 }
+
+class FetchPopularCities extends CityEvent {
+  const FetchPopularCities();
+}

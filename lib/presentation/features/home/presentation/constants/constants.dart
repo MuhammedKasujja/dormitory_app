@@ -17,3 +17,7 @@ String savedActiveIcon = "assets/icons/saved.svg";
 String savedIcon = "assets/icons/saved.svg";
 
 String dormitoryMissing = "assets/images/dormitory_missing.png";
+
+String freeFacilityIcon = "assets/icons/free_facility_icon.svg";
+
+String drawerIcon = "assets/icons/drawer.svg";

@@ -1,34 +1,34 @@
 import '../../domain/entities/entities.dart';
 import '../../domain/repositories/repositories.dart';
-import '../datasources/datasources.dart';
 
 class LocalDormitoryRepositoryImp extends LocalDormitoryRepository {
-  @override
-  Future<dynamic> openBox() async {}
+  LocalDormitoryRepositoryImp({required super.dormitoryBox});
 
   @override
   Future<bool> addLocalDormitory({required Dormitory dormitory}) async {
+    await dormitoryBox.put(dormitory.id, dormitory);
     return true;
   }
 
   @override
   Future<List<Dormitory>> getLocalDormitories() async {
-    return [...dormitories];
+    return dormitoryBox.values.toList();
   }
 
   @override
   Future<Dormitory?> getLocalDormitoryDetails(
       {required String dormitoryId}) async {
-    return dormitories.last;
+    return dormitoryBox.get(dormitoryId);
   }
 
   @override
   Future<bool> removeLocalDormitory({required String dormitoryId}) async {
-    return false;
+    await dormitoryBox.delete(dormitoryId);
+    return true;
   }
 
   @override
-  Future<void> clear() {
-    throw UnimplementedError();
+  Future<void> clear() async {
+    await dormitoryBox.clear();
   }
 }

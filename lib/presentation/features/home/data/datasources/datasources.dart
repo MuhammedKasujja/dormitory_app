@@ -9,7 +9,8 @@ final List<DormitoryModel> dormitories = [
       address: 'Izmir',
       city: CityModel(id: '567890-', name: 'Konak'),
     ),
-    defaultPhoto: '',
+    defaultPhoto:
+        'https://images.unsplash.com/32/Mc8kW4x9Q3aRR3RkP5Im_IMG_4417.jpg?ixid=M3wxMjA3fDB8MXxzZWFyY2h8MTV8fGJhY2tncm91bmQlMjBpbWFnZXxlbnwwfHx8fDE2OTQzODEwMTR8MA&ixlib=rb-4.0.3',
     otherPhotos: [],
     paymentType: PaymentPeriodType.monthly,
     previousPay: PaymentFeeModel(
@@ -72,7 +73,8 @@ final List<DormitoryModel> dormitories = [
       address: 'Izmir',
       city: CityModel(id: '567890-', name: 'Konak'),
     ),
-    defaultPhoto: '',
+    defaultPhoto:
+        'https://images.unsplash.com/32/Mc8kW4x9Q3aRR3RkP5Im_IMG_4417.jpg?ixid=M3wxMjA3fDB8MXxzZWFyY2h8MTV8fGJhY2tncm91bmQlMjBpbWFnZXxlbnwwfHx8fDE2OTQzODEwMTR8MA&ixlib=rb-4.0.3',
     otherPhotos: [],
     paymentType: PaymentPeriodType.monthly,
     previousPay: PaymentFeeModel(
@@ -135,7 +137,8 @@ final List<DormitoryModel> dormitories = [
       address: 'Izmir',
       city: CityModel(id: '567890-', name: 'Konak'),
     ),
-    defaultPhoto: '',
+    defaultPhoto:
+        'https://images.unsplash.com/32/Mc8kW4x9Q3aRR3RkP5Im_IMG_4417.jpg?ixid=M3wxMjA3fDB8MXxzZWFyY2h8MTV8fGJhY2tncm91bmQlMjBpbWFnZXxlbnwwfHx8fDE2OTQzODEwMTR8MA&ixlib=rb-4.0.3',
     otherPhotos: [],
     paymentType: PaymentPeriodType.monthly,
     previousPay: PaymentFeeModel(
@@ -198,7 +201,8 @@ final List<DormitoryModel> dormitories = [
       address: 'Izmir',
       city: CityModel(id: '567890-', name: 'Konak'),
     ),
-    defaultPhoto: '',
+    defaultPhoto:
+        'https://images.unsplash.com/32/Mc8kW4x9Q3aRR3RkP5Im_IMG_4417.jpg?ixid=M3wxMjA3fDB8MXxzZWFyY2h8MTV8fGJhY2tncm91bmQlMjBpbWFnZXxlbnwwfHx8fDE2OTQzODEwMTR8MA&ixlib=rb-4.0.3',
     otherPhotos: [],
     paymentType: PaymentPeriodType.monthly,
     previousPay: PaymentFeeModel(
@@ -261,7 +265,8 @@ final List<DormitoryModel> dormitories = [
       address: 'Izmir',
       city: CityModel(id: '567890-', name: 'Konak'),
     ),
-    defaultPhoto: '',
+    defaultPhoto:
+        'https://images.unsplash.com/32/Mc8kW4x9Q3aRR3RkP5Im_IMG_4417.jpg?ixid=M3wxMjA3fDB8MXxzZWFyY2h8MTV8fGJhY2tncm91bmQlMjBpbWFnZXxlbnwwfHx8fDE2OTQzODEwMTR8MA&ixlib=rb-4.0.3',
     otherPhotos: [],
     paymentType: PaymentPeriodType.monthly,
     previousPay: PaymentFeeModel(
@@ -324,7 +329,8 @@ final List<DormitoryModel> dormitories = [
       address: 'Izmir',
       city: CityModel(id: '567890-', name: 'Konak'),
     ),
-    defaultPhoto: '',
+    defaultPhoto:
+        'https://images.unsplash.com/32/Mc8kW4x9Q3aRR3RkP5Im_IMG_4417.jpg?ixid=M3wxMjA3fDB8MXxzZWFyY2h8MTV8fGJhY2tncm91bmQlMjBpbWFnZXxlbnwwfHx8fDE2OTQzODEwMTR8MA&ixlib=rb-4.0.3',
     otherPhotos: [],
     paymentType: PaymentPeriodType.monthly,
     previousPay: PaymentFeeModel(
@@ -387,7 +393,8 @@ final List<DormitoryModel> dormitories = [
       address: 'Izmir',
       city: CityModel(id: '567890-', name: 'Konak'),
     ),
-    defaultPhoto: '',
+    defaultPhoto:
+        'https://images.unsplash.com/32/Mc8kW4x9Q3aRR3RkP5Im_IMG_4417.jpg?ixid=M3wxMjA3fDB8MXxzZWFyY2h8MTV8fGJhY2tncm91bmQlMjBpbWFnZXxlbnwwfHx8fDE2OTQzODEwMTR8MA&ixlib=rb-4.0.3',
     otherPhotos: [],
     paymentType: PaymentPeriodType.monthly,
     previousPay: PaymentFeeModel(
@@ -450,7 +457,8 @@ final List<DormitoryModel> dormitories = [
       address: 'Izmir',
       city: CityModel(id: '567890-', name: 'Konak'),
     ),
-    defaultPhoto: '',
+    defaultPhoto:
+        'https://images.unsplash.com/32/Mc8kW4x9Q3aRR3RkP5Im_IMG_4417.jpg?ixid=M3wxMjA3fDB8MXxzZWFyY2h8MTV8fGJhY2tncm91bmQlMjBpbWFnZXxlbnwwfHx8fDE2OTQzODEwMTR8MA&ixlib=rb-4.0.3',
     otherPhotos: [],
     paymentType: PaymentPeriodType.monthly,
     previousPay: PaymentFeeModel(
@@ -513,7 +521,8 @@ final List<DormitoryModel> dormitories = [
       address: 'Izmir',
       city: CityModel(id: '567890-', name: 'Konak'),
     ),
-    defaultPhoto: '',
+    defaultPhoto:
+        'https://images.unsplash.com/32/Mc8kW4x9Q3aRR3RkP5Im_IMG_4417.jpg?ixid=M3wxMjA3fDB8MXxzZWFyY2h8MTV8fGJhY2tncm91bmQlMjBpbWFnZXxlbnwwfHx8fDE2OTQzODEwMTR8MA&ixlib=rb-4.0.3',
     otherPhotos: [],
     paymentType: PaymentPeriodType.monthly,
     previousPay: PaymentFeeModel(
@@ -576,7 +585,8 @@ final List<DormitoryModel> dormitories = [
       address: 'Izmir',
       city: CityModel(id: '567890-', name: 'Konak'),
     ),
-    defaultPhoto: '',
+    defaultPhoto:
+        'https://images.unsplash.com/32/Mc8kW4x9Q3aRR3RkP5Im_IMG_4417.jpg?ixid=M3wxMjA3fDB8MXxzZWFyY2h8MTV8fGJhY2tncm91bmQlMjBpbWFnZXxlbnwwfHx8fDE2OTQzODEwMTR8MA&ixlib=rb-4.0.3',
     otherPhotos: [],
     paymentType: PaymentPeriodType.monthly,
     previousPay: PaymentFeeModel(
@@ -639,7 +649,8 @@ final List<DormitoryModel> dormitories = [
       address: 'Izmir',
       city: CityModel(id: '567890-', name: 'Konak'),
     ),
-    defaultPhoto: '',
+    defaultPhoto:
+        'https://images.unsplash.com/32/Mc8kW4x9Q3aRR3RkP5Im_IMG_4417.jpg?ixid=M3wxMjA3fDB8MXxzZWFyY2h8MTV8fGJhY2tncm91bmQlMjBpbWFnZXxlbnwwfHx8fDE2OTQzODEwMTR8MA&ixlib=rb-4.0.3',
     otherPhotos: [],
     paymentType: PaymentPeriodType.monthly,
     previousPay: PaymentFeeModel(
@@ -702,7 +713,8 @@ final List<DormitoryModel> dormitories = [
       address: 'Izmir',
       city: CityModel(id: '567890-', name: 'Konak'),
     ),
-    defaultPhoto: '',
+    defaultPhoto:
+        'https://images.unsplash.com/32/Mc8kW4x9Q3aRR3RkP5Im_IMG_4417.jpg?ixid=M3wxMjA3fDB8MXxzZWFyY2h8MTV8fGJhY2tncm91bmQlMjBpbWFnZXxlbnwwfHx8fDE2OTQzODEwMTR8MA&ixlib=rb-4.0.3',
     otherPhotos: [],
     paymentType: PaymentPeriodType.monthly,
     previousPay: PaymentFeeModel(
@@ -765,7 +777,8 @@ final List<DormitoryModel> dormitories = [
       address: 'Izmir',
       city: CityModel(id: '567890-', name: 'Konak'),
     ),
-    defaultPhoto: '',
+    defaultPhoto:
+        'https://images.unsplash.com/32/Mc8kW4x9Q3aRR3RkP5Im_IMG_4417.jpg?ixid=M3wxMjA3fDB8MXxzZWFyY2h8MTV8fGJhY2tncm91bmQlMjBpbWFnZXxlbnwwfHx8fDE2OTQzODEwMTR8MA&ixlib=rb-4.0.3',
     otherPhotos: [],
     paymentType: PaymentPeriodType.monthly,
     previousPay: PaymentFeeModel(
@@ -828,7 +841,8 @@ final List<DormitoryModel> dormitories = [
       address: 'Izmir',
       city: CityModel(id: '567890-', name: 'Konak'),
     ),
-    defaultPhoto: '',
+    defaultPhoto:
+        'https://images.unsplash.com/32/Mc8kW4x9Q3aRR3RkP5Im_IMG_4417.jpg?ixid=M3wxMjA3fDB8MXxzZWFyY2h8MTV8fGJhY2tncm91bmQlMjBpbWFnZXxlbnwwfHx8fDE2OTQzODEwMTR8MA&ixlib=rb-4.0.3',
     otherPhotos: [],
     paymentType: PaymentPeriodType.monthly,
     previousPay: PaymentFeeModel(
@@ -891,7 +905,8 @@ final List<DormitoryModel> dormitories = [
       address: 'Izmir',
       city: CityModel(id: '567890-', name: 'Konak'),
     ),
-    defaultPhoto: '',
+    defaultPhoto:
+        'https://images.unsplash.com/32/Mc8kW4x9Q3aRR3RkP5Im_IMG_4417.jpg?ixid=M3wxMjA3fDB8MXxzZWFyY2h8MTV8fGJhY2tncm91bmQlMjBpbWFnZXxlbnwwfHx8fDE2OTQzODEwMTR8MA&ixlib=rb-4.0.3',
     otherPhotos: [],
     paymentType: PaymentPeriodType.monthly,
     previousPay: PaymentFeeModel(
@@ -954,7 +969,8 @@ final List<DormitoryModel> dormitories = [
       address: 'Izmir',
       city: CityModel(id: '567890-', name: 'Konak'),
     ),
-    defaultPhoto: '',
+    defaultPhoto:
+        'https://images.unsplash.com/32/Mc8kW4x9Q3aRR3RkP5Im_IMG_4417.jpg?ixid=M3wxMjA3fDB8MXxzZWFyY2h8MTV8fGJhY2tncm91bmQlMjBpbWFnZXxlbnwwfHx8fDE2OTQzODEwMTR8MA&ixlib=rb-4.0.3',
     otherPhotos: [],
     paymentType: PaymentPeriodType.monthly,
     previousPay: PaymentFeeModel(
@@ -1017,7 +1033,8 @@ final List<DormitoryModel> dormitories = [
       address: 'Izmir',
       city: CityModel(id: '567890-', name: 'Konak'),
     ),
-    defaultPhoto: '',
+    defaultPhoto:
+        'https://images.unsplash.com/32/Mc8kW4x9Q3aRR3RkP5Im_IMG_4417.jpg?ixid=M3wxMjA3fDB8MXxzZWFyY2h8MTV8fGJhY2tncm91bmQlMjBpbWFnZXxlbnwwfHx8fDE2OTQzODEwMTR8MA&ixlib=rb-4.0.3',
     otherPhotos: [],
     paymentType: PaymentPeriodType.monthly,
     previousPay: PaymentFeeModel(
@@ -1080,7 +1097,8 @@ final List<DormitoryModel> dormitories = [
       address: 'Izmir',
       city: CityModel(id: '567890-', name: 'Konak'),
     ),
-    defaultPhoto: '',
+    defaultPhoto:
+        'https://images.unsplash.com/32/Mc8kW4x9Q3aRR3RkP5Im_IMG_4417.jpg?ixid=M3wxMjA3fDB8MXxzZWFyY2h8MTV8fGJhY2tncm91bmQlMjBpbWFnZXxlbnwwfHx8fDE2OTQzODEwMTR8MA&ixlib=rb-4.0.3',
     otherPhotos: [],
     paymentType: PaymentPeriodType.monthly,
     previousPay: PaymentFeeModel(
@@ -1143,7 +1161,8 @@ final List<DormitoryModel> dormitories = [
       address: 'Izmir',
       city: CityModel(id: '567890-', name: 'Konak'),
     ),
-    defaultPhoto: '',
+    defaultPhoto:
+        'https://images.unsplash.com/32/Mc8kW4x9Q3aRR3RkP5Im_IMG_4417.jpg?ixid=M3wxMjA3fDB8MXxzZWFyY2h8MTV8fGJhY2tncm91bmQlMjBpbWFnZXxlbnwwfHx8fDE2OTQzODEwMTR8MA&ixlib=rb-4.0.3',
     otherPhotos: [],
     paymentType: PaymentPeriodType.monthly,
     previousPay: PaymentFeeModel(
@@ -1206,7 +1225,8 @@ final List<DormitoryModel> dormitories = [
       address: 'Izmir',
       city: CityModel(id: '567890-', name: 'Konak'),
     ),
-    defaultPhoto: '',
+    defaultPhoto:
+        'https://images.unsplash.com/32/Mc8kW4x9Q3aRR3RkP5Im_IMG_4417.jpg?ixid=M3wxMjA3fDB8MXxzZWFyY2h8MTV8fGJhY2tncm91bmQlMjBpbWFnZXxlbnwwfHx8fDE2OTQzODEwMTR8MA&ixlib=rb-4.0.3',
     otherPhotos: [],
     paymentType: PaymentPeriodType.monthly,
     previousPay: PaymentFeeModel(

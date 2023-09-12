@@ -3,8 +3,15 @@ import 'package:flutter/material.dart';
 import 'package:flutter_cache_manager/flutter_cache_manager.dart';
 
 class CacheImage extends StatelessWidget {
-  const CacheImage({Key? key, required this.imageUrl}) : super(key: key);
+  const CacheImage({
+    Key? key,
+    required this.imageUrl,
+    required this.height,
+    this.width,
+  }) : super(key: key);
   final String? imageUrl;
+  final double? width;
+  final double height;
 
   // final imageUrl =
   // 'https://www.metoffice.gov.uk/binaries/content/gallery/metofficegovuk/hero-images/advice/maps-satellite-images/satellite-image-of-globe.jpg';
@@ -12,6 +19,8 @@ class CacheImage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return CachedNetworkImage(
+      width: width ?? double.infinity,
+      height: height,
       imageUrl: imageUrl ?? '',
       placeholder: (context, url) => const CircularProgressIndicator(),
       cacheManager: CacheManager(
@@ -20,14 +29,16 @@ class CacheImage extends StatelessWidget {
           stalePeriod: const Duration(days: 7),
         ),
       ),
-      errorWidget: (context, url, error) => const Icon(
-        Icons.error,
-        size: 100,
-        color: Colors.red,
-      ),
+      errorWidget: (context, url, error) =>
+          Image.asset('assets/images/dormitory_missing.png'),
+      // const Center(
+      //   child: Icon(
+      //     Icons.error,
+      //     size: 40,
+      //     color: Colors.red,
+      //   ),
+      // ),
       imageBuilder: (context, imageProvider) => Container(
-        width: 250,
-        height: 250,
         decoration: BoxDecoration(
           image: DecorationImage(
             image: imageProvider,

@@ -1,6 +1,8 @@
+import 'package:dio/dio.dart';
 import 'package:dormitory_app/presentation/features/features.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:get_it/get_it.dart';
+import 'package:hive/hive.dart';
 
 import 'presentation/features/country_codes/country_codes.dart';
 
@@ -10,12 +12,15 @@ Future init() async {
   // Core
   // sl.registerLazySingleton(() => ApiClient(dio: sl()));
 
+  // Box<Dormitory> dormitoryBox = await Hive.openBox<Dormitory>('dormitory_box');
+  // sl.registerLazySingleton(() => dormitoryBox);
+
   // Repository
   sl.registerLazySingleton(() => AuthRepository());
   sl.registerLazySingleton(() => VourcherRepository());
   sl.registerLazySingleton<DormitoryRepository>(() => DormitoryRepositoryImp());
-  sl.registerLazySingleton<LocalDormitoryRepository>(
-      () => LocalDormitoryRepositoryImp());
+  // sl.registerLazySingleton<LocalDormitoryRepository>(
+  //     () => LocalDormitoryRepositoryImp(dormitoryBox: sl()));
 
   // Blocs
   sl.registerFactory(() => AuthBloc());
@@ -28,16 +33,14 @@ Future init() async {
       redeemVoucherCubit: sl(),
     ),
   );
-  sl.registerFactory(
-    () => DormitoryBloc(dormitoryRepository: sl()),
-  );
-  sl.registerFactory(
-    () => LocalDormitoryBloc(localDormitoryRepository: sl()),
-  );
+  sl.registerFactory(() => DormitoryBloc(dormitoryRepository: sl()));
+  // sl.registerFactory(
+  //   () => LocalDormitoryBloc(localDormitoryRepository: sl()),
+  // );
   sl.registerFactory(() => RedeemVoucherCubit(vourcherRepository: sl()));
 
   // External
-  // sl.registerLazySingleton(() => Dio());
+  sl.registerLazySingleton(() => Dio());
 }
 
 List<BlocProvider> get blocs => [
@@ -52,8 +55,8 @@ List<BlocProvider> get blocs => [
           create: (context) => sl<RedeemVoucherCubit>()),
       BlocProvider<CompleteProfileCubit>(
           create: (context) => CompleteProfileCubit()),
-      BlocProvider<LocalDormitoryBloc>(
-          create: (context) => sl<LocalDormitoryBloc>()),
+      // BlocProvider<LocalDormitoryBloc>(
+      //     create: (context) => sl<LocalDormitoryBloc>()),
       BlocProvider<DormitoryBloc>(create: (context) => sl<DormitoryBloc>()),
     ];
 

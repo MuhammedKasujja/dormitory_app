@@ -1,7 +1,10 @@
+import 'package:hive/hive.dart';
+
 import '../entities/entities.dart';
 
 abstract class LocalDormitoryRepository {
-  Future<dynamic> openBox();
+  final Box<Dormitory> dormitoryBox;
+  LocalDormitoryRepository({required this.dormitoryBox});
 
   Future<List<Dormitory>> getLocalDormitories();
 

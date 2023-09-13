@@ -4,10 +4,12 @@ import 'package:flutter/material.dart';
 class BaseBottomSheet extends StatelessWidget {
   final String title;
   final Widget content;
+  final bool hasClose;
   const BaseBottomSheet({
     super.key,
     required this.title,
     required this.content,
+    this.hasClose = true,
   });
 
   @override
@@ -39,10 +41,11 @@ class BaseBottomSheet extends StatelessWidget {
                     color: AppColors.text1,
                   ),
                 ),
-                InkWell(
-                  onTap: () => Navigator.pop(context),
-                  child: const Icon(Icons.close),
-                ),
+                if (hasClose)
+                  InkWell(
+                    onTap: () => Navigator.pop(context),
+                    child: const Icon(Icons.close),
+                  )
               ],
             ),
           ),

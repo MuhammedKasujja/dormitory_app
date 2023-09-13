@@ -17,5 +17,6 @@ export './custom_datepicker.dart';
 export './custom_dropdown.dart';
 export './cached_image.dart';
 export './discard_changes_dialog.dart';
+export './advanced_tabs.dart';
 
 export './extensions/extensions.dart';

@@ -4,12 +4,18 @@ import 'package:flutter/material.dart';
 class FilterItem extends StatelessWidget {
   final String hint;
   final IconData icon;
-  const FilterItem({super.key, required this.hint, required this.icon});
+  final Function()? onPressed;
+  const FilterItem({
+    super.key,
+    required this.hint,
+    required this.icon,
+    required this.onPressed,
+  });
 
   @override
   Widget build(BuildContext context) {
     return InkWell(
-      onTap: () {},
+      onTap: onPressed,
       child: Container(
         padding: EdgeInsets.all(16.r),
         decoration: BoxDecoration(

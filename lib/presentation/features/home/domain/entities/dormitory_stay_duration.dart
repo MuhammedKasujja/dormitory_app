@@ -16,6 +16,9 @@ class DormitoryStayDuration extends Equatable {
     this.stayDurationType = DormitoryStayDurationType.weeks,
   });
 
+  String get text =>
+      "$durationName stay $startTime-$endTime ${stayDurationType.label}";
+
   @override
   List<Object> get props {
     return [

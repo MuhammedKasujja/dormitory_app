@@ -19,8 +19,21 @@ enum DormitoryStayDurationType {
   months,
 }
 
+extension DormitoryStayDurationTypeX on DormitoryStayDurationType {
+  String get label =>
+      this == DormitoryStayDurationType.months ? 'months' : 'weeks';
+}
+
 enum DormitoryType {
   all,
   male,
   female,
+}
+
+extension DormitoryTypeX on DormitoryType {
+  String get label => this == DormitoryType.male
+      ? 'Male'
+      : this == DormitoryType.female
+          ? 'Female'
+          : 'All';
 }

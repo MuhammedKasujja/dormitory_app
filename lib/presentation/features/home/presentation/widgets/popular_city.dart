@@ -26,7 +26,7 @@ class PopularCity extends StatelessWidget {
         ),
         child: Row(
           children: [
-            SvgPicture.asset(universityIcon),
+            SvgPicture.asset(cityIcon),
             SizedBox(width: 12.w),
             Text(
               city.name,

@@ -21,3 +21,7 @@ String dormitoryMissing = "assets/images/dormitory_missing.png";
 String freeFacilityIcon = "assets/icons/free_facility_icon.svg";
 
 String drawerIcon = "assets/icons/drawer.svg";
+
+String universityIcon = "assets/icons/university.svg";
+
+String cityIcon = "assets/icons/city.svg";

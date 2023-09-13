@@ -23,6 +23,7 @@ class DormitoryCard extends StatelessWidget {
       onTap: () {
         context.read<DormitoryBloc>().add(FetchDormitoryDetails(dormitory.id));
       },
+      borderRadius: BorderRadius.circular(15.r),
       child: Container(
         width: 326.w,
         height: 274.h,

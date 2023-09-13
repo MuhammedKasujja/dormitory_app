@@ -1,5 +1,6 @@
 import 'package:dio/dio.dart';
 import 'package:dormitory_app/presentation/features/features.dart';
+import 'package:dormitory_app/presentation/features/home/domain/repositories/city_repo.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:get_it/get_it.dart';
 import 'package:hive/hive.dart';
@@ -19,6 +20,8 @@ Future init() async {
   sl.registerLazySingleton(() => AuthRepository());
   sl.registerLazySingleton(() => VourcherRepository());
   sl.registerLazySingleton<DormitoryRepository>(() => DormitoryRepositoryImp());
+  sl.registerLazySingleton<UniversityRepo>(() => UniversityRepositoryImp());
+  sl.registerLazySingleton<CityRepo>(() => CityRepositoryImp());
   // sl.registerLazySingleton<LocalDormitoryRepository>(
   //     () => LocalDormitoryRepositoryImp(dormitoryBox: sl()));
 
@@ -33,6 +36,8 @@ Future init() async {
       redeemVoucherCubit: sl(),
     ),
   );
+  sl.registerFactory(() => UniversityBloc(universityRepo: sl()));
+  sl.registerFactory(() => CityBloc(cityRepo: sl()));
   sl.registerFactory(() => DormitoryBloc(dormitoryRepository: sl()));
   // sl.registerFactory(
   //   () => LocalDormitoryBloc(localDormitoryRepository: sl()),
@@ -58,6 +63,11 @@ List<BlocProvider> get blocs => [
       // BlocProvider<LocalDormitoryBloc>(
       //     create: (context) => sl<LocalDormitoryBloc>()),
       BlocProvider<DormitoryBloc>(create: (context) => sl<DormitoryBloc>()),
+      BlocProvider<UniversityBloc>(
+          create: (context) =>
+              sl<UniversityBloc>()..add(FetchPopularUniversities())),
+      BlocProvider<CityBloc>(
+          create: (context) => sl<CityBloc>()..add(const FetchPopularCities())),
     ];
 
 Future resetBlocs() async {

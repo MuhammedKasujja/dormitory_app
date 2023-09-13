@@ -17,7 +17,7 @@ class CityState extends Equatable {
   }) {
     return CityState(
       data: data ?? this.data,
-      errorMessage: errorMessage ?? this.errorMessage,
+      errorMessage: errorMessage,
       status: status ?? this.status,
     );
   }

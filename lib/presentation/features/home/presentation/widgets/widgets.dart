@@ -7,3 +7,6 @@ export 'dormitories_list.dart';
 export 'dormitory_carousel.dart';
 export 'dormitory_filter.dart';
 export './dormitory_card_shimmer.dart';
+export './popular_city.dart';
+export './nearby_university.dart';
+export './nearby_university_carousel.dart';

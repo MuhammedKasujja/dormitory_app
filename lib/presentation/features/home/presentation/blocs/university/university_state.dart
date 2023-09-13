@@ -17,7 +17,7 @@ class UniversityState extends Equatable {
   }) {
     return UniversityState(
       data: data ?? this.data,
-      errorMessage: errorMessage ?? this.errorMessage,
+      errorMessage: errorMessage,
       status: status ?? this.status,
     );
   }

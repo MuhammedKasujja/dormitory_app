@@ -1,4 +1,5 @@
 import 'package:dormitory_app/infra/infra.dart';
+import 'package:dormitory_app/presentation/router/router.dart';
 import 'package:dormitory_app/presentation/widgets/widgets.dart';
 import 'package:dormitory_app/utils/utils.dart';
 import 'package:flutter/material.dart';
@@ -74,7 +75,7 @@ class DormitoryFilterWidget extends StatelessWidget {
           ),
           const Spacing(12),
           CustomButton(
-            onPressed: () {},
+            onPressed: () =>Navigator.pushNamed(context, Routes.dormitorySearchResults),
             label: 'Search',
             isElevated: false,
           )

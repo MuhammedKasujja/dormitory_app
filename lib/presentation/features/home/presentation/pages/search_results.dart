@@ -3,34 +3,29 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
 import '../blocs/blocs.dart';
-import '../widgets/popular_city.dart';
+import '../widgets/dormitory_card.dart';
 
-class CitiesPage extends StatelessWidget {
-  const CitiesPage({super.key});
+class SearchResultsPage extends StatelessWidget {
+  const SearchResultsPage({super.key});
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text('Cities'),
-        leading: IconButton(
-          onPressed: () => Navigator.pop(context),
-          icon: const Icon(
-            Icons.close,
-          ),
-        ),
+        title: const Text('Search Results'),
       ),
-      body: BlocBuilder<CityBloc, CityState>(
+      body: BlocBuilder<DormitoryBloc, DormitoryState>(
         builder: (context, state) {
           if (state.data != null) {
             return ListView.separated(
+
               padding: EdgeInsets.symmetric(horizontal: 16.r, vertical: 24.r),
               itemCount: state.data!.length,
               itemBuilder: (context, index) {
-                return PopularCity(city: state.data![index]);
+                return DormitoryCard(dormitory: state.data![index]);
               },
               separatorBuilder: (BuildContext context, int index) =>
-                  SizedBox(height: 16.r),
+                  SizedBox(height: 24.r),
             );
           }
           return const Center(

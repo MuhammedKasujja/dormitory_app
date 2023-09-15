@@ -51,6 +51,7 @@ class Routes {
 
   static const String allCities = "/cities";
   static const String allUniversities = "/universities";
+  static const String dormitorySearchResults = "/dormitorySearchResults";
 }
 
 Route onGenerateRoute(RouteSettings settings) => _fadeThrough(
@@ -126,6 +127,9 @@ Route onGenerateRoute(RouteSettings settings) => _fadeThrough(
             return const CitiesPage();
           case Routes.allUniversities:
             return const UniversitiesPage();
+
+          case Routes.dormitorySearchResults:
+            return const SearchResultsPage();
           default:
             return const SizedBox.shrink();
         }

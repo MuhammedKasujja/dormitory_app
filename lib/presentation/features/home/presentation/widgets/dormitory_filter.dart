@@ -4,6 +4,7 @@ import 'package:dormitory_app/utils/utils.dart';
 import 'package:flutter/material.dart';
 
 import 'filter_item.dart';
+import 'filters/date_filter.dart';
 import 'filters/filters.dart';
 
 class DormitoryFilterWidget extends StatelessWidget {
@@ -37,7 +38,12 @@ class DormitoryFilterWidget extends StatelessWidget {
                 child: FilterItem(
                   hint: 'Move In',
                   icon: Icons.calendar_today_rounded,
-                  onPressed: () {},
+                  onPressed: () {
+                    Utility.showAppBottomSheet(
+                      context: context,
+                      child: const DateMoveInFilter(),
+                    );
+                  },
                 ),
               ),
               SizedBox(width: 10.w),

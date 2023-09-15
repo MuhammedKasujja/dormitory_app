@@ -1,5 +1,6 @@
 import 'package:dormitory_app/infra/infra.dart';
 import 'package:dormitory_app/presentation/features/auth/auth.dart';
+import 'package:dormitory_app/presentation/router/router.dart';
 import 'package:dormitory_app/presentation/widgets/widgets.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -90,7 +91,7 @@ class _HomePageState extends State<HomePage> {
                 },
               ),
               Spacing.small(),
-              const SectionHeader(title: 'Popular Cities'),
+              const SectionHeader(title: 'Popular Cities', route: Routes.allCities,),
               ConstrainedBox(
                 constraints: BoxConstraints(
                   minHeight: 40.h,
@@ -120,7 +121,7 @@ class _HomePageState extends State<HomePage> {
                 ),
               ),
               Spacing.small(),
-              const SectionHeader(title: 'Near Universities'),
+              const SectionHeader(title: 'Near Universities', route: Routes.allUniversities,),
               BlocBuilder<UniversityBloc, UniversityState>(
                 builder: (context, state) {
                   if (state.data != null) {

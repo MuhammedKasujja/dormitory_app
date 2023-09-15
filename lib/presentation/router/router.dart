@@ -48,6 +48,9 @@ class Routes {
   //
   static const String paymentMethods = "/paymentMethods";
   static const String addPaymentMethods = "/paymentMethods/add";
+
+  static const String allCities = "/cities";
+  static const String allUniversities = "/universities";
 }
 
 Route onGenerateRoute(RouteSettings settings) => _fadeThrough(
@@ -118,6 +121,11 @@ Route onGenerateRoute(RouteSettings settings) => _fadeThrough(
             return const CompleteProfileScreen();
           case Routes.editProfile:
             return const EditProfileScreen();
+
+          case Routes.allCities:
+            return const CitiesPage();
+          case Routes.allUniversities:
+            return const UniversitiesPage();
           default:
             return const SizedBox.shrink();
         }

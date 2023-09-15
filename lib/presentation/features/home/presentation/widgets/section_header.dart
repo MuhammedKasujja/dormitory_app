@@ -24,7 +24,11 @@ class SectionHeader extends StatelessWidget {
             ),
           ),
           InkWell(
-            onTap: () {},
+            onTap: () {
+              if(route != null){
+                Navigator.pushNamed(context, route!);
+              }
+            },
             child: Text(
               'See All',
               style: TextStyle(

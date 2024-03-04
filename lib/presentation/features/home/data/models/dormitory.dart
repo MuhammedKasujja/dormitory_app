@@ -70,6 +70,6 @@ class DormitoryModel extends Dormitory {
 
   String toJson() => json.encode(toMap());
 
-  factory DormitoryModel.fromJson(String source) =>
+  factory DormitoryModel.fromJson(dynamic source) =>
       DormitoryModel.fromMap(json.decode(source) as Map<String, dynamic>);
 }

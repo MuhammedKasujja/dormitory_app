@@ -18,7 +18,6 @@ class SearchResultsPage extends StatelessWidget {
         builder: (context, state) {
           if (state.data != null) {
             return ListView.separated(
-
               padding: EdgeInsets.symmetric(horizontal: 16.r, vertical: 24.r),
               itemCount: state.data!.length,
               itemBuilder: (context, index) {

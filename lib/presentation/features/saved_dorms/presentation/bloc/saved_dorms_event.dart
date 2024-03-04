@@ -1,15 +1,15 @@
-part of 'local_dormitory_bloc.dart';
+part of 'saved_dorms_bloc.dart';
 
-class LocalDormitoryEvent extends Equatable {
-  const LocalDormitoryEvent();
+ class SavedDormsEvent extends Equatable {
+  const SavedDormsEvent();
 
   @override
   List<Object> get props => [];
 }
 
-class FetchLocalDormitories extends LocalDormitoryEvent {}
+class FetchLocalDormitories extends SavedDormsEvent {}
 
-class AddLocalDormitory extends LocalDormitoryEvent {
+class AddLocalDormitory extends SavedDormsEvent {
   final Dormitory dormitory;
 
   const AddLocalDormitory(this.dormitory);
@@ -17,7 +17,7 @@ class AddLocalDormitory extends LocalDormitoryEvent {
   List<Object> get props => [dormitory];
 }
 
-class FetchLocalDormitoryDetails extends LocalDormitoryEvent {
+class FetchLocalDormitoryDetails extends SavedDormsEvent {
   final String dormitoryId;
 
   const FetchLocalDormitoryDetails(this.dormitoryId);
@@ -26,7 +26,7 @@ class FetchLocalDormitoryDetails extends LocalDormitoryEvent {
   List<Object> get props => [dormitoryId];
 }
 
-class DeleteLocalDormitory extends LocalDormitoryEvent {
+class DeleteLocalDormitory extends SavedDormsEvent {
   final String dormitoryId;
 
   const DeleteLocalDormitory(this.dormitoryId);

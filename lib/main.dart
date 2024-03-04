@@ -1,16 +1,19 @@
 import 'package:dormitory_app/app.dart';
 import 'package:dormitory_app/infra/infra.dart';
+import 'package:dormitory_app/presentation/features/home/home.dart';
 import 'package:flutter/material.dart';
 import 'package:form_builder_validators/form_builder_validators.dart';
-// import 'package:hive_flutter/hive_flutter.dart';
+import 'package:hive/hive.dart';
+import 'package:path_provider/path_provider.dart';
 import 'di_container.dart' as di;
 
 void main() async {
-  await di.init();
   await ScreenUtil.ensureScreenSize();
   WidgetsFlutterBinding.ensureInitialized();
-  // await Hive.initFlutter();
-  // Hive.registerAdapter(DormitoryAdapter());
+  final directory = await getApplicationDocumentsDirectory();
+  Hive.defaultDirectory = directory.path;
+  Hive.registerAdapter('saved_dorms', DormitoryModel.fromJson);
+  await di.init();
   await EasyLocalization.ensureInitialized();
   runApp(
     EasyLocalization(

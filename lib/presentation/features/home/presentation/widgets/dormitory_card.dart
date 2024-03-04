@@ -1,4 +1,5 @@
 import 'package:dormitory_app/infra/infra.dart';
+import 'package:dormitory_app/presentation/features/saved_dorms/saved_dorms.dart';
 import 'package:dormitory_app/presentation/widgets/widgets.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -108,10 +109,11 @@ class DormitoryCard extends StatelessWidget {
                           ),
                           Spacing.xs(),
                           InkWell(
+                            borderRadius: BorderRadius.circular(4.r),
                             onTap: () {
-                              // context
-                              //     .read<LocalDormitoryBloc>()
-                              //     .add(AddLocalDormitory(dormitory));
+                              context
+                                  .read<SavedDormsBloc>()
+                                  .add(AddLocalDormitory(dormitory));
                             },
                             child: Icon(
                               Icons.bookmark_border_outlined,

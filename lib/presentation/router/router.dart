@@ -52,6 +52,8 @@ class Routes {
   static const String allCities = "/cities";
   static const String allUniversities = "/universities";
   static const String dormitorySearchResults = "/dormitorySearchResults";
+
+  static const String savedDorms = "/dashboard/savedDorms";
 }
 
 Route onGenerateRoute(RouteSettings settings) => _fadeThrough(
@@ -62,6 +64,8 @@ Route onGenerateRoute(RouteSettings settings) => _fadeThrough(
             return const DashboardPage();
           case Routes.home:
             return const HomePage();
+          case Routes.savedDorms:
+            return const SavedDormsPage();
           case Routes.login:
             return const LoginPage();
           case Routes.verifyOtp:

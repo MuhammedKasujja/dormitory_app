@@ -1,6 +1,5 @@
 import 'package:dio/dio.dart';
 import 'package:dormitory_app/presentation/features/features.dart';
-import 'package:dormitory_app/presentation/features/home/domain/repositories/city_repo.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:get_it/get_it.dart';
 import 'package:hive/hive.dart';
@@ -13,8 +12,8 @@ Future init() async {
   // Core
   // sl.registerLazySingleton(() => ApiClient(dio: sl()));
 
-  // Box<Dormitory> dormitoryBox = await Hive.openBox<Dormitory>('dormitory_box');
-  // sl.registerLazySingleton(() => dormitoryBox);
+  Box<DormitoryModel> dormitoryBox = Hive.box();
+  sl.registerLazySingleton(() => dormitoryBox);
 
   // Repository
   sl.registerLazySingleton(() => AuthRepository());
@@ -22,8 +21,8 @@ Future init() async {
   sl.registerLazySingleton<DormitoryRepository>(() => DormitoryRepositoryImp());
   sl.registerLazySingleton<UniversityRepo>(() => UniversityRepositoryImp());
   sl.registerLazySingleton<CityRepo>(() => CityRepositoryImp());
-  // sl.registerLazySingleton<LocalDormitoryRepository>(
-  //     () => LocalDormitoryRepositoryImp(dormitoryBox: sl()));
+  sl.registerLazySingleton<SavedDormitoryRepository>(
+      () => SavedDormitoryRepositoryImp(dormitoryBox: sl()));
 
   // Blocs
   sl.registerFactory(() => AuthBloc());
@@ -39,9 +38,9 @@ Future init() async {
   sl.registerFactory(() => UniversityBloc(universityRepo: sl()));
   sl.registerFactory(() => CityBloc(cityRepo: sl()));
   sl.registerFactory(() => DormitoryBloc(dormitoryRepository: sl()));
-  // sl.registerFactory(
-  //   () => LocalDormitoryBloc(localDormitoryRepository: sl()),
-  // );
+  sl.registerFactory(
+    () => SavedDormsBloc(savedDormitoryRepository: sl()),
+  );
   sl.registerFactory(() => RedeemVoucherCubit(vourcherRepository: sl()));
 
   // External
@@ -60,8 +59,7 @@ List<BlocProvider> get blocs => [
           create: (context) => sl<RedeemVoucherCubit>()),
       BlocProvider<CompleteProfileCubit>(
           create: (context) => CompleteProfileCubit()),
-      // BlocProvider<LocalDormitoryBloc>(
-      //     create: (context) => sl<LocalDormitoryBloc>()),
+      BlocProvider<SavedDormsBloc>(create: (context) => sl<SavedDormsBloc>()..add(FetchLocalDormitories())),
       BlocProvider<DormitoryBloc>(create: (context) => sl<DormitoryBloc>()),
       BlocProvider<UniversityBloc>(
           create: (context) =>

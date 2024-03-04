@@ -1,7 +1,7 @@
-part of 'local_dormitory_bloc.dart';
+part of 'saved_dorms_bloc.dart';
 
-class LocalDormitoryState extends Equatable {
-  const LocalDormitoryState({
+class SavedDormsState extends Equatable {
+  const SavedDormsState({
     this.data,
     this.errorMessage,
     this.status = AppState.initial,
@@ -19,13 +19,13 @@ class LocalDormitoryState extends Equatable {
         dormitory,
       ];
 
-  LocalDormitoryState copyWith({
+  SavedDormsState copyWith({
     List<Dormitory>? data,
     String? errorMessage,
     AppState? status,
     Dormitory? dormitory,
   }) {
-    return LocalDormitoryState(
+    return SavedDormsState(
       data: data ?? this.data,
       errorMessage: errorMessage ?? this.errorMessage,
       status: status ?? this.status,

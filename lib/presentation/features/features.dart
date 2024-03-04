@@ -6,4 +6,5 @@ export 'profile/profile.dart';
 export 'home/home.dart';
 export 'legal/index.dart';
 export 'vouchers/vouchers.dart';
+export 'saved_dorms/saved_dorms.dart';
 export 'help_and_support/help_and_support.dart';
